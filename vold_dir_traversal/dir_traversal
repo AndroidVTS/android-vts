@@ -1,0 +1,174 @@
+.text:00005E94 ; =============== S U B R O U T I N E =======================================
+.text:00005E94
+.text:00005E94
+.text:00005E94 islegalAsecID                           ; CODE XREF: sub_3A8C+28p
+.text:00005E94                                         ; sub_3C24+28p ...
+.text:00005E94
+.text:00005E94 s               = -0x18
+.text:00005E94 var_14          = -0x14
+.text:00005E94 var_10          = -0x10
+.text:00005E94 var_C           = -0xC
+.text:00005E94
+.text:00005E94                 PUSH            {LR}
+.text:00005E96                 SUB             SP, SP, #0x14
+.text:00005E98                 STR             R0, [SP,#0x18+var_14]
+.text:00005E9A                 STR             R1, [SP,#0x18+s]
+.text:00005E9C                 LDR             R0, [SP,#0x18+s] ; s
+.text:00005E9E                 BLX             strlen
+.text:00005EA2                 STR             R0, [SP,#0x18+var_C]
+.text:00005EA4                 LDR             R3, [SP,#0x18+var_C]
+.text:00005EA6                 CMP             R3, #0
+.text:00005EA8                 BNE             loc_5EB0
+.text:00005EAA                 MOV.W           R3, #0
+.text:00005EAE                 B               loc_5F8E
+.text:00005EB0 ; ---------------------------------------------------------------------------
+.text:00005EB0
+.text:00005EB0 loc_5EB0                                ; CODE XREF: islegalAsecID+14j
+.text:00005EB0                 LDR             R3, [SP,#0x18+s]
+.text:00005EB2                 LDRB            R3, [R3]
+.text:00005EB4                 CMP             R3, #0x2E
+.text:00005EB6                 BEQ             loc_5EC8
+.text:00005EB8                 LDR             R3, [SP,#0x18+var_C]
+.text:00005EBA                 ADD.W           R3, R3, #0xFFFFFFFF
+.text:00005EBE                 LDR             R2, [SP,#0x18+s]
+.text:00005EC0                 ADDS            R3, R2, R3
+.text:00005EC2                 LDRB            R3, [R3]
+.text:00005EC4                 CMP             R3, #0x2E
+.text:00005EC6                 BNE             loc_5ECE
+.text:00005EC8
+.text:00005EC8 loc_5EC8                                ; CODE XREF: islegalAsecID+22j
+.text:00005EC8                 MOV.W           R3, #0
+.text:00005ECC                 B               loc_5F8E
+.text:00005ECE ; ---------------------------------------------------------------------------
+.text:00005ECE
+.text:00005ECE loc_5ECE                                ; CODE XREF: islegalAsecID+32j
+.text:00005ECE                 MOV.W           R3, #0
+.text:00005ED2                 STR             R3, [SP,#0x18+var_10]
+.text:00005ED4                 B               loc_5F78
+.text:00005ED6 ; ---------------------------------------------------------------------------
+.text:00005ED6
+.text:00005ED6 loc_5ED6                                ; CODE XREF: islegalAsecID+F4j
+.text:00005ED6                 LDR             R2, [SP,#0x18+s]
+.text:00005ED8                 LDR             R3, [SP,#0x18+var_10]
+.text:00005EDA                 ADDS            R3, R2, R3
+.text:00005EDC                 LDRB            R3, [R3]
+.text:00005EDE                 CMP             R3, #0x2E
+.text:00005EE0                 BNE             loc_5EF8
+.text:00005EE2                 LDR             R3, [SP,#0x18+var_10]
+.text:00005EE4                 ADD.W           R3, R3, #0xFFFFFFFF
+.text:00005EE8                 LDR             R2, [SP,#0x18+s]
+.text:00005EEA                 ADDS            R3, R2, R3
+.text:00005EEC                 LDRB            R3, [R3]
+.text:00005EEE                 CMP             R3, #0x2E
+.text:00005EF0                 BNE             loc_5F5E
+.text:00005EF2                 MOV.W           R3, #0
+.text:00005EF6                 B               loc_5F8E
+.text:00005EF8 ; ---------------------------------------------------------------------------
+.text:00005EF8
+.text:00005EF8 loc_5EF8                                ; CODE XREF: islegalAsecID+4Cj
+.text:00005EF8                 LDR             R2, [SP,#0x18+s]
+.text:00005EFA                 LDR             R3, [SP,#0x18+var_10]
+.text:00005EFC                 ADDS            R3, R2, R3
+.text:00005EFE                 LDRB            R3, [R3]
+.text:00005F00                 CMP             R3, #0x5F
+.text:00005F02                 BEQ             loc_5F62
+.text:00005F04                 LDR             R2, [SP,#0x18+s]
+.text:00005F06                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F08                 ADDS            R3, R2, R3
+.text:00005F0A                 LDRB            R3, [R3]
+.text:00005F0C                 CMP             R3, #0x2D
+.text:00005F0E                 BEQ             loc_5F62
+.text:00005F10                 LDR             R2, [SP,#0x18+s]
+.text:00005F12                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F14                 ADDS            R3, R2, R3
+.text:00005F16                 LDRB            R3, [R3]
+.text:00005F18                 CMP             R3, #0x60
+.text:00005F1A                 BLS             loc_5F28
+.text:00005F1C                 LDR             R2, [SP,#0x18+s]
+.text:00005F1E                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F20                 ADDS            R3, R2, R3
+.text:00005F22                 LDRB            R3, [R3]
+.text:00005F24                 CMP             R3, #0x7A
+.text:00005F26                 BLS             loc_5F66
+.text:00005F28
+.text:00005F28 loc_5F28                                ; CODE XREF: islegalAsecID+86j
+.text:00005F28                 LDR             R2, [SP,#0x18+s]
+.text:00005F2A                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F2C                 ADDS            R3, R2, R3
+.text:00005F2E                 LDRB            R3, [R3]
+.text:00005F30                 CMP             R3, #0x40
+.text:00005F32                 BLS             loc_5F40
+.text:00005F34                 LDR             R2, [SP,#0x18+s]
+.text:00005F36                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F38                 ADDS            R3, R2, R3
+.text:00005F3A                 LDRB            R3, [R3]
+.text:00005F3C                 CMP             R3, #0x5A
+.text:00005F3E                 BLS             loc_5F6A
+.text:00005F40
+.text:00005F40 loc_5F40                                ; CODE XREF: islegalAsecID+9Ej
+.text:00005F40                 LDR             R2, [SP,#0x18+s]
+.text:00005F42                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F44                 ADDS            R3, R2, R3
+.text:00005F46                 LDRB            R3, [R3]
+.text:00005F48                 CMP             R3, #0x2F
+.text:00005F4A                 BLS             loc_5F58
+.text:00005F4C                 LDR             R2, [SP,#0x18+s]
+.text:00005F4E                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F50                 ADDS            R3, R2, R3
+.text:00005F52                 LDRB            R3, [R3]
+.text:00005F54                 CMP             R3, #0x39
+.text:00005F56                 BLS             loc_5F6E
+.text:00005F58
+.text:00005F58 loc_5F58                                ; CODE XREF: islegalAsecID+B6j
+.text:00005F58                 MOV.W           R3, #0
+.text:00005F5C                 B               loc_5F8E
+.text:00005F5E ; ---------------------------------------------------------------------------
+.text:00005F5E
+.text:00005F5E loc_5F5E                                ; CODE XREF: islegalAsecID+5Cj
+.text:00005F5E                 NOP
+.text:00005F60                 B               loc_5F70
+.text:00005F62 ; ---------------------------------------------------------------------------
+.text:00005F62
+.text:00005F62 loc_5F62                                ; CODE XREF: islegalAsecID+6Ej
+.text:00005F62                                         ; islegalAsecID+7Aj
+.text:00005F62                 NOP
+.text:00005F64                 B               loc_5F70
+.text:00005F66 ; ---------------------------------------------------------------------------
+.text:00005F66
+.text:00005F66 loc_5F66                                ; CODE XREF: islegalAsecID+92j
+.text:00005F66                 NOP
+.text:00005F68                 B               loc_5F70
+.text:00005F6A ; ---------------------------------------------------------------------------
+.text:00005F6A
+.text:00005F6A loc_5F6A                                ; CODE XREF: islegalAsecID+AAj
+.text:00005F6A                 NOP
+.text:00005F6C                 B               loc_5F70
+.text:00005F6E ; ---------------------------------------------------------------------------
+.text:00005F6E
+.text:00005F6E loc_5F6E                                ; CODE XREF: islegalAsecID+C2j
+.text:00005F6E                 NOP
+.text:00005F70
+.text:00005F70 loc_5F70                                ; CODE XREF: islegalAsecID+CCj
+.text:00005F70                                         ; islegalAsecID+D0j ...
+.text:00005F70                 LDR             R3, [SP,#0x18+var_10]
+.text:00005F72                 ADD.W           R3, R3, #1
+.text:00005F76                 STR             R3, [SP,#0x18+var_10]
+.text:00005F78
+.text:00005F78 loc_5F78                                ; CODE XREF: islegalAsecID+40j
+.text:00005F78                 LDR             R2, [SP,#0x18+var_10]
+.text:00005F7A                 LDR             R3, [SP,#0x18+var_C]
+.text:00005F7C                 CMP             R2, R3
+.text:00005F7E                 ITE CS
+.text:00005F80                 MOVCS           R3, #0
+.text:00005F82                 MOVCC           R3, #1
+.text:00005F84                 UXTB            R3, R3
+.text:00005F86                 CMP             R3, #0
+.text:00005F88                 BNE             loc_5ED6
+.text:00005F8A                 MOV.W           R3, #1
+.text:00005F8E
+.text:00005F8E loc_5F8E                                ; CODE XREF: islegalAsecID+1Aj
+.text:00005F8E                                         ; islegalAsecID+38j ...
+.text:00005F8E                 MOV             R0, R3
+.text:00005F90                 ADD             SP, SP, #0x14
+.text:00005F92                 POP             {PC}
+.text:00005F92 ; End of function islegalAsecID
