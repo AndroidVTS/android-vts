@@ -154,3 +154,56 @@ rule Zimperlinch
           not $cannot_setuid and $dalvikvm
 }
 
+rule Exploid
+{
+/* PATCHED:
+.text:0000D868 B2 68                       LDR             R2, [R6,#8]
+.text:0000D86A 01 2A                       CMP             R2, #1
+.text:0000D86C E4 D1                       BNE             loc_D838
+.text:0000D86E 73 68                       LDR             R3, [R6,#4]
+.text:0000D870 00 2B                       CMP             R3, #0
+.text:0000D872 E1 D1                       BNE             loc_D838
+.text:0000D874 61 69                       LDR             R1, [R4,#0x14]
+.text:0000D876 0B 29                       CMP             R1, #0xB
+.text:0000D878 DE D9                       BLS             loc_D838
+.text:0000D87A 23 69                       LDR             R3, [R4,#0x10]
+.text:0000D87C 00 2B                       CMP             R3, #0
+.text:0000D87E DB D0                       BEQ             loc_D838
+.text:0000D880 9A 68                       LDR             R2, [R3,#8]
+.text:0000D882 02 2A                       CMP             R2, #2
+.text:0000D884 D8 D1                       BNE             loc_D838
+.text:0000D886 1B 69                       LDR             R3, [R3,#0x10]
+.text:0000D888 00 2B                       CMP             R3, #0
+.text:0000D88A D5 D1                       BNE             loc_D838
+.text:0000D88C 40 F2 FF 3C                 MOVW            R12, #0x3FF
+.text:0000D890 60 45                       CMP             R0, R12
+.text:0000D892 D1 DC                       BGT             loc_D838
+.text:0000D894 3B 54                       STRB            R3, [R7,R0]
+*/
+
+/* Vulnerable
+.text:0000A596
+.text:0000A596             loc_A596                                ; CODE XREF: sub_A574+52j
+.text:0000A596 B0 F5 80 6F                 CMP.W           R0, #0x400
+.text:0000A59A 0C D0                       BEQ             loc_A5B6
+.text:0000A59C 27 54                       STRB            R7, [R4,R0]
+.text:0000A59E 20 18                       ADDS            R0, R4, R0
+.text:0000A5A0 31 46                       MOV             R1, R6
+.text:0000A5A2 47 70                       STRB            R7, [R0,#1]
+.text:0000A5A4 20 46                       MOV             R0, R4
+.text:0000A5A6 FF F7 91 FC                 BL              sub_9ECC
+.text:0000A5AA 30 46                       MOV             R0, R6
+.text:0000A5AC FF F7 C0 FD                 BL              sub_A130
+.text:0000A5B0 30 46                       MOV             R0, R6
+.text:0000A5B2 FF F7 BD FF                 BL              sub_A530
+.text:0000A5B6
+*/
+   meta:
+      descrition = "multicast Netlink message not validated from kernel"
+      binary = "/init"
+   strings:
+      $overflow_check =  {B0 F5 80 6F ?? D0}
+
+   condition:
+      $overflow_check
+}
