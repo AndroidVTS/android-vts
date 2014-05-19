@@ -49,6 +49,58 @@
 .text:00008E44 5E E7                       B               loc_8D04
 .text:00008E46             ; ---------------------------------------------------------------------------
 
+------------------------------ Vulnerable ----------------------------------------
+.text:00008DB0             loc_8DB0                                ; CODE XREF: sub_8C94+1CEj
+.text:00008DB0 4F F0 00 08                 MOV.W           R8, #0
+.text:00008DB4 01 21                       MOVS            R1, #1
+.text:00008DB6 08 20                       MOVS            R0, #8
+.text:00008DB8 42 46                       MOV             R2, R8
+.text:00008DBA 43 46                       MOV             R3, R8
+.text:00008DBC CD F8 00 80                 STR.W           R8, [SP,#0xC8+var_C8]
+.text:00008DC0 06 F0 C6 EA                 BLX             sub_F350
+.text:00008DC4 3B 49                       LDR             R1, =(unk_234E0 - 0x295C0)
+.text:00008DC6 0D F1 0C 0C                 ADD.W           R12, SP, #0xC8+var_BC
+.text:00008DCA 04 EB 01 0E                 ADD.W           LR, R4, R1 ; unk_234E0
+.text:00008DCE BE E8 0F 00                 LDMIA.W         LR!, {R0-R3}
+.text:00008DD2 AC E8 0F 00                 STMIA.W         R12!, {R0-R3}
+.text:00008DD6 BE E8 0F 00                 LDMIA.W         LR!, {R0-R3}
+.text:00008DDA AC E8 0F 00                 STMIA.W         R12!, {R0-R3}
+.text:00008DDE DE F8 00 00                 LDR.W           R0, [LR]
+.text:00008DE2 03 A9                       ADD             R1, SP, #0xC8+var_BC
+.text:00008DE4 CC F8 00 00                 STR.W           R0, [R12]
+.text:00008DE8 09 20                       MOVS            R0, #9
+.text:00008DEA 06 F0 A2 EA                 BLX             sub_F330
+.text:00008DEE 4F F4 FA 60                 MOV.W           R0, #0x7D0
+.text:00008DF2 06 F0 8E EA                 BLX             sub_F310
+.text:00008DF6 4F F4 FA 60                 MOV.W           R0, #0x7D0
+.text:00008DFA 09 F0 5F F9                 BL              sub_120BC
+.text:00008DFE 0C A9                       ADD             R1, SP, #0xC8+var_98
+.text:00008E00 40 F2 30 33                 MOVW            R3, #0x330
+.text:00008E04 0F A8                       ADD             R0, SP, #0xC8+var_8C
+.text:00008E06 4F F4 80 02                 MOV.W           R2, #0x400000
+.text:00008E0A C1 F6 98 13                 MOVT.W          R3, #0x1998
+.text:00008E0E CD F8 40 80                 STR.W           R8, [SP,#0xC8+var_88]
+.text:00008E12 0F 93                       STR             R3, [SP,#0xC8+var_8C]
+.text:00008E14 0D 92                       STR             R2, [SP,#0xC8+var_94]
+.text:00008E16 0C 92                       STR             R2, [SP,#0xC8+var_98]
+.text:00008E18 CD F8 38 80                 STR.W           R8, [SP,#0xC8+var_90]
+.text:00008E1C 06 F0 B0 EA                 BLX             sub_F380
+.text:00008E20 DF F8 94 C0                 LDR.W           R12, =(off_2962C - 0x295C0)
+.text:00008E24 54 F8 0C 10                 LDR.W           R1, [R4,R12] ; unk_308F4
+.text:00008E28 08 68                       LDR             R0, [R1]
+.text:00008E2A 10 F0 01 0F                 TST.W           R0, #1
+.text:00008E2E 3F F4 69 AF                 BEQ.W           loc_8D04
+.text:00008E32 DF F8 70 C0                 LDR.W           R12, =(off_29624 - 0x295C0)
+.text:00008E36 21 4A                       LDR             R2, =(aLocalPort5037D - 0x295C0)
+.text:00008E38 54 F8 0C 10                 LDR.W           R1, [R4,R12] ; unk_297F0
+.text:00008E3C A0 18                       ADDS            R0, R4, R2 ; "Local port 5037 disabled\n"
+.text:00008E3E 19 22                       MOVS            R2, #0x19
+.text:00008E40 11 F1 A8 03                 ADDS.W          R3, R1, #0xA8
+.text:00008E44 01 21                       MOVS            R1, #1
+.text:00008E46 09 F0 47 FB                 BL              sub_124D8
+.text:00008E4A 5B E7                       B               loc_8D04
+.text:00008E4C             ; ---------------------------------------------------------------------------
+
 ------------------------------ Not Vuln -------------------------------
 .text:0000B79E             loc_B79E                                ; CODE XREF: sub_B668+1F6j
 .text:0000B79E 00 22                       MOVS            R2, #0
