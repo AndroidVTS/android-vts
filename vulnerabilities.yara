@@ -23,9 +23,10 @@ rule Gingerbreak
   strings:
       $a = "Invalid 'PARTN' value"
       $is_vold_binary = "vold"
+      $is_vold_binary_2 = "/system/bin/mkfs.exfat"
 
   condition:
-      not $a and $is_vold_binary
+      not $a and $is_vold_binary and $is_vold_binary_2
 }
 
 
@@ -202,8 +203,7 @@ rule Exploid
       descrition = "multicast Netlink message not validated from kernel"
       binary = "/init"
    strings:
-      $overflow_check =  {B0 F5 80 6F ?? D0}
-
+      $overflow_check =  {B0 F5 80 6F ?? D0 27 54 20 18 31 46 47 70}
    condition:
       $overflow_check
 }
