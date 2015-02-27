@@ -1,75 +1,58 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion '20.0.0'
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 20
+        applicationId "fuzion24.vulnerability.checker"
+        minSdkVersion 15
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    sourceSets.main {
+        jni.srcDirs = [] // This prevents the auto generation of Android.mk
+        jniLibs.srcDir 'src/main/libs' // This is not necessary unless you have precompiled libraries in your project.
+
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'org.apache.commons:commons-compress:1.5'
 }
 
-task packageNativeLibs_ARM(type: Jar) {
-    baseName 'libtestlib'
-    classifier 'armeabi'
-    from(file('libs/armeabi/')) {
-        include '**/*.so'
-    }
-    into('lib/armeabi')
-    destinationDir(file('libs/'))
+
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def ndkDir = properties.getProperty('ndk.dir')
+
+
+task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
+    commandLine "$ndkDir/ndk-build",
+            '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
+            '-j', Runtime.runtime.availableProcessors(),
+            'all',
+            'NDK_DEBUG=1'
 }
 
-task packageNativeLibs_ARM_V7A(type: Jar) {
-    baseName 'libtestlib'
-    classifier 'armeabi-v7a'
-    from(file('libs/armeabi-v7a/')) {
-        include '**/*.so'
-    }
-    into('lib/armeabi-v7a')
-    destinationDir(file('libs/'))
+task cleanNative(type: Exec, description: 'Clean JNI object files') {
+    commandLine "$ndkDir/ndk-build",
+            '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
+            'clean'
 }
 
-task packageNativeLibs_x86(type: Jar) {
-    baseName 'libtestlib'
-    classifier 'x86'
-    from(file('libs/x86/')) {
-        include '**/*.so'
-    }
-    into('lib/x86')
-    destinationDir(file('libs/'))
+clean.dependsOn 'cleanNative'
+
+tasks.withType(JavaCompile) {
+    compileTask -> compileTask.dependsOn buildNative
 }
-
-task packageNativeLibs(description: "package native libraries") {
-
-}
-packageNativeLibs.dependsOn 'packageNativeLibs_ARM_V7A'
-packageNativeLibs.dependsOn 'packageNativeLibs_ARM'
-packageNativeLibs.dependsOn 'packageNativeLibs_x86'
-
-task ndkBuild(type: Exec, description: "Task to run ndk-build") {
-    commandLine 'ndk-build'
-}
-
-packageNativeLibs.dependsOn 'ndkBuild'
-
-tasks.withType(JavaCompile) { compileTask -> compileTask.dependsOn packageNativeLibs }
-
-clean.dependsOn 'cleanPackageNativeLibs'
-
-
-
-

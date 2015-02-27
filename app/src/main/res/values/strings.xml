@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">DeviceVulnerabilityChecker</string>
-    <string name="app_vuln_name">ApplicationVulnerabilityChecker</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
 </resources>
