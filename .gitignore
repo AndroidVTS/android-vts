@@ -1,4 +1,7 @@
-*.id0
-*.id1
-*.nam
-*.til
+/build/
+.gradle
+.idea/
+*.iml
+/local.properties
+/.idea/workspace.xml
+.DS_Store
