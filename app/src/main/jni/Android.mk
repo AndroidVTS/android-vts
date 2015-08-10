@@ -111,3 +111,22 @@ LOCAL_SRC_FILES := ashmem_bug.c
 
 include $(BUILD_EXECUTABLE)
 ################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := stagefright
+LOCAL_SRC_FILES := stage_fright.c
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := stagefrightCheck
+LOCAL_SRC_FILES := stage_fright.c
+
+include $(BUILD_EXECUTABLE)
+################################
