@@ -10,7 +10,6 @@ Samsung, HTC, and every other OEM keep heavily customized versions of Android.  
 ## Implementation
 Vulnerabilities in a device can exist at many layers inside of Android. For example, a bug can exist in the kernel (Towelroot, for example) or it can exist in the Android specific framework (Android Masterkeys/FakeID).  Some of the kernel bugs can sometimes be difficult to check for without potentially causing system instability.  This implementation takes care to not include checks that could cause instability problems for the end user and therefore may omit checks that could cause these types of issues.  The framework is very thin at the current time and consists of a vector of vulnerability checks.  Their concrete implementations vary wildly depending on the bug.
 
-[Device Vulnerability Detector - Source](https://git.viaforensics.io/vfrl/vulntester/tree/master/DeviceVulnerabilityChecker)
 
 A list of current bug checks:
   - [ZipBug9950697](https://github.com/Fuzion24/AndroidZipArbitrage#android-bug-9950697)
