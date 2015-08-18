@@ -7,6 +7,7 @@
 #include <sys/mman.h>
 #include <dlfcn.h>
 #include <fcntl.h>
+#include<signal.h>
 
 #include <jni.h>
 
@@ -81,13 +82,37 @@ JNIEXPORT jint JNICALL Java_com_device_vulnerability_vulnerabilities_framework_m
    return process_media_file(current_media_file);
 }
 
+void sig_handler(int signo)
+{
+  printf("received Segfault\n");
+  fflush(stdout);
+  exit(0);
+}
+
+
+
 int main(int argc, char *argv[]){
    if(argc < 2){
-    printf("Usage %s <media_file>", argv[0]);
-    return -1;
+     printf("Usage %s <media_file>", argv[0]);
+     return -1;
    }
 
+   struct sigaction action = {
+           .sa_handler = sig_handler,
+           .sa_mask = SA_RESTART
+   };
+
+   sigaction(SIGABRT, &action, NULL);
+   sigaction(SIGBUS, &action, NULL);
+   sigaction(SIGFPE, &action, NULL);
+   sigaction(SIGILL, &action, NULL);
+   sigaction(SIGPIPE, &action, NULL);
+   sigaction(SIGSEGV, &action, NULL);
+   sigaction(SIGTRAP, &action, NULL);
+
+
    char * media_file = argv[1];
+   fflush(stdout);
    process_media_file(media_file);
    return 0;
 }
