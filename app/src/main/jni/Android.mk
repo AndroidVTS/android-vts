@@ -23,6 +23,32 @@ include $(BUILD_EXECUTABLE)
 ################################
 
 ################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := graphics_bufferoverflow
+LOCAL_SRC_FILES := graphics_bufferoverflow.cpp
+
+LOCAL_CFLAGS += -Ijni/include/
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := graphics_bufferoverflowcheck
+LOCAL_SRC_FILES := graphics_bufferoverflow.cpp
+
+LOCAL_LDFLAGS += -fPIE -pie
+
+
+LOCAL_CFLAGS += -Ijni/include/
+
+include $(BUILD_EXECUTABLE)
+################################
+
+
+################################
 #include $(CLEAR_VARS)
 #
 #LOCAL_MODULE    := CVE-2014-4943
