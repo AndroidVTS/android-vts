@@ -42,7 +42,7 @@ static void * resolveSymbol(void * lib, char * symbol){
     return r;
 }
 
-int checkIsVulnerable() {
+int process_media_file(const char *media_file) {
   void * libstagefright = dlopen("libstagefright.so",0);
   if(!libstagefright){
     die("[-] dlopen failed");
@@ -59,7 +59,7 @@ int checkIsVulnerable() {
 
   stageFrightConstructor(metaDataReceiverObject);
 
-  int testPOC = open("/sdcard/cve-2015-1538-4.mp4", 0xa << 12);
+  int testPOC = open(media_file, 0xa << 12);
   if(testPOC < 0){
    die("[-] failed opening file");
   }
@@ -78,11 +78,17 @@ int checkIsVulnerable() {
 JNIEXPORT jint JNICALL Java_com_device_vulnerability_vulnerabilities_framework_media_Stagefright_isVulnerable__Ljava_lang_String_2(JNIEnv *env, jobject obj, jstring media_file){
     const char * current_media_file;
     current_media_file = (*env)->GetStringUTFChars( env, media_file, NULL ) ;
-   return checkIsVulnerable();
+   return process_media_file(current_media_file);
 }
 
 int main(int argc, char *argv[]){
-   printf("%s\n", argv[1]);
+   if(argc < 2){
+    printf("Usage %s <media_file>", argv[0]);
+    return -1;
+   }
+
+   char * media_file = argv[1];
+   process_media_file(media_file);
    return 0;
 }
 
