@@ -76,21 +76,13 @@ int checkIsVulnerable() {
 }
 
 JNIEXPORT jint JNICALL Java_com_device_vulnerability_vulnerabilities_framework_media_Stagefright_isVulnerable__Ljava_lang_String_2(JNIEnv *env, jobject obj, jstring media_file){
-    char * current_media_file;
+    const char * current_media_file;
     current_media_file = (*env)->GetStringUTFChars( env, media_file, NULL ) ;
    return checkIsVulnerable();
 }
 
-int main(void){
-
-  int r =  checkIsVulnerable();
-  if(r == 0){
-    printf("Device is vulnerable\n");
-  }else if(r == 1){
-    printf("Device is vulnerable\n");
-  }else{
-     printf("There was an error running tests\n");
-  }
-  return 0;
+int main(int argc, char *argv[]){
+   printf("%s\n", argv[1]);
+   return 0;
 }
 

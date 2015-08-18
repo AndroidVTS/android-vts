@@ -130,3 +130,17 @@ LOCAL_SRC_FILES := stage_fright.c
 
 include $(BUILD_EXECUTABLE)
 ################################
+
+
+
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := stagefrightCheck-pie
+LOCAL_SRC_FILES := stage_fright.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+
+include $(BUILD_EXECUTABLE)
+################################
