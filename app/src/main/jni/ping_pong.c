@@ -20,16 +20,6 @@
 int checkIsVulnerable()
 {
 
-// pppol2tp_setsockopt (sock=0xd80be500, level=0, optname=0, optval=0x0, optlen=0) at net/l2tp/l2tp_ppp.c:1343
-// udp_setsockopt (sk=0xd3df0a00, level=0, optname=0, optval=0x0, optlen=0) at net/ipv4/udp.c:1814
-// ip_setsockopt (sk=0xd3df0a00, level=0, optname=0, optval=0x0, optlen=0) at net/ipv4/ip_sockglue.c:1047
-// do_ip_setsockopt (sk=0xd3df0a00, optname=0, optval=0x0, optlen=0, level=<optimized out>) at net/ipv4/ip_sockglue.c:453
-
-
-// By following the above codepath, a struct sock is incorrectly cast to a inet_sock and used in that manner.
-// https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/include/net/inet_sock.h#n154
-// https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/include/net/sock.h#n301
-
     int fd = socket(AF_PPPOX, SOCK_RAW, PX_PROTO_OL2TP);
 
     if(fd < 0)
