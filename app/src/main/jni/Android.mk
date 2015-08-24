@@ -132,14 +132,48 @@ include $(BUILD_EXECUTABLE)
 ################################
 
 
-
-
 ################################
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := stagefrightCheck-pie
 LOCAL_SRC_FILES := stage_fright.c
 LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+
+include $(BUILD_EXECUTABLE)
+################################
+
+
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := pingpong
+LOCAL_SRC_FILES := ping_pong.c
+LOCAL_CFLAGS    := -fpie -pie -Ijni/include
+LOCAL_LDFLAGS   := -pie
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := pingpongCheck
+LOCAL_SRC_FILES := ping_pong.c
+LOCAL_CFLAGS    := -fpie -pie -Ijni/include
+
+include $(BUILD_EXECUTABLE)
+################################
+
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := pingpongCheck-pie
+LOCAL_SRC_FILES := ping_pong.c
+LOCAL_CFLAGS    := -fpie -pie -Ijni/include
 LOCAL_LDFLAGS   := -pie
 
 include $(BUILD_EXECUTABLE)

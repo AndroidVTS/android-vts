@@ -110,6 +110,7 @@ int main(int argc, char *argv[]){
    sigaction(SIGTRAP, &action, NULL);
 
    printf("Running stagefright detector!\n");
+
    char * media_file = argv[1];
    process_media_file(media_file);
 
