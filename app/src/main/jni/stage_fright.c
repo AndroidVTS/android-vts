@@ -84,12 +84,10 @@ JNIEXPORT jint JNICALL Java_com_device_vulnerability_vulnerabilities_framework_m
 
 void sig_handler(int signo)
 {
-  printf("received Segfault\n");
+  printf("Boom goes the dynamite\n");
   fflush(stdout);
-  exit(0);
+  exit(-1);
 }
-
-
 
 int main(int argc, char *argv[]){
    if(argc < 2){
@@ -97,23 +95,24 @@ int main(int argc, char *argv[]){
      return -1;
    }
 
-   struct sigaction action = {
-           .sa_handler = sig_handler,
-           .sa_mask = SA_RESTART
-   };
+   struct sigaction action;
+   bzero(&action, sizeof(struct sigaction));
 
+   action.sa_handler = sig_handler;
+   action.sa_mask = SA_RESTART;
+
+   sigaction(SIGSEGV, &action, NULL);
    sigaction(SIGABRT, &action, NULL);
    sigaction(SIGBUS, &action, NULL);
    sigaction(SIGFPE, &action, NULL);
    sigaction(SIGILL, &action, NULL);
    sigaction(SIGPIPE, &action, NULL);
-   sigaction(SIGSEGV, &action, NULL);
    sigaction(SIGTRAP, &action, NULL);
 
-
+   printf("Running stagefright detector!\n");
    char * media_file = argv[1];
-   fflush(stdout);
    process_media_file(media_file);
+
    return 0;
 }
 
