@@ -67,8 +67,8 @@ int process_media_file(const char *media_file) {
   errno = 0;
   status_t ret = setDataSource(metaDataReceiverObject, testPOC, 0ull,0x7FFFFFFFFFFFFFFull);
   if(ret){
-   printf("[-] setDataSource = 0x%x\n", ret);
-   die("[-] setDataSource");
+    printf("[-] setDataSource = 0x%x\n", ret);
+    die("[-] setDataSource");
   }
   ret = extractMetaData(metaDataReceiverObject, 12);
   printf("ret value %d\n", ret);

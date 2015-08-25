@@ -26,12 +26,19 @@ android {
     }
 }
 
+android {
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.0'
     compile 'org.apache.commons:commons-compress:1.5'
+    compile 'commons-io:commons-io:2.4'
 }
-
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -40,8 +47,7 @@ def ndkDir = properties.getProperty('ndk.dir')
 task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
     commandLine "$ndkDir/ndk-build",
             '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
-            '-j', Runtime.runtime.availableProcessors(),
-            'NDK_DEBUG=1'
+            '-j', Runtime.runtime.availableProcessors()
 }
 
 task cleanNative(type: Exec, description: 'Clean JNI object files') {
@@ -51,6 +57,7 @@ task cleanNative(type: Exec, description: 'Clean JNI object files') {
 }
 
 clean.dependsOn 'cleanNative'
+
 
 tasks.withType(JavaCompile) {
    compileTask -> compileTask.dependsOn buildNative
