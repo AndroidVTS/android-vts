@@ -40,7 +40,8 @@ def ndkDir = properties.getProperty('ndk.dir')
 task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
     commandLine "$ndkDir/ndk-build",
             '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
-            '-j', Runtime.runtime.availableProcessors()
+            '-j', Runtime.runtime.availableProcessors(),
+            'NDK_DEBUG=1'
 }
 
 task cleanNative(type: Exec, description: 'Clean JNI object files') {
