@@ -47,6 +47,7 @@ JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_kernel
    return checkIsVulnerable();
 }
 
+
 int main(void){
 
   int r =  checkIsVulnerable();
