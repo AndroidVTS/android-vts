@@ -156,6 +156,17 @@ LOCAL_LDFLAGS   := -pie
 include $(BUILD_SHARED_LIBRARY)
 ################################
 
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := nativehelper
+LOCAL_SRC_FILES := native_helper.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+LOCAL_LDFLAGS   := -pie
+
+include $(BUILD_SHARED_LIBRARY)
+################################
 
 ################################
 include $(CLEAR_VARS)
