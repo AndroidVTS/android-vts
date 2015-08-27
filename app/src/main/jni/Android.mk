@@ -58,16 +58,6 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 include $(BUILD_SHARED_LIBRARY)
 ################################
 
-###############################
-include $(CLEAR_VARS)
-
-LOCAL_MODULE    := CVE-2014-4943check
-LOCAL_SRC_FILES := l2tp_exploit_check.c
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
-
-include $(BUILD_EXECUTABLE)
-###############################
-
 
 ###############################
 include $(CLEAR_VARS)
@@ -142,7 +132,15 @@ LOCAL_LDFLAGS   := -pie
 include $(BUILD_EXECUTABLE)
 ################################
 
+###############################
+include $(CLEAR_VARS)
 
+LOCAL_MODULE    := x509serializationhelper
+LOCAL_SRC_FILES := x509serializationhelper.c
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_SHARED_LIBRARY)
+################################
 
 ################################
 include $(CLEAR_VARS)
@@ -156,14 +154,6 @@ LOCAL_LDFLAGS   := -pie
 include $(BUILD_SHARED_LIBRARY)
 ################################
 
-################################
-include $(CLEAR_VARS)
-
-LOCAL_MODULE    := nativehelper
-LOCAL_SRC_FILES := native_helper.c
-
-include $(BUILD_SHARED_LIBRARY)
-################################
 
 ################################
 include $(CLEAR_VARS)
@@ -188,3 +178,4 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 
 include $(BUILD_EXECUTABLE)
 ################################
+
