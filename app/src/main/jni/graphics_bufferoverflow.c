@@ -30,7 +30,6 @@ static void die(const char *msg)
         exit(errno);
 }
 
-
 static void * resolveSymbol(void * lib, char * symbol){
     void * r;
     if ((r = (void *)dlsym(lib, symbol)) == NULL)
@@ -70,28 +69,7 @@ int graphicsBufferOverflowCheck() {
   return 0;
 }
 
-void sig_handler(int signo)
-{
-  printf("Boom goes the dynamite\n");
-  fflush(stdout);
-  exit(-1);
-}
-
 int main(int argc, char *argv[]){
-   struct sigaction action;
-   bzero(&action, sizeof(struct sigaction));
-
-   action.sa_handler = sig_handler;
-   action.sa_mask = SA_RESTART;
-
-   sigaction(SIGSEGV, &action, NULL);
-   sigaction(SIGABRT, &action, NULL);
-   sigaction(SIGBUS, &action, NULL);
-   sigaction(SIGFPE, &action, NULL);
-   sigaction(SIGILL, &action, NULL);
-   sigaction(SIGPIPE, &action, NULL);
-   sigaction(SIGTRAP, &action, NULL);
-
    printf("Running libui GraphicsBuffer detector!\n");
 
    graphicsBufferOverflowCheck();
