@@ -44,7 +44,7 @@ int graphicsBufferOverflowCheck() {
     die("[-] dlopen failed");
   }
 
-  graphicBufferConstructor = resolveSymbol(libstagefright, "_ZN7android28StagefrightMetadataRetrieverC1Ev");
+  graphicBufferConstructor = resolveSymbol(libstagefright, "_ZN7android13GraphicBufferC2Ev");
   graphicBufferUnflatten = resolveSymbol(libstagefright, "_ZN7android13GraphicBuffer9unflattenERPKvRjRPKiS4_");
 
   void * graphicBufferObject  = malloc(0x100);
