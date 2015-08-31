@@ -52,13 +52,16 @@ int graphicsBufferOverflowCheck() {
      die("[-] no memory for object");
   }
 
-  GraphicBufferConstructor(graphicBufferObject);
+  graphicBufferConstructor(graphicBufferObject);
 
   char buf[0x1000];
 
   const size_t maxNumber = UINT_MAX / sizeof(int);
   errno = 0;
-  status_t ret = graphicBufferUnflatten(graphicBufferObject, &buf, 10, NULL, NULL);
+  int numFds = 1;
+  int count = 1;
+  size_t size;
+  status_t ret = graphicBufferUnflatten(graphicBufferObject, &buf, size, &numFds, count);
   if(ret){
     printf("[-] graphicsBufferUnflatten = 0x%x\n", ret);
     die("[-] graphicBufferUnflatten");
