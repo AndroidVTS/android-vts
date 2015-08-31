@@ -14,19 +14,14 @@
 typedef int32_t     status_t;
 
 
-void *(*stageFrightConstructor)(void *object);
+void *(*graphicBufferConstructor)(void *object);
+
 
 /*
-status_t StagefrightMetadataRetriever::setDataSource(
-        int fd, int64_t offset, int64_t length) {
+status_t GraphicBuffer::unflatten(
+        void const*& buffer, size_t& size, int const*& fds, size_t& count) {
 */
-
-status_t (*setDataSource)(void *object, int fd, int64_t offset, long long length);
-
-/*
-const char *StagefrightMetadataRetriever::extractMetadata(int keyCode)
-*/
-status_t (*extractMetaData)(void *object, int keyCode);
+status_t (*graphicBufferUnflatten)(void const*& buffer, size_t& size, int const*& fds, size_t& count);
 
 
 static void die(const char *msg)
@@ -43,43 +38,34 @@ static void * resolveSymbol(void * lib, char * symbol){
     return r;
 }
 
-int process_media_file(const char *media_file) {
-  void * libstagefright = dlopen("libstagefright.so",0);
-  if(!libstagefright){
+int graphicsBufferOverflowCheck() {
+  void * libui = dlopen("libui.so",0);
+  if(!libui){
     die("[-] dlopen failed");
   }
 
-  stageFrightConstructor  = resolveSymbol(libstagefright, "_ZN7android28StagefrightMetadataRetrieverC1Ev");
-  setDataSource           = resolveSymbol(libstagefright, "_ZN7android28StagefrightMetadataRetriever13setDataSourceEixx");
-  extractMetaData         = resolveSymbol(libstagefright, "_ZN7android28StagefrightMetadataRetriever15extractMetadataEi");
+  graphicBufferConstructor = resolveSymbol(libstagefright, "_ZN7android13GraphicBufferC2Ev");
+  graphicBufferUnflatten = resolveSymbol(libstagefright, "_ZN7android13GraphicBuffer9unflattenERPKvRjRPKiS4_");
 
-  void * metaDataReceiverObject = malloc(0x100);
-  if(!metaDataReceiverObject){
+  void * graphicBufferObject  = malloc(0x100);
+  if(!graphicBufferObject){
      die("[-] no memory for object");
   }
 
-  stageFrightConstructor(metaDataReceiverObject);
+  GraphicBufferConstructor(graphicBufferObject);
 
-  int testPOC = open(media_file, 0xa << 12);
-  if(testPOC < 0){
-   die("[-] failed opening file");
-  }
+  char buf[0x1000];
+
+  const size_t maxNumber = UINT_MAX / sizeof(int);
+  int numFds[]
   errno = 0;
-  status_t ret = setDataSource(metaDataReceiverObject, testPOC, 0ull,0x7FFFFFFFFFFFFFFull);
+  status_t ret = graphicBufferUnflatten(graphicBufferObject, &buf, 10, NULL, NULL);
   if(ret){
-    printf("[-] setDataSource = 0x%x\n", ret);
-    die("[-] setDataSource");
+    printf("[-] graphicsBufferUnflatten = 0x%x\n", ret);
+    die("[-] graphicBufferUnflatten");
   }
-  ret = extractMetaData(metaDataReceiverObject, 12);
-  printf("ret value %d\n", ret);
 
   return 0;
-}
-
-JNIEXPORT jint JNICALL Java_com_device_vulnerability_vulnerabilities_framework_media_Stagefright_isVulnerable__Ljava_lang_String_2(JNIEnv *env, jobject obj, jstring media_file){
-    const char * current_media_file;
-    current_media_file = (*env)->GetStringUTFChars( env, media_file, NULL ) ;
-   return process_media_file(current_media_file);
 }
 
 void sig_handler(int signo)
@@ -90,11 +76,6 @@ void sig_handler(int signo)
 }
 
 int main(int argc, char *argv[]){
-   if(argc < 2){
-     printf("Usage %s <media_file>", argv[0]);
-     return -1;
-   }
-
    struct sigaction action;
    bzero(&action, sizeof(struct sigaction));
 
@@ -109,10 +90,9 @@ int main(int argc, char *argv[]){
    sigaction(SIGPIPE, &action, NULL);
    sigaction(SIGTRAP, &action, NULL);
 
-   printf("Running stagefright detector!\n");
+   printf("Running libui GraphicsBuffer detector!\n");
 
-   char * media_file = argv[1];
-   process_media_file(media_file);
+   graphicsBufferOverflowCheck();
 
    return 0;
 }
