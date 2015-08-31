@@ -22,30 +22,6 @@ LOCAL_CFLAGS += -Ijni/include/
 include $(BUILD_EXECUTABLE)
 ################################
 
-################################
-include $(CLEAR_VARS)
-
-LOCAL_MODULE    := graphics_bufferoverflow
-LOCAL_SRC_FILES := graphics_bufferoverflow.cpp
-
-LOCAL_CFLAGS += -Ijni/include/
-
-include $(BUILD_SHARED_LIBRARY)
-################################
-
-################################
-include $(CLEAR_VARS)
-
-LOCAL_MODULE    := graphics_bufferoverflowcheck
-LOCAL_SRC_FILES := graphics_bufferoverflow.cpp
-
-LOCAL_LDFLAGS += -fPIE -pie
-
-
-LOCAL_CFLAGS += -Ijni/include/
-
-include $(BUILD_EXECUTABLE)
-################################
 
 
 ###############################
@@ -110,6 +86,29 @@ LOCAL_SRC_FILES := stage_fright.c
 include $(BUILD_SHARED_LIBRARY)
 ################################
 
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := graphics_bufferoverflow
+LOCAL_SRC_FILES := graphics_bufferoverflow.c
+
+LOCAL_CFLAGS += -Ijni/include/
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := graphics_bufferoverflow-pie
+LOCAL_SRC_FILES := graphics_bufferoverflow.c
+
+LOCAL_LDFLAGS += -fPIE -pie
+
+LOCAL_CFLAGS += -Ijni/include/
+
+include $(BUILD_EXECUTABLE)
+################################
 
 ################################
 include $(CLEAR_VARS)
@@ -119,7 +118,6 @@ LOCAL_SRC_FILES := stage_fright.c
 
 include $(BUILD_EXECUTABLE)
 ################################
-
 
 ################################
 include $(CLEAR_VARS)

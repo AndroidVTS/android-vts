@@ -14,14 +14,19 @@
 typedef int32_t     status_t;
 
 
-void *(*graphicBufferConstructor)(void *object);
-
+void *(*stageFrightConstructor)(void *object);
 
 /*
-status_t GraphicBuffer::unflatten(
-        void const*& buffer, size_t& size, int const*& fds, size_t& count) {
+status_t StagefrightMetadataRetriever::setDataSource(
+        int fd, int64_t offset, int64_t length) {
 */
-status_t (*graphicBufferUnflatten)(void const*& buffer, size_t& size, int const*& fds, size_t& count);
+
+status_t (*setDataSource)(void *object, int fd, int64_t offset, long long length);
+
+/*
+const char *StagefrightMetadataRetriever::extractMetadata(int keyCode)
+*/
+status_t (*extractMetaData)(void *object, int keyCode);
 
 
 static void die(const char *msg)
@@ -39,8 +44,8 @@ static void * resolveSymbol(void * lib, char * symbol){
 }
 
 int process_media_file(const char *media_file) {
-  void * libui = dlopen("libui.so",0);
-  if(!libui){
+  void * libstagefright = dlopen("libstagefright.so",0);
+  if(!libstagefright){
     die("[-] dlopen failed");
   }
 
@@ -48,12 +53,12 @@ int process_media_file(const char *media_file) {
   setDataSource           = resolveSymbol(libstagefright, "_ZN7android28StagefrightMetadataRetriever13setDataSourceEixx");
   extractMetaData         = resolveSymbol(libstagefright, "_ZN7android28StagefrightMetadataRetriever15extractMetadataEi");
 
-  void * graphicBufferObject  = malloc(0x100);
-  if(!graphicBufferObject){
+  void * metaDataReceiverObject = malloc(0x100);
+  if(!metaDataReceiverObject){
      die("[-] no memory for object");
   }
 
-  GraphicBufferConstructor(graphicBufferObject);
+  stageFrightConstructor(metaDataReceiverObject);
 
   int testPOC = open(media_file, 0xa << 12);
   if(testPOC < 0){
@@ -69,6 +74,12 @@ int process_media_file(const char *media_file) {
   printf("ret value %d\n", ret);
 
   return 0;
+}
+
+JNIEXPORT jint JNICALL Java_com_device_vulnerability_vulnerabilities_framework_media_Stagefright_isVulnerable__Ljava_lang_String_2(JNIEnv *env, jobject obj, jstring media_file){
+    const char * current_media_file;
+    current_media_file = (*env)->GetStringUTFChars( env, media_file, NULL ) ;
+   return process_media_file(current_media_file);
 }
 
 void sig_handler(int signo)
