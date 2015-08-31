@@ -21,7 +21,7 @@ void *(*graphicBufferConstructor)(void *object);
 status_t GraphicBuffer::unflatten(
         void const*& buffer, size_t& size, int const*& fds, size_t& count) {
 */
-status_t (*graphicBufferUnflatten)(void const*& buffer, size_t& size, int const*& fds, size_t& count);
+status_t (*graphicBufferUnflatten)(void *object, void const* buffer, size_t size, int const* fds, size_t count);
 
 
 static void die(const char *msg)
@@ -44,8 +44,8 @@ int graphicsBufferOverflowCheck() {
     die("[-] dlopen failed");
   }
 
-  graphicBufferConstructor = resolveSymbol(libstagefright, "_ZN7android13GraphicBufferC2Ev");
-  graphicBufferUnflatten = resolveSymbol(libstagefright, "_ZN7android13GraphicBuffer9unflattenERPKvRjRPKiS4_");
+  graphicBufferConstructor = resolveSymbol(libui, "_ZN7android13GraphicBufferC2Ev");
+  graphicBufferUnflatten = resolveSymbol(libui, "_ZN7android13GraphicBuffer9unflattenERPKvRjRPKiS4_");
 
   void * graphicBufferObject  = malloc(0x100);
   if(!graphicBufferObject){
@@ -57,7 +57,6 @@ int graphicsBufferOverflowCheck() {
   char buf[0x1000];
 
   const size_t maxNumber = UINT_MAX / sizeof(int);
-  int numFds[]
   errno = 0;
   status_t ret = graphicBufferUnflatten(graphicBufferObject, &buf, 10, NULL, NULL);
   if(ret){
