@@ -24,6 +24,7 @@ A list of current bug checks:
   - [StumpRoot](http://forum.xda-developers.com/lg-g3/orig-development/root-stump-root-lg-g3-sprint-verizon-t2850906)
   - [Stagefright bugs](https://blog.zimperium.com/the-latest-on-stagefright-cve-2015-1538-exploit-is-now-available-for-testing-purposes/)
   - [x509 Serialization bug] (https://securityintelligence.com/one-class-to-rule-them-all-new-android-serialization-vulnerability-gives-underprivileged-apps-super-status/)
+  - [PingPong root - CVE-2015-3636] (https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3636)
 
 ## Previous work
 There have been attempts before to solve this issue. [xray.io](http://www.xray.io/)  Xray works by actually attempting the exploit which doesn't satisfy our system stability constraint. There also exist other applications which attempt to determine a devices attack surface by simply using a lookup based on Android verison/build information.  This causes both false negatives and false positives.  Imagine the case where an OEM has back ported a fix to a device, but the check solely relies on an Android device; false positive.  The case where an OEM upgrades to an Android version/kernel version which includes patches, but manages to break them causes the case of a false negative.
