@@ -1,6 +1,6 @@
 ndk-build
 
-NAME=graphics_bufferoverflowCheck-pie
+NAME=pingpongCheck-pie
 
 #enable kysms
 adb push libs/armeabi/$NAME /data/local/tmp/ && \
