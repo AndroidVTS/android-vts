@@ -145,9 +145,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := pingpong
 LOCAL_SRC_FILES := ping_pong.c
-LOCAL_CFLAGS    := -fpie -pie
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
-LOCAL_LDFLAGS   := -pie
 
 include $(BUILD_SHARED_LIBRARY)
 ################################

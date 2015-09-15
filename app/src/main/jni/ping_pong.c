@@ -43,7 +43,7 @@ int checkIsVulnerable()
     }
 }
 
-JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_kernel_CVE_12014_14943_checkPingPong(JNIEnv *env, jobject obj){
+JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_kernel_CVE_12015_13636_checkPingPong(JNIEnv *env, jobject obj){
    return checkIsVulnerable();
 }
 
