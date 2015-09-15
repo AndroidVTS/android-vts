@@ -89,30 +89,6 @@ include $(BUILD_SHARED_LIBRARY)
 ################################
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := graphics_bufferoverflow
-LOCAL_SRC_FILES := graphics_bufferoverflow.c
-
-LOCAL_CFLAGS += -Ijni/include/
-
-include $(BUILD_EXECUTABLE)
-################################
-
-################################
-include $(CLEAR_VARS)
-
-LOCAL_MODULE    := graphics_bufferoverflow-pie
-LOCAL_SRC_FILES := graphics_bufferoverflow.c
-
-LOCAL_LDFLAGS += -fPIE -pie
-
-LOCAL_CFLAGS += -Ijni/include/
-
-include $(BUILD_EXECUTABLE)
-################################
-
-################################
-include $(CLEAR_VARS)
-
 LOCAL_MODULE    := stagefrightCheck
 LOCAL_SRC_FILES := stage_fright.c
 
@@ -145,6 +121,16 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := pingpong
 LOCAL_SRC_FILES := ping_pong.c
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := graphicsbufferoverflow
+LOCAL_SRC_FILES := graphics_into_overflow_test.c
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 
 include $(BUILD_SHARED_LIBRARY)

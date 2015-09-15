@@ -11,9 +11,7 @@
 #define LOG_TAG "testing"
 #define LOG_D(...) do{ __android_log_print( ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__); printf( __VA_ARGS__ ); }while( 0 )
 
-
-int main( int argc, char *argv[] )
-{
+int checkGraphicsBufferVuln(){
     const char *libname = "libui.so";
     int classBuf[ 100 ];
     int r1[ 10 ];
@@ -96,17 +94,22 @@ int main( int argc, char *argv[] )
     {
     case -ENOMEM:
         printf( "unpatched\n" );
-        break;
+        return 1;
     case -EINVAL:
         printf( "patched\n" );
-        break;
+        return 0;
     default:
         printf( "test is broken ret: %d (%08x)\n", ret, ret );
-        break;
+        if(ret == 0 || ret == 1){
+           return -1;
+        }else{
+           return ret;
+        }
     }
 
+}
 
-
-    return 0;
-
+int main( int argc, char *argv[] )
+{
+    checkGraphicsBufferVuln();
 }
