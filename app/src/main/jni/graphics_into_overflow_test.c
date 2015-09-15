@@ -4,12 +4,19 @@
 
 #include <stdio.h>
 #include <strings.h>
-
+#include <jni.h>
 #include <android/log.h>
 
 
 #define LOG_TAG "testing"
-#define LOG_D(...) do{ __android_log_print( ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__); printf( __VA_ARGS__ ); }while( 0 )
+//#define LOG_D(...) do{ __android_log_print( ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__); printf( __VA_ARGS__ ); }while( 0 )
+
+
+JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_framework_graphics_GraphicBufferTest_checkGraphicsBuffer(JNIEnv *env, jobject obj)
+{
+    return checkGraphicsBufferVuln();
+}
+
 
 int checkGraphicsBufferVuln(){
     const char *libname = "libui.so";
@@ -20,13 +27,10 @@ int checkGraphicsBufferVuln(){
     int jellybean = 0;
     int ( *unflatten )( int *r0, int *r1, int *r2, int *r3 ) = NULL;
 
-    printf( "hello world\n" );
-    fflush( stdout );
-
     void *handle = dlopen( libname, RTLD_NOW | RTLD_GLOBAL );
     if( !handle )
     {
-        LOG_D( "error opening %s: %s\n", libname, dlerror() );
+        printf( "error opening %s: %s\n", libname, dlerror() );
         return -1;
     }
 
@@ -38,7 +42,7 @@ int checkGraphicsBufferVuln(){
     int ( *constructor )( int *r0 ) = dlsym( handle, "_ZN7android13GraphicBufferC2Ev" );
     if( !constructor )
     {
-        LOG_D( "missing android::GraphicBuffer::GraphicBuffer(void)\n" );
+        printf( "missing android::GraphicBuffer::GraphicBuffer(void)\n" );
         return -1;
     }
 
@@ -48,7 +52,7 @@ int checkGraphicsBufferVuln(){
         unflatten = dlsym( handle, "_ZN7android13GraphicBuffer9unflattenEPKvjPij" );
         if( !unflatten )
         {
-            LOG_D( "missing android::GraphicBuffer::unflatten\n" );
+            printf( "missing android::GraphicBuffer::unflatten\n" );
             return -1;
         }
         jellybean = 1;
