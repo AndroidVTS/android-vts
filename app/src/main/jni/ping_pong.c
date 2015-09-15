@@ -9,39 +9,39 @@
 #include <linux/inet_diag.h>
 #include <linux/unix_diag.h>
 #include <string.h>
+#include <sys/mman.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <jni.h>
 
-#define IP_MINTTL 21
-#define IP_MULTICAST_ALL 49
-#define IP_FREEBIND 15
+#define MMAP_BASE 0x200000
+#define LIST_POISON 0x200200
+#define MMAP_SIZE 0x200000
 
+// Thanks, @beaups!
 int checkIsVulnerable()
 {
-
-    int fd = socket(AF_PPPOX, SOCK_RAW, PX_PROTO_OL2TP);
-
-    if(fd < 0)
-        return errno == 0 || errno == 1 ? -1 : errno;
-
-    int optVal = 0x41;
-    void *optvalP = &optVal;
-    socklen_t sockLen = 20;
-
-    int e1 = errno;
-
-    int ret = setsockopt(fd, SOL_IP, IP_MULTICAST_ALL, optvalP, sockLen);
-    ret = setsockopt(fd, SOL_IP, IP_MINTTL, optvalP, sockLen);
-    ret = setsockopt(fd, SOL_IP, IP_FREEBIND , optvalP, sockLen);
-
-    printf("Sockopt ret val %d\n", ret);
-
-    if(ret == -1 && e1 == 14) return 0; //Not vulnerable
-    if(ret == 0 && e1 == 0) return 1; //Vulnerable
-    return errno == 0 || errno == 1 ? -1 : errno ; //Bad test
+    void * magic = mmap((void *) MMAP_BASE, MMAP_SIZE,
+       PROT_READ | PROT_WRITE, MAP_SHARED | MAP_FIXED | MAP_ANONYMOUS,
+       -1, 0);
+    memset(magic, 0, MMAP_SIZE);
+    *((long *)(LIST_POISON)) = 0xfefefefe;
+    int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_ICMP);
+    struct sockaddr_in sa;
+    memset(&sa, 0, sizeof(sa));
+    sa.sin_family = AF_INET;
+    connect(sock, (const struct sockaddr *) &sa, sizeof(sa));
+    sa.sin_family = AF_UNSPEC;
+    connect(sock, (const struct sockaddr *) &sa, sizeof(sa));
+    close(sock);
+    if (*((long *)(LIST_POISON)) != 0xfefefefe){
+       printf("Device is vulnerable\n");
+       return 1;
+    }else{
+      printf("Device is not vulnerable\n");
+      return 0;
+    }
 }
-
 
 JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_kernel_CVE_12014_14943_checkPingPong(JNIEnv *env, jobject obj){
    return checkIsVulnerable();
@@ -53,7 +53,7 @@ int main(void){
   int r =  checkIsVulnerable();
 
   if(r == 0){
-    printf("Device is vulnerable\n");
+    printf("Device is not vulnerable\n");
   }else if(r == 1){
     printf("Device is vulnerable\n");
   }else{
