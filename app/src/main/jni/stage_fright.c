@@ -13,6 +13,47 @@
 
 typedef int32_t     status_t;
 
+enum {
+    // Media errors
+    MEDIA_ERROR_BASE        = -1000,
+
+    ERROR_ALREADY_CONNECTED = MEDIA_ERROR_BASE,
+    ERROR_NOT_CONNECTED     = MEDIA_ERROR_BASE - 1,
+    ERROR_UNKNOWN_HOST      = MEDIA_ERROR_BASE - 2,
+    ERROR_CANNOT_CONNECT    = MEDIA_ERROR_BASE - 3,
+    ERROR_IO                = MEDIA_ERROR_BASE - 4,
+    ERROR_CONNECTION_LOST   = MEDIA_ERROR_BASE - 5,
+    ERROR_MALFORMED         = MEDIA_ERROR_BASE - 7 
+};
+
+
+/*
+
+MPEG4Extractor::MPEG4Extractor(const sp<DataSource> &source)
+    : mMoofOffset(0),
+      mDataSource(source),
+      mInitCheck(NO_INIT),
+      mHasVideo(false),
+      mHeaderTimescale(0),
+      mFirstTrack(NULL),
+      mLastTrack(NULL),
+      mFileMetaData(new MetaData),
+      mFirstSINF(NULL),
+      mIsDrm(false) {
+}
+*/
+
+
+void *(*mpeg4ExtractorConstructor)(void *object, void * dataSource);
+
+/*
+status_t MPEG4Extractor::parseITunesMetaData(off64_t offset, size_t size) {
+*/
+status_t (*parseItunesMeta)(void *object, off64_t offset, size_t size);
+
+
+
+
 
 void *(*stageFrightConstructor)(void *object);
 
@@ -29,10 +70,15 @@ const char *StagefrightMetadataRetriever::extractMetadata(int keyCode)
 status_t (*extractMetaData)(void *object, int keyCode);
 
 
+int yolo(){
+  return 1337;
+}
+
+
 static void die(const char *msg)
 {
-        perror(msg);
-        exit(errno);
+        printf("%s\n", msg);
+        exit(-1);
 }
 
 
@@ -76,10 +122,42 @@ int process_media_file(const char *media_file) {
   return 0;
 }
 
-JNIEXPORT jint JNICALL Java_com_device_vulnerability_vulnerabilities_framework_media_Stagefright_isVulnerable__Ljava_lang_String_2(JNIEnv *env, jobject obj, jstring media_file){
-    const char * current_media_file;
-    current_media_file = (*env)->GetStringUTFChars( env, media_file, NULL ) ;
-   return process_media_file(current_media_file);
+int checkItunesMetaIsVulnerable() {
+  void * libstagefright = dlopen("libstagefright.so",0);
+  if(!libstagefright){
+    die("[-] dlopen failed");
+  }
+
+  parseItunesMeta           = resolveSymbol(libstagefright, "_ZN7android14MPEG4Extractor19parseITunesMetaDataExj");
+
+  const int numOfItems  = 1000;
+  size_t mpeg4DataSource[numOfItems];
+  size_t mpeg4ExtractorObj[numOfItems];
+  size_t *p = (size_t*)mpeg4DataSource;
+  int i;
+  for(i = 0; i < numOfItems; i++){
+    mpeg4DataSource[i] = (size_t) &yolo;
+    mpeg4ExtractorObj[i] = (size_t) &p;
+  }
+
+  errno = 0;
+  int ret = parseItunesMeta(mpeg4ExtractorObj, 0, SIZE_MAX);
+  switch(ret){
+    case ERROR_MALFORMED:
+          return 0;
+    case ERROR_IO:
+          return 1;
+    default:
+          return -1;
+  }
+
+  return 0;
+}
+
+
+
+JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_framework_media_Stagefright_checkItunesMeta(JNIEnv *env, jobject obj){
+  return 0;
 }
 
 void sig_handler(int signo)
@@ -89,7 +167,14 @@ void sig_handler(int signo)
   exit(-1);
 }
 
-int main(int argc, char *argv[]){
+int main(void){
+  printf("ello, mate\n");
+  printf("checkItunesMeta %d\n", checkItunesMetaIsVulnerable());
+  return 1;
+}
+
+
+int main1(int argc, char *argv[]){
    if(argc < 2){
      printf("Usage %s <media_file>", argv[0]);
      return -1;
