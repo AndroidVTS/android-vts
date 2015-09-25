@@ -1,6 +1,6 @@
 ndk-build
 
-NAME=pingpongCheck-pie
+NAME=stagefrightCheck-pie
 
 #enable kysms
 adb push libs/armeabi/$NAME /data/local/tmp/ && \
