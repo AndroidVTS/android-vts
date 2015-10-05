@@ -1,65 +1,69 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.device.vulnerability.test.MainActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/buildFingerPrint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Build Fingerprint"
-            android:id="@+id/buildFingerPrint"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kernel Version"
-            android:id="@+id/kernelVersion"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Build Brand"
-            android:id="@+id/buildBrand"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Build Manufacturer"
-            android:id="@+id/buildManufacturer"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Build Model"
-            android:id="@+id/buildModel"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Build Release"
-            android:id="@+id/buildRelease"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Build SDK"
-            android:id="@+id/buildSDK"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Build ID"
-            android:id="@+id/buildID"/>
+        android:text="Build Fingerprint"/>
 
-    </LinearLayout>
-    <ListView
+    <TextView
+        android:id="@+id/kernelVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Kernel Version"/>
+
+    <TextView
+        android:id="@+id/buildBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Build Brand"/>
+
+    <TextView
+        android:id="@+id/buildManufacturer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Build Manufacturer"/>
+
+    <TextView
+        android:id="@+id/buildModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Build Model"/>
+
+    <TextView
+        android:id="@+id/buildRelease"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Build Release"/>
+
+    <TextView
+        android:id="@+id/buildSDK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Build SDK"/>
+
+    <TextView
+        android:id="@+id/buildID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Build ID"/>
+
+    <ListView
         android:id="@+id/vulnList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
-</RelativeLayout>
+        android:layout_alignParentStart="true"/>
+</LinearLayout>
+
