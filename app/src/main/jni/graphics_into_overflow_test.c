@@ -1,5 +1,6 @@
 #include <dlfcn.h>
 #include <errno.h>
+#include <limits.h>
 
 #include <stdio.h>
 #include <strings.h>
@@ -12,26 +13,57 @@
 
 enum
 {
-    JELLYBEAN_AND_EARLIER = 0,
+    JELLYBEAN = 0,
     KITKAT_AND_LOLLIPOP = 1,
     MARSHMELLOW = 2,
     OTHER = 99
 };
 
+//#define int uint64_t
 int checkGraphicsBufferVuln( int v );
+
 
 JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_framework_graphics_GraphicBufferTest_checkGraphicsBuffer(JNIEnv *env, jobject obj, jint aVersion)
 {
     return checkGraphicsBufferVuln( aVersion );
 }
 
-void SetupBufferJKL( int *r1, int *r2 )
+/* 0    1   2   3
+ * 4    5   6   7
+ * 8    9   10  11
+ */
+
+void SetupBufferJ( int *r1, int *r2 )
 {
+    // gnex JZO54K - fails
+    // don't have a patched JB build to test against
+
+    // size must be > 0x1f
+    r2[0] = 0x20;
+
     // this must match
     r1[0] = 0x47424652;
 
+    // attempt to overflow
+    r1[8] = 0x1000;
+    r1[9] = 0xFF5;
+
+    // make sure we error out on unpatched libs before getting to the point where we corrupt the heap
+    r1[6] = 0x20;
+    r1[7] = 0x20;
+}
+
+void SetupBufferKL( int *r1, int *r2 )
+{
+    // nexus 7 - KTU84P fails this test.  no patched Kitkat factory images to test?
+    // s4 gpe  - LMY47O passing
+    // motoG gpe - LMY47M.M003 passing
+
     // size must be > 0x1f
-    r2[0] = 0x1f;
+    r2[0] = 0x20;
+
+    // this must match
+    r1[0] = 0x47424652;
 
     // attempt to overflow
     r1[8] = 0x1000;
@@ -44,10 +76,12 @@ void SetupBufferJKL( int *r1, int *r2 )
 
 void SetupBufferM( int * r1, int *r2 )
 {
+    // nexus 5 MRA58K passes
+    // there should be any marshmellow roms that fail this test.  it was already patched
     // this must match
     r1[0] = 0x47424652;
 
-    // size must be > 0x2c
+    // size must be >= 0x2c
     r2[0] = 0x2c;
 
     // attempt to overflow
@@ -105,30 +139,22 @@ int checkGraphicsBufferVuln(int v )
 
     // setup bad values
     int r1Ref = (int)(&r1[0]);
-    int * val = (int*)(r2[0]);
 
-    int i;
     int ret = 0;
     switch( v )
     {
-    case JELLYBEAN_AND_EARLIER:
-        SetupBufferJKL( r1, r2 );
-        ret = unflatten( classBuf, r1, val, r3, r4 );
+    case JELLYBEAN:
+        SetupBufferJ( r1, r2 );
+        ret = unflatten( classBuf, r1, r2[0], r3, r4 );
         break;
     case KITKAT_AND_LOLLIPOP:
-        SetupBufferJKL( r1, r2 );
+        SetupBufferKL( r1, r2 );
         ret = unflatten( classBuf, &r1Ref, r2, r3, r4 );
         break;
     case MARSHMELLOW:
         SetupBufferM( r1, r2 );
-        for( i = 0; i < sizeof( r1 )/sizeof( r1[0] ); i++ )
-        {
-            printf( "[%d]: %d %x\n", i, r1[i], r1[i] );
-        }
-        printf( "flattening...\n" );
-        r3[0] = 0x69;
+        r3[0] = 0x20;
         ret = unflatten( classBuf, &r1Ref, r2, r3, r4 );
-        printf( "returned...\n" );
         break;
     default:
         printf( "unsupported OS version.\n" );
@@ -158,10 +184,8 @@ int checkGraphicsBufferVuln(int v )
 
 }
 
-int main( int argc, char *argv[] )
+nt main( int argc, char *argv[] )
 {
-    checkGraphicsBufferVuln( KITKAT_AND_LOLLIPOP );
+    checkGraphicsBufferVuln( JELLYBEAN );
     return 0;
 }
-
-
