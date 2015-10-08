@@ -1,6 +1,6 @@
 ndk-build
 
-NAME=stagefrightCheck-pie
+NAME=graphicsbufferoverflowcheck-pie
 
 #enable kysms
 adb push libs/armeabi/$NAME /data/local/tmp/ && \

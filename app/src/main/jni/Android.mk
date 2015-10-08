@@ -136,6 +136,17 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 include $(BUILD_SHARED_LIBRARY)
 ################################
 
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := graphicsbufferoverflowcheck-pie
+LOCAL_SRC_FILES := graphics_into_overflow_test.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_EXECUTABLE)
+################################
 
 ################################
 include $(CLEAR_VARS)

@@ -160,7 +160,7 @@ int checkGraphicsBufferVuln(int v )
 
 int main( int argc, char *argv[] )
 {
-    checkGraphicsBufferVuln( MARSHMELLOW );
+    checkGraphicsBufferVuln( KITKAT_AND_LOLLIPOP );
     return 0;
 }
 
