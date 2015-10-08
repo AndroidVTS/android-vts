@@ -145,16 +145,16 @@ int checkGraphicsBufferVuln(int v )
     {
     case JELLYBEAN:
         SetupBufferJ( r1, r2 );
-        ret = unflatten( classBuf, r1, r2[0], r3, r4 );
+        ret = unflatten( classBuf, r1, (int*)r2[0], r3, r4 );
         break;
     case KITKAT_AND_LOLLIPOP:
         SetupBufferKL( r1, r2 );
-        ret = unflatten( classBuf, &r1Ref, r2, r3, r4 );
+        ret = unflatten( classBuf, &r1Ref, (int*)r2, r3, r4 );
         break;
     case MARSHMELLOW:
         SetupBufferM( r1, r2 );
         r3[0] = 0x20;
-        ret = unflatten( classBuf, &r1Ref, r2, r3, r4 );
+        ret = unflatten( classBuf, &r1Ref, (int*) r2, r3, r4 );
         break;
     default:
         printf( "unsupported OS version.\n" );
@@ -184,7 +184,7 @@ int checkGraphicsBufferVuln(int v )
 
 }
 
-nt main( int argc, char *argv[] )
+int main( int argc, char *argv[] )
 {
     checkGraphicsBufferVuln( JELLYBEAN );
     return 0;
