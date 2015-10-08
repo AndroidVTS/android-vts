@@ -172,3 +172,15 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 include $(BUILD_EXECUTABLE)
 ################################
 
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := libutilcheck-pie
+LOCAL_SRC_FILES := libutils_bug.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_EXECUTABLE)
+################################
+
