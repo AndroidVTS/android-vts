@@ -45,12 +45,11 @@ void SetupBufferJ( int *r1, int *r2 )
     r1[0] = 0x47424652;
 
     // attempt to overflow
+    r1[6] = 0x1000;
+    r1[7] = 0xFF5;
     r1[8] = 0x1000;
     r1[9] = 0xFF5;
 
-    // make sure we error out on unpatched libs before getting to the point where we corrupt the heap
-    r1[6] = 0x20;
-    r1[7] = 0x20;
 }
 
 void SetupBufferKL( int *r1, int *r2 )
@@ -66,12 +65,11 @@ void SetupBufferKL( int *r1, int *r2 )
     r1[0] = 0x47424652;
 
     // attempt to overflow
+    r1[6] = 0x1000;
+    r1[7] = 0xFF5;
     r1[8] = 0x1000;
     r1[9] = 0xFF5;
 
-    // make sure we error out on unpatched libs before getting to the point where we corrupt the heap
-    r1[6] = 0x20;
-    r1[7] = 0x20;
 }
 
 void SetupBufferM( int * r1, int *r2 )
