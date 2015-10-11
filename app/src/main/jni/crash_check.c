@@ -21,16 +21,16 @@ void child_handler(int sig) {
   pid_t pid = waitpid(childPid, &status, WNOHANG);
   if (pid == -1) {
     printf("Child didn't exit wat\n");
-    quit(3);
+    quit(-3);
   }
 
   if (WIFEXITED(status)) {
     if (WEXITSTATUS(status) == BAD_COMMAND_STATUS) {
       printf("Error executing child process\n");
-      quit(4);
+      quit(-1);
     } else {
       printf("Child exited normally\n");
-      quit(0);
+      quit(WEXITSTATUS(status));
     }
   } else {
     printf("Boom goes the dynamite\n");
@@ -65,7 +65,7 @@ int main(int argc, char** argv, char** envp) {
     sleep(numSeconds);
 
     printf("Child still running\n");
-    quit(2);
+    quit(-2);
     return 0;
   }
 }
