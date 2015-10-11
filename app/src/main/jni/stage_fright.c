@@ -7,7 +7,7 @@
 #include <sys/mman.h>
 #include <dlfcn.h>
 #include <fcntl.h>
-#include<signal.h>
+#include <signal.h>
 
 #include <jni.h>
 
@@ -23,7 +23,7 @@ enum {
     ERROR_CANNOT_CONNECT    = MEDIA_ERROR_BASE - 3,
     ERROR_IO                = MEDIA_ERROR_BASE - 4,
     ERROR_CONNECTION_LOST   = MEDIA_ERROR_BASE - 5,
-    ERROR_MALFORMED         = MEDIA_ERROR_BASE - 7 
+    ERROR_MALFORMED         = MEDIA_ERROR_BASE - 7
 };
 
 
@@ -160,39 +160,18 @@ JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_framew
   return 0;
 }
 
-void sig_handler(int signo)
-{
-  printf("Boom goes the dynamite\n");
-  fflush(stdout);
-  exit(-1);
-}
-
-int main(void){
+/*int main(void){
   printf("ello, mate\n");
   printf("checkItunesMeta %d\n", checkItunesMetaIsVulnerable());
   return 1;
-}
+}*/
 
 
-int main1(int argc, char *argv[]){
+int main(int argc, char *argv[]){
    if(argc < 2){
      printf("Usage %s <media_file>", argv[0]);
      return -1;
    }
-
-   struct sigaction action;
-   bzero(&action, sizeof(struct sigaction));
-
-   action.sa_handler = sig_handler;
-   action.sa_mask = SA_RESTART;
-
-   sigaction(SIGSEGV, &action, NULL);
-   sigaction(SIGABRT, &action, NULL);
-   sigaction(SIGBUS, &action, NULL);
-   sigaction(SIGFPE, &action, NULL);
-   sigaction(SIGILL, &action, NULL);
-   sigaction(SIGPIPE, &action, NULL);
-   sigaction(SIGTRAP, &action, NULL);
 
    printf("Running stagefright detector!\n");
 
@@ -201,4 +180,3 @@ int main1(int argc, char *argv[]){
 
    return 0;
 }
-

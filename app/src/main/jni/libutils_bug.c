@@ -7,7 +7,7 @@
 #include <sys/mman.h>
 #include <dlfcn.h>
 #include <fcntl.h>
-#include<signal.h>
+#include <signal.h>
 
 #include <jni.h>
 
@@ -28,8 +28,10 @@ int checklibUtils(){
    char **ppstr = (char **)strObj;
    if ((*ppstr)[0] == 0xf0) {
        printf("Is Vulnerable\n");
+       exit(1);
    }else{
-     printf("Is not vulnerable\n");
+       printf("Is not vulnerable\n");
+       exit(0);
    }
 }
 

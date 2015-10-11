@@ -80,6 +80,26 @@ include $(BUILD_EXECUTABLE)
 ################################
 include $(CLEAR_VARS)
 
+LOCAL_MODULE    := crashCheck
+LOCAL_SRC_FILES := crash_check.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := crashCheck-pie
+LOCAL_SRC_FILES := crash_check.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
 LOCAL_MODULE    := stagefright
 LOCAL_SRC_FILES := stage_fright.c
 
@@ -183,4 +203,3 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 
 include $(BUILD_EXECUTABLE)
 ################################
-
