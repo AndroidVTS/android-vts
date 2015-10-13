@@ -21,7 +21,7 @@ void child_handler(int sig) {
   pid_t pid = waitpid(childPid, &status, WNOHANG);
   if (pid == -1) {
     printf("Child didn't exit wat\n");
-    quit(-3);
+    quit(-1);
   }
 
   if (WIFEXITED(status)) {
@@ -34,7 +34,7 @@ void child_handler(int sig) {
     }
   } else {
     printf("Boom goes the dynamite\n");
-    quit(1);
+    quit(-2);
   }
 }
 
@@ -65,7 +65,7 @@ int main(int argc, char** argv, char** envp) {
     sleep(numSeconds);
 
     printf("Child still running\n");
-    quit(-2);
+    quit(-3);
     return 0;
   }
 }
