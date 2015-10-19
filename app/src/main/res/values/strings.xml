@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Android VTS</string>
     <string name="action_start_scan">Start Scan</string>
+    <string name="test_result_incomplete">Incomplete</string>
+    <string name="test_result_failed">Failed</string>
+    <string name="test_result_passed">Passed</string>
+    <string name="device_info_build_fingerprint">Build Fingerprint: </string>
+    <string name="device_info_kernel_version">Kernel Version: </string>
+    <string name="device_info_build_brand">Build Brand: </string>
+    <string name="device_info_build_manufacturer">Build Manufacturer: </string>
+    <string name="device_info_build_model">Build Model: </string>
+    <string name="device_info_build_release">Build Release: </string>
+    <string name="device_info_build_sdk">Build SDK: </string>
+    <string name="device_info_build_id">Build ID: </string>
 </resources>
