@@ -4,66 +4,174 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
     tools:context="com.device.vulnerability.test.MainActivity">
 
-    <TextView
-        android:id="@+id/buildFingerPrint"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Build Fingerprint"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/kernelVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kernel Version"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_build_fingerprint"
+            android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/buildBrand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Build Brand"/>
+        <TextView
+            android:id="@+id/buildFingerPrint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
 
-    <TextView
-        android:id="@+id/buildManufacturer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Build Manufacturer"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/buildModel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Build Model"/>
 
-    <TextView
-        android:id="@+id/buildRelease"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Build Release"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/buildSDK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Build SDK"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_kernel_version"
+            android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/buildID"
+        <TextView
+            android:id="@+id/kernelVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Build ID"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_build_brand"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/buildBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_build_manufacturer"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/buildManufacturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_build_model"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/buildModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_build_release"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/buildRelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_build_sdk"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/buildSDK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/device_info_build_id"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/buildID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dip"
+        android:layout_marginTop="5dip"
+        android:background="@android:color/darker_gray"/>
 
     <ListView
         android:id="@+id/vulnList"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15.0sp"/>
+
 </LinearLayout>
 
