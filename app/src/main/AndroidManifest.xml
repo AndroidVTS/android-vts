@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fuzion24.vulnerability.checker" >
+    package="com.android.vts" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
