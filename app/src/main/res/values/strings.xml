@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android VTS</string>
+    <string name="app_name">VTS for Android</string>
     <string name="action_start_scan">Start Scan</string>
     <string name="test_result_incomplete">Incomplete</string>
     <string name="test_result_failed">Failed</string>
