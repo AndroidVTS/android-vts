@@ -1,4 +1,5 @@
 .idea/
+bin/
 .gradle
 /app/src/main/libs/
 /app/src/main/obj/
