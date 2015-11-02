@@ -1,9 +1,6 @@
 <resources>
+
     <string name="app_name">VTS for Android</string>
-    <string name="action_start_scan">Start Scan</string>
-    <string name="test_result_incomplete">Incomplete</string>
-    <string name="test_result_failed">Failed</string>
-    <string name="test_result_passed">Passed</string>
     <string name="device_info_build_fingerprint">Build Fingerprint: </string>
     <string name="device_info_kernel_version">Kernel Version: </string>
     <string name="device_info_build_brand">Build Brand: </string>
@@ -12,4 +9,10 @@
     <string name="device_info_build_release">Build Release: </string>
     <string name="device_info_build_sdk">Build SDK: </string>
     <string name="device_info_build_id">Build ID: </string>
+    <string name="empty_results">Start the scan to get the results</string>
+    <string name="error_test">Error running the test:\n%s</string>
+    <string name="test_result">Is Vulnerable:\n%s</string>
+    <string name="test_result_success">False</string>
+    <string name="test_result_failure">True</string>
+
 </resources>
