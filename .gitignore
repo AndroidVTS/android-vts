@@ -1,5 +1,6 @@
 .idea/
 .gradle
+/bin/
 /app/src/main/libs/
 /app/src/main/obj/
 /local.properties
