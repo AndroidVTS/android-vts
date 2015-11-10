@@ -28,6 +28,7 @@ A list of current bug checks:
   - [Stagefright bugs](https://blog.zimperium.com/the-latest-on-stagefright-cve-2015-1538-exploit-is-now-available-for-testing-purposes/)
   - [x509 Serialization bug] (https://securityintelligence.com/one-class-to-rule-them-all-new-android-serialization-vulnerability-gives-underprivileged-apps-super-status/)
   - [PingPong root - CVE-2015-3636] (https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3636)
+  - [Stagefright - CVE-2015-6602](https://blog.zimperium.com/zimperium-zlabs-is-raising-the-volume-new-vulnerability-processing-mp3mp4-media/)
   - [Samsung Remote Code Execution as System] (https://code.google.com/p/google-security-research/issues/detail?id=489)
 
 ## Previous work
