@@ -8,8 +8,8 @@ android {
         applicationId "com.nowsecure.android.vts"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 3
-        versionName "v.3"
+        versionCode 4
+        versionName "v.4"
     }
 
     buildTypes {
