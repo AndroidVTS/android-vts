@@ -86,7 +86,7 @@
     {
        "cve" : "CVE-2015-3825",
        "altnames": ["ANDROID-21437603/21583894"],
-       "description": "Local object serilization attack.  The OpenSSLX509Certificate class contains native pointers as class members and they are not marked as transient.  A Local app can craft a serialized object and pass 	through binder and ultimately gain code execution as system",
+       "description": "Local object serilization attack.  The OpenSSLX509Certificate class contains native pointers as class members and they are not marked as transient.  A Local app can craft a serialized object and pass through binder and ultimately gain code execution as system",
        "impact": "Local unprivilidged app to system_server",
        "external_links" : ["https://securityintelligence.com/one-class-to-rule-them-all-new-android-serialization-vulnerability-gives-underprivileged-apps-super-status/",
                              "https://www.usenix.org/conference/woot15/workshop-program/presentation/peles"],
@@ -189,7 +189,7 @@
        "impact": "",
        "external_links" : ["",
                              ""],
-       "cvssv2": ,
+       "cvssv2": 0,
        "patch": [""],
        "cvedate" : ""
     },
@@ -200,7 +200,7 @@
        "impact": "",
        "external_links" : ["",
                              ""],
-       "cvssv2": ,
+       "cvssv2": 0,
        "patch": [""],
        "cvedate" : ""
     },
