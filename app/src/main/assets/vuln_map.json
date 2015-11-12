@@ -26,5 +26,96 @@
        "cvssv2": 8.3,
        "patch": ["https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=3cf521f7dc87c031617fd47e4b7aa2593c2f3daf"],
        "cvedate" : "2015-08-05T18:25:43-05:00"
+    },
+    {
+       "cve" : "CVE-2015-1528",
+       "altnames": ["GraphicsBuffer Unflatten", "internal bug 19334482"],
+       "description": "Integer overflow in the native_handle_create function in libcutils/native_handle.c in Android before 5.1.1 LMY48M allows attackers to obtain a different application's privileges or cause a denial of service (Binder heap memory corruption) via a crafted application, aka internal bug 19334482.",
+       "impact": "local unprivilidged app to system app escalation",
+       "external_links" : ["https://groups.google.com/forum/message/raw?msg=android-security-updates/1M7qbSvACjo/Y7jewiW1AwAJ"],
+       "cvssv2": 9.3,
+       "patch": ["https://android.googlesource.com/platform/system/core/+/e8c62fb484151f76ab88b1d5130f38de24ac8c14", 
+		  "https://android.googlesource.com/platform/frameworks/native/+/7dcd0ec9c91688cfa3f679804ba6e132f9811254"],
+       "cvedate" : "09/30/2015"
+    },
+    {
+       "cve" : "JarBug13678484",
+       "altnames": ["Android Fake ID"],
+       "description": "Zip bug allows modifying apk files without breaking the signature.  Essentially, you can replace existing files in an app.  Fixed around Android 4.4",
+       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "external_links" : ["https://bluebox.com/android-fake-id-vulnerability/"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["https://android.googlesource.com/platform/libcore/+/2bc5e811a817a8c667bca4318ae98582b0ee6dc6"],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    }
+    ,
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
     }
 }
