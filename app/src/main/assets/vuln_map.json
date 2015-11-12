@@ -41,8 +41,8 @@
     {
        "cve" : "JarBug13678484",
        "altnames": ["Android Fake ID"],
-       "description": "Zip bug allows modifying apk files without breaking the signature.  Essentially, you can replace existing files in an app.  Fixed around Android 4.4",
-       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "description": "The bug allows malicious apps to pretend to be signed by trusted providers and be loaded as extensions in several contexts, such as NFC access, browser plugins and others, depending on the device and which extension mechanisms the manufacturer chose to include.",
+       "impact": "Local malicious app can elevate privilidges to gain some select access such as browser plugins and NFC.",
        "external_links" : ["https://bluebox.com/android-fake-id-vulnerability/"],
        
        "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
@@ -97,15 +97,18 @@
        "cvedate" : "08/10/2015"
     },
     {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
-       "patch": [""],
-       "cvedate" : ""
+       "cve" : "ZipBug 8219321",
+       "altnames": ["Masterkey"],
+       "description": "Zip bug allows modifying apk files without breaking the signature.  Essentially, you can replace existing files in an app.  Fixed around Android 4.4",
+       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "external_links" : ["https://bluebox.com/uncovering-android-master-key-that-makes-99-of-devices-vulnerable/",
+                             "http://www.saurik.com/id/17"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["http://review.cyanogenmod.org/#/c/45251/"],
+       "cvedate" : "07/03/2013"
     }
     
     ,
