@@ -1,4 +1,5 @@
-[
+{
+    "CVE-2015-3636":
     {
        "cve" : "CVE-2015-3636",
        "altnames": ["pingpongroot"],
@@ -13,6 +14,7 @@
        "cvssv2": 4.9,
        "cvedate" : "2012-04-21T18:25:43-05:00"
     },
+    "CVE-2014-4943":
     {
        "cve" : "CVE-2014-4943",
        "altnames": ["Linux L2TP Socket Vuln"],
@@ -25,5 +27,4 @@
        "patch": ["https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=3cf521f7dc87c031617fd47e4b7aa2593c2f3daf"],
        "cvedate" : "2015-08-05T18:25:43-05:00"
     }
-    
-]
+}
