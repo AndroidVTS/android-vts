@@ -137,15 +137,15 @@
        "cvedate" : "08/1/2013"
     },
     {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
-       "patch": [""],
-       "cvedate" : ""
+       "cve" : "CVE-2011-1149",
+       "altnames": ["psneuter", "KillingInTheNameOf"],
+       "description": "Android before 2.3 does not properly restrict access to the system property space, which allows local applications to bypass the application sandbox and gain privileges, as demonstrated by psneuter and KillingInTheNameOf, related to the use of Android shared memory (ashmem) and ASHMEM_SET_PROT_MASK",
+       "impact": "local attacker with usb access can gain root by blocking adbd from being able to read ro.secure property",
+       "external_links" : ["http://c-skills.blogspot.co.uk/2011/01/adb-trickery-again.html",
+                             "https://github.com/tmzt/g2root-kmod/blob/scotty2/scotty2/psneuter/psneuter.c"],
+       "cvssv2": 7.2,
+       "patch": ["https://android.googlesource.com/kernel/common/+/c98a285075f26e2b17a5baa2cb3eb6356a75597e"],
+       "cvedate" : "04/21/2011"
     },
     {
        "cve" : "",
