@@ -109,6 +109,120 @@
        
        "patch": ["http://review.cyanogenmod.org/#/c/45251/"],
        "cvedate" : "07/03/2013"
+    },
+    {
+       "cve" : "ZipBug 9695860",
+       "altnames": ["Masterkey #2"],
+       "description": "Zip bug allows modifying apk files without breaking the signature.  Based on reading unsigned 16 bit numbers from th zip header and interpreting them as signed 32 bit numbers.",
+       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "external_links" : ["http://www.androidpolice.com/2013/07/11/second-all-access-apk-exploit-is-revealed-just-two-days-after-master-key-goes-public-already-patched-by-google/"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["https://android.googlesource.com/platform/libcore/+/9edf43dfcc35c761d97eb9156ac4254152ddbc55"],
+       "cvedate" : "07/03/2013"
+    },
+    {
+       "cve" : "ZipBug 9950697",
+       "altnames": ["Masterkey #3"],
+       "description": "Zip bug allows modifying apk files without breaking the signature.  Based on improper parsing of the 'name' length in the zip file.",
+       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "external_links" : ["http://www.saurik.com/id/19"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["https://android.googlesource.com/platform/libcore/+/2da1bf57a6631f1cbd47cdd7692ba8743c993ad9%5E%21/"],
+       "cvedate" : "08/1/2013"
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": ,
+       "patch": [""],
+       "cvedate" : ""
     }
     
     ,
