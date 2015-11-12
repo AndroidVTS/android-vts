@@ -170,7 +170,20 @@
        "cvedate" : "06/07/2014"
     },
     {
-       "cve" : "",
+       "cve" : "Samsung WifiCredService remote code execution",
+       "altnames": [""],
+       "description": "Remote Code Execution as System User.  Android 5.0+, Samsung.  This is yet another non-memory corrupting remote execution on samsung phones.",
+       "impact": "Remote attacker can gain code execution as system used by getting the user to download an email attachment or brows to a crafted web page.",
+       "external_links" : ["http://blog.quarkslab.com/remote-code-execution-as-system-user-on-android-5-samsung-devices-abusing-wificredservice-hotspot-20.html"],
+       
+       "__comment":"calculated using (AV:N/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  ",
+       "cvssv2": 9.0,
+       
+       "patch": [],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "StumpRoot",
        "altnames": [""],
        "description": "",
        "impact": "",
@@ -181,7 +194,7 @@
        "cvedate" : ""
     },
     {
-       "cve" : "",
+       "cve" : "WeakSauce",
        "altnames": [""],
        "description": "",
        "impact": "",
@@ -192,48 +205,13 @@
        "cvedate" : ""
     },
     {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
-       "patch": [""],
-       "cvedate" : ""
-    },
-    {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
-       "patch": [""],
-       "cvedate" : ""
-    },
-    {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
-       "patch": [""],
-       "cvedate" : ""
-    }
-    ,
-    {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
-       "patch": [""],
-       "cvedate" : ""
+       "cve" : "CVE-2011-3874",
+       "altnames": ["zergRush"],
+       "description": "Stack-based buffer overflow in libsysutils in Android 2.2.x through 2.2.2 and 2.3.x through 2.3.6 allows user-assisted remote attackers to execute arbitrary code via an application that calls the FrameworkListener::dispatchCommand method with the wrong number of arguments, as demonstrated by zergRush to trigger a use-after-free error.",
+       "impact": "local attacker with usb access can gain root",
+       "external_links" : ["https://github.com/revolutionary/zergRush/blob/master/zergRush.c"],
+       "cvssv2": 9.3,
+       "patch": ["https://android.googlesource.com/platform/build/+/refs/tags/android-2.3.7_r1"],
+       "cvedate" : "01/27/2012"
     }
 }
