@@ -148,15 +148,15 @@
        "cvedate" : "04/21/2011"
     },
     {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
-       "patch": [""],
-       "cvedate" : ""
+       "cve" : "CVE-2013-6282",
+       "altnames": ["get_user/put_user"],
+       "description": "The (1) get_user and (2) put_user API functions in the Linux kernel before 3.5.5 on the v6k and v7 ARM platforms do not validate certain addresses, which allows attackers to read or modify the contents of arbitrary kernel memory locations via a crafted application, as exploited in the wild against Android devices in October and November 2013.",
+       "impact": "Local unprivilidge app can read and write arbitrary kernel memory and gain code execution as root.",
+       "external_links" : ["http://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.5.5",
+                             "http://www.codeaurora.org/projects/security-advisories/missing-access-checks-putusergetuser-kernel-api-cve-2013-6282"],
+       "cvssv2": 7.2,
+       "patch": ["https://github.com/torvalds/linux/commit/8404663f81d212918ff85f493649a7991209fa04"],
+       "cvedate" : "11/20/2013"
     },
     {
        "cve" : "",
