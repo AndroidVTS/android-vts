@@ -13,5 +13,10 @@
     <string name="error_test">Error running the test:\n%s</string>
     <string name="test_result_success">Not Vulnerable</string>
     <string name="test_result_failure">Vulnerable</string>
+    <string name="export_results">Export results</string>
+    <string name="share_results_via">Share results via</string>
+    <string name="error_exporting_results">Error exporting the results.</string>
+    <string name="run_tests">Please run the tests first</string>
+    <string name="start">Start</string>
 
 </resources>
