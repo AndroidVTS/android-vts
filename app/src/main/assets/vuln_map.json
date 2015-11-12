@@ -1,0 +1,29 @@
+[
+    {
+       "cve" : "CVE-2015-3636",
+       "altnames": ["pingpongroot"],
+       "description": "UAF in Linux Kernel ICMP Socket",
+       "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+       "external_links" : [
+                           "http://forum.xda-developers.com/galaxy-s6/general/root-pingpongroot-s6-root-tool-t3103016",
+                           "https://github.com/fi01/CVE-2015-3636",
+                           "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3636"
+                           ],
+       "patch": ["https://github.com/torvalds/linux/commit/a134f083e79fb4c3d0a925691e732c56911b4326"],
+       "cvssv2": 4.9,
+       "cvedate" : "2012-04-21T18:25:43-05:00"
+    },
+    {
+       "cve" : "CVE-2014-4943",
+       "altnames": ["Linux L2TP Socket Vuln"],
+       "description": "icmp socket of linux kernel... blah blah blah...",
+       "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+       "external_links" : [
+                             "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4943",
+                             "https://vimeo.com/104520979"],
+       "cvssv2": 8.3,
+       "patch": ["https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=3cf521f7dc87c031617fd47e4b7aa2593c2f3daf"],
+       "cvedate" : "2015-08-05T18:25:43-05:00"
+    }
+    
+]
