@@ -52,15 +52,15 @@
        "cvedate" : ""
     },
     {
-       "cve" : "",
-       "altnames": [""],
-       "description": "",
-       "impact": "",
-       "external_links" : ["",
-                             ""],
-       "cvssv2": ,
+       "cve" : "CVE-2015-6602",
+       "altnames": ["Stagefright 2.0"],
+       "description": "Remote code execution as media_server.  Fixed in Android 5.1.1_r9/LMY48K",
+       "impact": "Remote attacker can use a malformed video file to gain code execution with somewhat elevated privilidges.  ",
+       "external_links" : ["https://threatpost.com/stagefright-2-0-vulnerabilities-affect-1-billion-android-devices/114863/",
+                             "https://blog.zimperium.com/zimperium-zlabs-is-raising-the-volume-new-vulnerability-processing-mp3mp4-media/"],
+       "cvssv2": 9.3,
        "patch": [""],
-       "cvedate" : ""
+       "cvedate" : "10/01/2015"
     },
     {
        "cve" : "",
