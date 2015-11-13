@@ -1,0 +1,217 @@
+{
+    "CVE-2015-3636":
+    {
+       "cve" : "CVE-2015-3636",
+       "altnames": ["pingpongroot"],
+       "description": "UAF in Linux Kernel ICMP Socket",
+       "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+       "external_links" : [
+                           "http://forum.xda-developers.com/galaxy-s6/general/root-pingpongroot-s6-root-tool-t3103016",
+                           "https://github.com/fi01/CVE-2015-3636",
+                           "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3636"
+                           ],
+       "patch": ["https://github.com/torvalds/linux/commit/a134f083e79fb4c3d0a925691e732c56911b4326"],
+       "cvssv2": 4.9,
+       "cvedate" : "2012-04-21T18:25:43-05:00"
+    },
+    "CVE-2014-4943":
+    {
+       "cve" : "CVE-2014-4943",
+       "altnames": ["Linux L2TP Socket Vuln"],
+       "description": "icmp socket of linux kernel... blah blah blah...",
+       "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+       "external_links" : [
+                             "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4943",
+                             "https://vimeo.com/104520979"],
+       "cvssv2": 8.3,
+       "patch": ["https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=3cf521f7dc87c031617fd47e4b7aa2593c2f3daf"],
+       "cvedate" : "2015-08-05T18:25:43-05:00"
+    },
+    {
+       "cve" : "CVE-2015-1528",
+       "altnames": ["GraphicsBuffer Unflatten", "internal bug 19334482"],
+       "description": "Integer overflow in the native_handle_create function in libcutils/native_handle.c in Android before 5.1.1 LMY48M allows attackers to obtain a different application's privileges or cause a denial of service (Binder heap memory corruption) via a crafted application, aka internal bug 19334482.",
+       "impact": "local unprivilidged app to system app escalation",
+       "external_links" : ["https://groups.google.com/forum/message/raw?msg=android-security-updates/1M7qbSvACjo/Y7jewiW1AwAJ"],
+       "cvssv2": 9.3,
+       "patch": ["https://android.googlesource.com/platform/system/core/+/e8c62fb484151f76ab88b1d5130f38de24ac8c14", 
+		  "https://android.googlesource.com/platform/frameworks/native/+/7dcd0ec9c91688cfa3f679804ba6e132f9811254"],
+       "cvedate" : "09/30/2015"
+    },
+    {
+       "cve" : "JarBug13678484",
+       "altnames": ["Android Fake ID"],
+       "description": "The bug allows malicious apps to pretend to be signed by trusted providers and be loaded as extensions in several contexts, such as NFC access, browser plugins and others, depending on the device and which extension mechanisms the manufacturer chose to include.",
+       "impact": "Local malicious app can elevate privilidges to gain some select access such as browser plugins and NFC.",
+       "external_links" : ["https://bluebox.com/android-fake-id-vulnerability/"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["https://android.googlesource.com/platform/libcore/+/2bc5e811a817a8c667bca4318ae98582b0ee6dc6"],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "CVE-2015-6602",
+       "altnames": ["Stagefright 2.0"],
+       "description": "Remote code execution as media_server.  Fixed in Android 5.1.1_r9/LMY48K",
+       "impact": "Remote attacker can use a malformed video file to gain code execution with somewhat elevated privilidges.  ",
+       "external_links" : ["https://threatpost.com/stagefright-2-0-vulnerabilities-affect-1-billion-android-devices/114863/",
+                             "https://blog.zimperium.com/zimperium-zlabs-is-raising-the-volume-new-vulnerability-processing-mp3mp4-media/"],
+       "cvssv2": 9.3,
+       "patch": [""],
+       "cvedate" : "10/01/2015"
+    },
+    {
+       "cve" : "CVE-2013-7372",
+       "altnames": [""],
+       "description": "The engineNextBytes function in classlib/modules/security/src/main/java/common/org/apache/harmony/security/provider/crypto/SHA1PRNG_SecureRandomImpl.java in the SecureRandom implementation in Apache Harmony through 6.0M3, as used in the Java Cryptography Architecture (JCA) in Android before 4.4 and other products, when no seed is provided by the user, uses an incorrect offset value, which makes it easier for attackers to defeat cryptographic protection mechanisms by leveraging the resulting PRNG predictability, as exploited in the wild against Bitcoin wallet applications in August 2013.",
+       "impact": "Improper seeding of SecureRandom let to predictable 'random' numbers.  Cryptographic protections that relied upon SecureRandom were weakened, because the Secure wasn't really secure.",
+       "external_links" : ["https://bitcoin.org/en/alert/2013-08-11-android",
+                             "http://android-developers.blogspot.com.au/2013/08/some-securerandom-thoughts.html"],
+       "cvssv2": 5.0,
+       "patch": ["https://android.googlesource.com/platform/libcore/+/kitkat-release/luni/src/main/java/org/apache/harmony/security/provider/crypto/SHA1PRNG_SecureRandomImpl.java"],
+       "cvedate" : "04/29/2014"
+    },
+    {
+       "cve" : "CVE-2014-7911",
+       "altnames": ["Bug 15874291", "Object Serialization attack"],
+       "description": "luni/src/main/java/java/io/ObjectInputStream.java in the java.io.ObjectInputStream implementation in Android before 5.0.0 does not verify that deserialization will result in an object that met the requirements for serialization, which allows attackers to execute arbitrary code via a crafted finalize method for a serialized object in an ArrayMap Parcel within an intent sent to system_service, as demonstrated by the finalize method of android.os.BinderProxy, aka Bug 15874291",
+       "impact": "Local unprivilidged app can elevate to system user",
+       "external_links" : ["http://seclists.org/fulldisclosure/2014/Nov/51"],
+       "cvssv2": 7.2,
+       "patch": ["https://android.googlesource.com/platform/libcore/+/738c833d38d41f8f76eb7e77ab39add82b1ae1e2"],
+       "cvedate" : "12/15/2014"
+    },
+    {
+       "cve" : "CVE-2015-3825",
+       "altnames": ["ANDROID-21437603/21583894"],
+       "description": "Local object serilization attack.  The OpenSSLX509Certificate class contains native pointers as class members and they are not marked as transient.  A Local app can craft a serialized object and pass through binder and ultimately gain code execution as system",
+       "impact": "Local unprivilidged app to system_server",
+       "external_links" : ["https://securityintelligence.com/one-class-to-rule-them-all-new-android-serialization-vulnerability-gives-underprivileged-apps-super-status/",
+                             "https://www.usenix.org/conference/woot15/workshop-program/presentation/peles"],
+       
+       "__comment" : "this one is another rehash of CVE-2014-7911, so im giving it the same CVSS2",
+       "cvssv2": 7.2,
+       "patch": ["https://android.googlesource.com/platform/external/conscrypt/+/de55e62f6c7ecd57d0a91f2b497885c3bdc661d3"],
+       "cvedate" : "08/10/2015"
+    },
+    {
+       "cve" : "ZipBug 8219321",
+       "altnames": ["Masterkey"],
+       "description": "Zip bug allows modifying apk files without breaking the signature.  Essentially, you can replace existing files in an app.  Fixed around Android 4.4",
+       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "external_links" : ["https://bluebox.com/uncovering-android-master-key-that-makes-99-of-devices-vulnerable/",
+                             "http://www.saurik.com/id/17"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["http://review.cyanogenmod.org/#/c/45251/"],
+       "cvedate" : "07/03/2013"
+    },
+    {
+       "cve" : "ZipBug 9695860",
+       "altnames": ["Masterkey #2"],
+       "description": "Zip bug allows modifying apk files without breaking the signature.  Based on reading unsigned 16 bit numbers from th zip header and interpreting them as signed 32 bit numbers.",
+       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "external_links" : ["http://www.androidpolice.com/2013/07/11/second-all-access-apk-exploit-is-revealed-just-two-days-after-master-key-goes-public-already-patched-by-google/"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["https://android.googlesource.com/platform/libcore/+/9edf43dfcc35c761d97eb9156ac4254152ddbc55"],
+       "cvedate" : "07/03/2013"
+    },
+    {
+       "cve" : "ZipBug 9950697",
+       "altnames": ["Masterkey #3"],
+       "description": "Zip bug allows modifying apk files without breaking the signature.  Based on improper parsing of the 'name' length in the zip file.",
+       "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+       "external_links" : ["http://www.saurik.com/id/19"],
+       
+       "__comment":"calculated using (AV:L/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  assuming there has to be some local componant that actually installs the apk and they gain system privs",
+       "cvssv2": 6.1,
+       
+       "patch": ["https://android.googlesource.com/platform/libcore/+/2da1bf57a6631f1cbd47cdd7692ba8743c993ad9%5E%21/"],
+       "cvedate" : "08/1/2013"
+    },
+    {
+       "cve" : "CVE-2011-1149",
+       "altnames": ["psneuter", "KillingInTheNameOf"],
+       "description": "Android before 2.3 does not properly restrict access to the system property space, which allows local applications to bypass the application sandbox and gain privileges, as demonstrated by psneuter and KillingInTheNameOf, related to the use of Android shared memory (ashmem) and ASHMEM_SET_PROT_MASK",
+       "impact": "local attacker with usb access can gain root by blocking adbd from being able to read ro.secure property",
+       "external_links" : ["http://c-skills.blogspot.co.uk/2011/01/adb-trickery-again.html",
+                             "https://github.com/tmzt/g2root-kmod/blob/scotty2/scotty2/psneuter/psneuter.c"],
+       "cvssv2": 7.2,
+       "patch": ["https://android.googlesource.com/kernel/common/+/c98a285075f26e2b17a5baa2cb3eb6356a75597e"],
+       "cvedate" : "04/21/2011"
+    },
+    {
+       "cve" : "CVE-2013-6282",
+       "altnames": ["get_user/put_user"],
+       "description": "The (1) get_user and (2) put_user API functions in the Linux kernel before 3.5.5 on the v6k and v7 ARM platforms do not validate certain addresses, which allows attackers to read or modify the contents of arbitrary kernel memory locations via a crafted application, as exploited in the wild against Android devices in October and November 2013.",
+       "impact": "Local unprivilidge app can read and write arbitrary kernel memory and gain code execution as root.",
+       "external_links" : ["http://www.kernel.org/pub/linux/kernel/v3.x/ChangeLog-3.5.5",
+                             "http://www.codeaurora.org/projects/security-advisories/missing-access-checks-putusergetuser-kernel-api-cve-2013-6282"],
+       "cvssv2": 7.2,
+       "patch": ["https://github.com/torvalds/linux/commit/8404663f81d212918ff85f493649a7991209fa04"],
+       "cvedate" : "11/20/2013"
+    },
+    {
+       "cve" : "CVE-2014-3153",
+       "altnames": ["Towelroot", "Linux futex exploit"],
+       "description": "The futex_requeue function in kernel/futex.c in the Linux kernel through 3.14.5 does not ensure that calls have two different futex addresses, which allows local users to gain privileges via a crafted FUTEX_REQUEUE command that facilitates unsafe waiter modification.",
+       "impact": "Local unprivilidge app can gain write-what-where in kernel memory.  Can be used to elevate to root",
+       "external_links" : ["https://towelroot.com/",
+                             "http://openwall.com/lists/oss-security/2014/06/06/20"],
+       "cvssv2": 7.2,
+       "patch": ["http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=e9c243a5a6de0be8e584c604d353412584b592f8"],
+       "cvedate" : "06/07/2014"
+    },
+    {
+       "cve" : "Samsung WifiCredService remote code execution",
+       "altnames": [""],
+       "description": "Remote Code Execution as System User.  Android 5.0+, Samsung.  This is yet another non-memory corrupting remote execution on samsung phones.",
+       "impact": "Remote attacker can gain code execution as system used by getting the user to download an email attachment or brows to a crafted web page.",
+       "external_links" : ["http://blog.quarkslab.com/remote-code-execution-as-system-user-on-android-5-samsung-devices-abusing-wificredservice-hotspot-20.html"],
+       
+       "__comment":"calculated using (AV:N/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  ",
+       "cvssv2": 9.0,
+       
+       "patch": [],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "StumpRoot",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": 0,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "WeakSauce",
+       "altnames": [""],
+       "description": "",
+       "impact": "",
+       "external_links" : ["",
+                             ""],
+       "cvssv2": 0,
+       "patch": [""],
+       "cvedate" : ""
+    },
+    {
+       "cve" : "CVE-2011-3874",
+       "altnames": ["zergRush"],
+       "description": "Stack-based buffer overflow in libsysutils in Android 2.2.x through 2.2.2 and 2.3.x through 2.3.6 allows user-assisted remote attackers to execute arbitrary code via an application that calls the FrameworkListener::dispatchCommand method with the wrong number of arguments, as demonstrated by zergRush to trigger a use-after-free error.",
+       "impact": "local attacker with usb access can gain root",
+       "external_links" : ["https://github.com/revolutionary/zergRush/blob/master/zergRush.c"],
+       "cvssv2": 9.3,
+       "patch": ["https://android.googlesource.com/platform/build/+/refs/tags/android-2.3.7_r1"],
+       "cvedate" : "01/27/2012"
+    }
+}
