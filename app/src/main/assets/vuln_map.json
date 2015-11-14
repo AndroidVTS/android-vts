@@ -22,7 +22,7 @@
     "altnames": [
       "Linux L2TP Socket Vuln"
     ],
-    "description": "icmp socket of linux kernel... blah blah blah...",
+    "description": "Type confusion bug l2tp socket implementation",
     "impact": "Local privilege escalation to kernel/root from an unprivileged app",
     "external_links": [
       "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4943",
@@ -125,7 +125,7 @@
     "altnames": [
       "ANDROID-21437603/21583894"
     ],
-    "description": "Local object serilization attack.  The OpenSSLX509Certificate class contains native pointers as class members and they are not marked as transient.  A Local app can craft a serialized object and pass through binder and ultimately gain code execution as system",
+    "description": "Local object serialization attack.  The OpenSSLX509Certificate class contains native pointers as class members and they are not marked as transient.  A Local app can craft a serialized object and pass through binder and ultimately gain code execution as system",
     "impact": "Local unprivilidged app to system_server",
     "external_links": [
       "https://securityintelligence.com/one-class-to-rule-them-all-new-android-serialization-vulnerability-gives-underprivileged-apps-super-status/",
@@ -243,8 +243,8 @@
     ],
     "cvedate": "06/07/2014"
   },
-  "Samsung WifiCredService remote code execution": {
-    "cve": "Samsung WifiCredService remote code execution",
+  "CVE-2015-7888": {
+    "cve": "CVE-2015-7888",
     "altnames": [
       ""
     ],
@@ -307,5 +307,175 @@
       "https://android.googlesource.com/platform/build/+/refs/tags/android-2.3.7_r1"
     ],
     "cvedate": "01/27/2012"
+  },
+  "CVE-2015-1538-1": {
+    "cve": "CVE-2015-1538",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1538",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-1538-2": {
+    "cve": "CVE-2015-1538",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1538",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-1538-3": {
+    "cve": "CVE-2015-1538",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1538",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-1538-4": {
+    "cve": "CVE-2015-1538",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1538",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-1539": {
+    "cve": "CVE-2015-1539",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1539",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-3824": {
+    "cve": "CVE-2015-3824",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3824",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-3828": {
+    "cve": "CVE-2015-3828",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3828",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-3829": {
+    "cve": "CVE-2015-3829",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3829",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "sf-itunes-poc": {
+    "cve": "sf-itunes-poc",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "Stagefright bug: A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+       "https://gist.github.com/worawit/f6fb016997bdd6b9e414"
+    ],
+    "cvssv2": 10,
+    "patch": [
+       "https://android.googlesource.com/platform/frameworks/av/+/2b50b7aa7d16014ccf35db7a7b4b5e84f7b4027c"
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-3864": {
+    "cve": "CVE-2015-3864",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "This a stagefright bug exploiting a failed patch for the same issue",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://blog.exodusintel.com/2015/08/13/stagefright-mission-accomplished/",
+      "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3864",
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3864"
+    ],
+    "cvssv2": 10,
+    "patch": [
+        "https://android.googlesource.com/platform/frameworks/av/+/6fe85f7e15203e48df2cc3e8e1c4bc6ad49dc968"
+    ],
+    "cvedate": "09/30/2015"
   }
 }
