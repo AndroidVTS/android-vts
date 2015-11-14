@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 ################################
 include $(CLEAR_VARS)
 
-LOCAL_MODULE    := cve-2013-6282
+LOCAL_MODULE    := CVE-2013-6282
 LOCAL_SRC_FILES := put_get_user_check.c
 
 LOCAL_CFLAGS += -Ijni/include/

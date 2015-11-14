@@ -35,7 +35,7 @@ int checkIsVulnerable()
     return errno == 0 || errno == 1 ? -1 : errno ; //Bad test
 }
 
-JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_kernel_CVE_12013_16123_checkGetPutUser(JNIEnv *env, jobject obj){
+JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_kernel_CVE_12013_16282_checkGetPutUser(JNIEnv *env, jobject obj){
    return checkIsVulnerable();
 }
 
