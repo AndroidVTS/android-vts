@@ -2,7 +2,6 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
@@ -10,6 +9,9 @@
 
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
 
+        <!-- Material Dialogs Customizations -->
+        <item name="md_dark_theme">false</item>
+        <item name="md_positive_color">@color/primary_dark</item>
     </style>
 
 </resources>

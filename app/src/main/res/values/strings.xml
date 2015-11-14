@@ -18,5 +18,15 @@
     <string name="error_exporting_results">Error exporting the results.</string>
     <string name="run_tests">Please run the tests first</string>
     <string name="start">Start</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="information_not_available">Information not available yet.</string>
+    <string name="names">Names</string>
+    <string name="show_details">Show Details</string>
+    <string name="description">Description</string>
+    <string name="Impact">Impact</string>
+    <string name="more_information">More Information</string>
+    <string name="patches">Patches</string>
+    <string name="cvssv2">CVSSV2: </string>
+    <string name="cve_date">CVE Date: </string>
 
 </resources>
