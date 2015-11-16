@@ -14,6 +14,7 @@
     <string name="test_result_success">Not Vulnerable</string>
     <string name="test_result_failure">Vulnerable</string>
     <string name="export_results">Export results</string>
+    <string name="submit_results">Share for Research</string>
     <string name="share_results_via">Share results via</string>
     <string name="error_exporting_results">Error exporting the results.</string>
     <string name="run_tests">Please run the tests first</string>
