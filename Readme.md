@@ -2,6 +2,9 @@
 
 Download the official VTS for Android app from Google Play [here](https://play.google.com/store/apps/details?id=com.nowsecure.android.vts).
 
+** Beta Testers needed **
+A beta version of VTS is available through Play as well. [Register for beta](https://play.google.com/apps/testing/com.nowsecure.android.vts). Beta testers capable of filing Github issues are greatly appreciated!
+
 ## Overview
 This tool was meant to show the end user the attack surface that a given device is susceptible to.  In implementing these checks we attempt to minimize or eliminate both false positives/false negatives without negatively affecting system stability.
 
