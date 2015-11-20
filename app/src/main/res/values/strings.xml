@@ -8,6 +8,11 @@
     <string name="device_info_build_model">Build Model: </string>
     <string name="device_info_build_release">Build Release: </string>
     <string name="device_info_build_sdk">Build SDK: </string>
+    <string name="device_info_cpu_abi">CPU ABI: </string>
+    <string name="device_info_cpu_abi2">CPU ABI2: </string>
+    <string name="device_info_cpu_list">CPU ABI LIST: </string>
+
+
     <string name="device_info_build_id">Build ID: </string>
     <string name="empty_results">Start the scan to get the results</string>
     <string name="error_test">Error running the test:\n%s</string>
