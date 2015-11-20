@@ -164,7 +164,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dip"
                         android:textColor="@color/white"/>
-
+                    <TextView
+                        android:id="@+id/buildCPUABI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dip"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:id="@+id/buildCPUABI2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dip"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:id="@+id/buildABIList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dip"
+                        android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <LinearLayout
