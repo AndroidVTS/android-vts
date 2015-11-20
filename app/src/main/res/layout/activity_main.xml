@@ -166,46 +166,7 @@
                         android:textColor="@color/white"/>
 
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/device_info_cpu_abi"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/buildCPUABI"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dip"
-                        android:textColor="@color/white"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/device_info_cpu_abi2"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/buildCPUABI2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dip"
-                        android:textColor="@color/white"/>
-
-                </LinearLayout>
+                
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
