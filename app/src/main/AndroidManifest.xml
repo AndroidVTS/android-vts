@@ -11,9 +11,11 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name="fuzion24.device.vulnerability.test.ui.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTask"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +23,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ApplicationUpdateBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"  />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"  />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
