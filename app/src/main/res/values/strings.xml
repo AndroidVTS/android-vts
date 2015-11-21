@@ -34,5 +34,6 @@
     <string name="patches">Patches</string>
     <string name="cvssv2">CVSSV2: </string>
     <string name="cve_date">CVE Date: </string>
+    <string name="notification_new_tests">New tests are available</string>
 
 </resources>
