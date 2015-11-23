@@ -9,8 +9,6 @@
 
 //#include <cutils/native_handle.h>
 
-
-
 int Check_CVE_2015_1528()
 {
     const char *libname = "libcutils.so";
@@ -74,7 +72,7 @@ done:
 }
 
 
-JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_system_CVE20151258_doCheck(JNIEnv *env, jobject obj)
+JNIEXPORT jint JNICALL Java_fuzion24_device_vulnerability_vulnerabilities_system_CVE20151528_doCheck(JNIEnv *env, jobject obj)
 {
     return Check_CVE_2015_1528();
 }
