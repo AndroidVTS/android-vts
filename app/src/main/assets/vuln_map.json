@@ -41,7 +41,7 @@
       "internal bug 19334482"
     ],
     "description": "Integer overflow in the native_handle_create function in libcutils/native_handle.c in Android before 5.1.1 LMY48M allows attackers to obtain a different application's privileges or cause a denial of service (Binder heap memory corruption) via a crafted application, aka internal bug 19334482.",
-    "impact": "local unprivilidged app to system app escalation",
+    "impact": "local unprivileged app to system app escalation",
     "external_links": [
       "https://groups.google.com/forum/message/raw?msg=android-security-updates/1M7qbSvACjo/Y7jewiW1AwAJ"
     ],
@@ -58,7 +58,7 @@
       "Android Fake ID"
     ],
     "description": "The bug allows malicious apps to pretend to be signed by trusted providers and be loaded as extensions in several contexts, such as NFC access, browser plugins and others, depending on the device and which extension mechanisms the manufacturer chose to include.",
-    "impact": "Local malicious app can elevate privilidges to gain some select access such as browser plugins and NFC.",
+    "impact": "Local malicious app can elevate privileges to gain some select access such as browser plugins and NFC.",
     "external_links": [
       "https://bluebox.com/android-fake-id-vulnerability/"
     ],
@@ -75,7 +75,7 @@
       "Stagefright 2.0"
     ],
     "description": "Remote code execution as media_server.  Fixed in Android 5.1.1_r9/LMY48K",
-    "impact": "Remote attacker can use a malformed video file to gain code execution with somewhat elevated privilidges.  ",
+    "impact": "Remote attacker can use a malformed video file to gain code execution with somewhat elevated privileges.  ",
     "external_links": [
       "https://threatpost.com/stagefright-2-0-vulnerabilities-affect-1-billion-android-devices/114863/",
       "https://blog.zimperium.com/zimperium-zlabs-is-raising-the-volume-new-vulnerability-processing-mp3mp4-media/"
@@ -110,7 +110,7 @@
       "Object Serialization attack"
     ],
     "description": "luni/src/main/java/java/io/ObjectInputStream.java in the java.io.ObjectInputStream implementation in Android before 5.0.0 does not verify that deserialization will result in an object that met the requirements for serialization, which allows attackers to execute arbitrary code via a crafted finalize method for a serialized object in an ArrayMap Parcel within an intent sent to system_service, as demonstrated by the finalize method of android.os.BinderProxy, aka Bug 15874291",
-    "impact": "Local unprivilidged app can elevate to system user",
+    "impact": "Local unprivileged app can elevate to system user",
     "external_links": [
       "http://seclists.org/fulldisclosure/2014/Nov/51"
     ],
@@ -126,7 +126,7 @@
       "ANDROID-21437603/21583894"
     ],
     "description": "Local object serialization attack.  The OpenSSLX509Certificate class contains native pointers as class members and they are not marked as transient.  A Local app can craft a serialized object and pass through binder and ultimately gain code execution as system",
-    "impact": "Local unprivilidged app to system_server",
+    "impact": "Local unprivileged app to system_server",
     "external_links": [
       "https://securityintelligence.com/one-class-to-rule-them-all-new-android-serialization-vulnerability-gives-underprivileged-apps-super-status/",
       "https://www.usenix.org/conference/woot15/workshop-program/presentation/peles"
@@ -144,7 +144,7 @@
       "Masterkey"
     ],
     "description": "Zip bug allows modifying apk files without breaking the signature.  Essentially, you can replace existing files in an app.  Fixed around Android 4.4",
-    "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+    "impact": "A local attacker can modify a system apk file and gain elevated privileges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
     "external_links": [
       "https://bluebox.com/uncovering-android-master-key-that-makes-99-of-devices-vulnerable/",
       "http://www.saurik.com/id/17"
@@ -162,7 +162,7 @@
       "Masterkey #2"
     ],
     "description": "Zip bug allows modifying apk files without breaking the signature.  Based on reading unsigned 16 bit numbers from th zip header and interpreting them as signed 32 bit numbers.",
-    "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+    "impact": "A local attacker can modify a system apk file and gain elevated privileges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
     "external_links": [
       "http://www.androidpolice.com/2013/07/11/second-all-access-apk-exploit-is-revealed-just-two-days-after-master-key-goes-public-already-patched-by-google/"
     ],
@@ -179,7 +179,7 @@
       "Masterkey #3"
     ],
     "description": "Zip bug allows modifying apk files without breaking the signature.  Based on improper parsing of the 'name' length in the zip file.",
-    "impact": "A local attacker can modify a system apk file and gain elevated privilidges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
+    "impact": "A local attacker can modify a system apk file and gain elevated privileges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
     "external_links": [
       "http://www.saurik.com/id/19"
     ],
@@ -248,8 +248,8 @@
     "altnames": [
       ""
     ],
-    "description": "Remote Code Execution as System User.  Android 5.0+, Samsung.  This is yet another non-memory corrupting remote execution on samsung phones.",
-    "impact": "Remote attacker can gain code execution as system used by getting the user to download an email attachment or brows to a crafted web page.",
+    "description": "Remote Code Execution as System User.  Android 5.0+, Samsung.  This is yet another non-memory corrupting remote execution on Samsung devices.",
+    "impact": "Remote attacker can gain code execution as system user by getting the user to download an email attachment or browse to a crafted web page.",
     "external_links": [
       "http://blog.quarkslab.com/remote-code-execution-as-system-user-on-android-5-samsung-devices-abusing-wificredservice-hotspot-20.html"
     ],
