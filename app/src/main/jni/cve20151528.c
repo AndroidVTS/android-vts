@@ -9,6 +9,10 @@
 
 //#include <cutils/native_handle.h>
 
+#define LOG_TAG "CVE_2015_1528"
+#define LOG_D(...) do{ __android_log_print( ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__); printf( __VA_ARGS__ ); }while( 0 )
+
+
 int Check_CVE_2015_1528()
 {
     const char *libname = "libcutils.so";
@@ -25,10 +29,10 @@ int Check_CVE_2015_1528()
     if( !native_handle_create )
     {
         printf( "missing native_handle_create\n" );
-        return -1;
+        return -2;
     }
 
-    int ret = -1;
+    int ret = -3;
 
     int numFds = 1025;
     int numInts = 1;
@@ -47,15 +51,16 @@ int Check_CVE_2015_1528()
     case 12://android wear 5.0.2 LWX49K
         if( bla[1] != numFds || bla[2] != numInts )
         {
-            printf( "got back unexpected values\n" );
+            LOG_D( "got back unexpected values\n" );
         }
         else
         {
-            printf( "its vulnerable\n" );
+            LOG_D( "its vulnerable\n" );
+            return 1;
         }
         break;
     default:
-        printf( "failed.  version %d  %d %d\n", bla[0], bla[1], bla[2] );
+        LOG_D( "failed.  version %d  %d %d\n", bla[0], bla[1], bla[2] );
         break;
     }
 
