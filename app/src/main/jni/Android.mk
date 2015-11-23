@@ -168,6 +168,30 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 include $(BUILD_EXECUTABLE)
 ################################
 
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve20151528
+LOCAL_SRC_FILES := cve20151528.c
+LOCAL_LDFLAGS   := -llog
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve20151528check
+LOCAL_SRC_FILES := cve20151528.c
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie -llog
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
+
+include $(BUILD_EXECUTABLE)
+################################
+
 ################################
 include $(CLEAR_VARS)
 
