@@ -15,7 +15,7 @@
       "https://github.com/torvalds/linux/commit/a134f083e79fb4c3d0a925691e732c56911b4326"
     ],
     "cvssv2": 4.9,
-    "cvedate": "2012-04-21"
+    "cvedate": "08/05/2015"
   },
   "CVE-2014-4943": {
     "cve": "CVE-2014-4943",
@@ -32,7 +32,7 @@
     "patch": [
       "https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=3cf521f7dc87c031617fd47e4b7aa2593c2f3daf"
     ],
-    "cvedate": "2015-08-05"
+    "cvedate": "07/19/2014"
   },
   "CVE-2015-1528": {
     "cve": "CVE-2015-1528",
@@ -67,7 +67,7 @@
     "patch": [
       "https://android.googlesource.com/platform/libcore/+/2bc5e811a817a8c667bca4318ae98582b0ee6dc6"
     ],
-    "cvedate": ""
+    "cvedate": "08/01/2014"
   },
   "CVE-2015-6602": {
     "cve": "CVE-2015-6602",
@@ -138,10 +138,11 @@
     ],
     "cvedate": "08/10/2015"
   },
-  "ZipBug 8219321": {
-    "cve": "ZipBug 8219321",
+  "CVE-2013-4787": {
+    "cve": "CVE-2013-4787",
     "altnames": [
-      "Masterkey"
+      "Masterkey",
+      "ZipBug 8219321"
     ],
     "description": "Zip bug allows modifying apk files without breaking the signature.  Essentially, you can replace existing files in an app.  Fixed around Android 4.4",
     "impact": "A local attacker can modify a system apk file and gain elevated privileges.  A remote attacker can try to trick the user (or another app) into installing the malicious apk file.",
@@ -256,41 +257,7 @@
     "__comment": "calculated using (AV:N/AC:L/AU:N/C:P/I:P/A:C/E:ND/RL:ND/RC:ND/CDP:ND/TD:ND/CR:ND/IR:ND/AR:ND).  ",
     "cvssv2": 9.0,
     "patch": [],
-    "cvedate": ""
-  },
-  "StumpRoot": {
-    "cve": "StumpRoot",
-    "altnames": [
-      ""
-    ],
-    "description": "",
-    "impact": "",
-    "external_links": [
-      "",
-      ""
-    ],
-    "cvssv2": 0,
-    "patch": [
-      ""
-    ],
-    "cvedate": ""
-  },
-  "WeakSauce": {
-    "cve": "WeakSauce",
-    "altnames": [
-      ""
-    ],
-    "description": "",
-    "impact": "",
-    "external_links": [
-      "",
-      ""
-    ],
-    "cvssv2": 0,
-    "patch": [
-      ""
-    ],
-    "cvedate": ""
+    "cvedate": "10/27/2015"
   },
   "CVE-2011-3874": {
     "cve": "CVE-2011-3874",
