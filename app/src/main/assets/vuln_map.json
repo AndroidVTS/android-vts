@@ -52,6 +52,25 @@
     ],
     "cvedate": "09/30/2015"
   },
+  "CVE-2015-1474": {
+    "cve": "CVE-2015-1474",
+    "altnames": [
+    ],
+    "description": "Multiple integer overflows in the GraphicBuffer::unflatten function in platform/frameworks/native/libs/ui/GraphicBuffer.cpp in Android through 5.0 allow attackers to gain privileges or cause a denial of service (memory corruption) via vectors that trigger a large number of (1) file descriptors or (2) integer values.",
+    "impact": "Local unprivileged app to system app escalation + accesible via the network",
+    "external_links": [
+          "http://seclists.org/fulldisclosure/2015/Mar/63",
+          "https://github.com/p1gl3t/CVE-2015-1474_poc",
+          "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1474",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1474"
+    ],
+    "cvssv2": 9.3,
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/native/+/e6f7a44e835d320593fa33052f35ea52948ff0b2",
+      "https://android.googlesource.com/platform/frameworks/native/+/796aaf7fb160fea12bddc8406d7f006ce811eb43"
+    ],
+    "cvedate": "09/30/2015"
+  },
   "JarBug13678484": {
     "cve": "JarBug13678484",
     "altnames": [
