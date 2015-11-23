@@ -292,6 +292,40 @@
     ],
     "cvedate": "09/30/2015"
   },
+  "CVE-2015-1538-2": {
+    "cve": "CVE-2015-1538",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1538",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-1538-3": {
+    "cve": "CVE-2015-1538",
+    "altnames": [
+      "Stagefright"
+    ],
+    "description": "A media processing issue that can be exploited for code execution",
+    "impact": "Allows remote attackers to execute arbitrary code via crafted MPEG-4 data",
+    "external_links": [
+      "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1538",
+      "https://blog.zimperium.com/stagefright-vulnerability-details-stagefright-detector-tool-released/",
+      "https://en.wikipedia.org/wiki/Stagefright_(bug)"
+    ],
+    "cvssv2": 10,
+    "patch": [
+    ],
+    "cvedate": "09/30/2015"
+  },
   "CVE-2015-1538-4": {
     "cve": "CVE-2015-1538",
     "altnames": [
