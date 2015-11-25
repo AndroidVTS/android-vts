@@ -17,6 +17,25 @@
     "cvssv2": 4.9,
     "cvedate": "08/05/2015"
   },
+  "WeakSauce": {
+    "cve": "WeakSauce",
+    "altnames": [
+      "WeakSauce"
+    ],
+    "description": "HTC devices have a poorly written device management agent which has been continually exploited for privledge escalation purposes",
+    "impact": "Local privilege escalation to root from an unprivileged app",
+    "external_links": [
+       "http://newandroidbook.com/Articles/HTC.html",
+       "https://plus.google.com/+JustinCaseAndroid/posts/515qRPK7c7D",
+       "https://plus.google.com/+JustinCaseAndroid/posts/GhTCJpr5HcT",
+       "http://forum.xda-developers.com/showthread.php?t=2699089",
+       "http://gsec.hitb.org/materials/sg2015/D2%20-%20Ryan%20Welton%20and%20Marco%20Grassi%20-%20Current%20State%20of%20Android%20Privilege%20Escalation.pdf"
+    ],
+    "patch": [
+    ],
+    "cvssv2": 4.9,
+    "cvedate": "11/25/2015"
+  },
   "CVE-2014-4943": {
     "cve": "CVE-2014-4943",
     "altnames": [
