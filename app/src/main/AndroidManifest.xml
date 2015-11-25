@@ -36,6 +36,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ScanRunnerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vts.RUN_SCAN"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
