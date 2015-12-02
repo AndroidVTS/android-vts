@@ -35,6 +35,7 @@
     <string name="cvssv2">CVSSV2: </string>
     <string name="cve_date">CVE Date: </string>
     <string name="notification_new_tests">New tests are available</string>
+    <string name="existing_test_updated">An existing vulnerability test has been updated</string>
     <string name="scan_details">Scan details</string>
     <string name="my_device_is_vulnerable_info">Now What?</string>
     <string name="scan_details_number_failed_tests">Number of failed tests:</string>
