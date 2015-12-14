@@ -1,6 +1,6 @@
 #Android Vulnerability Test Suite
 
-Download the official VTS for Android app from Google Play [here](https://play.google.com/store/apps/details?id=com.nowsecure.android.vts).
+<a href="https://play.google.com/store/apps/details?id=com.nowsecure.android.vts&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" height="60"/></a>
 
 ** Beta Testers needed **
 A beta version of VTS is available through Play as well. [Register for beta](https://play.google.com/apps/testing/com.nowsecure.android.vts). Beta testers capable of filing Github issues are greatly appreciated!
