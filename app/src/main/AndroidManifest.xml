@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="fuzion24.device.vulnerability.test.ui.MainActivity"
+            android:name="fuzion24.device.vulnerability.test.ui.SplashScreenActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTask"
             android:label="@string/app_name" >
@@ -23,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="fuzion24.device.vulnerability.test.ui.MainActivity"/>
+        <activity android:name="fuzion24.device.vulnerability.test.ui.AppIntroActivity"/>
 
         <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ApplicationUpdateBroadcastReceiver">
             <intent-filter>
