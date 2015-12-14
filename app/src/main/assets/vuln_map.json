@@ -507,5 +507,29 @@
         "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/3878b990f7d53eae7c2cf9246b6ef2db5a049872"
     ],
     "cvedate": "09/30/2015"
+  },
+  "CVE-2015-6616": {
+    "cve": "CVE-2015-6616",
+    "altnames": [
+          "ANDROID-24630158",
+          "ANDROID-23882800",
+          "ANDROID-17769851",
+          "ANDROID-24441553",
+          "ANDROID-24157524"
+    ],
+    "description": "Remote Code Execution Vulnerabilities in Mediaserver",
+    "impact": "During media file and data processing of a specially crafted file, vulnerabilities in mediaserver could allow an attacker to cause memory corruption and remote code execution as the mediaserver process. The affected functionality is provided as a core part of the operating system and there are multiple applications that allow it to be reached with remote content, most notably MMS and browser playback of media. This issue is rated as a Critical severity due to the possibility of remote code execution within the context of the mediaserver service. The mediaserver service has access to audio and video streams as well as access to privileges that third-party apps cannot normally access.",
+    "external_links": [
+      "https://source.android.com/security/bulletin/2015-12-01.html"
+    ],
+    "cvssv2": 10,
+    "patch": [
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/77c185d5499d6174e7a97b3e1512994d3a803151",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/0d35dd2068d6422c3c77fb68f248cbabf3d0b10c",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/dedaca6f04ac9f95fabe3b64d44cd1a2050f079e",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/5d101298d8b0a78a1dc5bd26dbdada411f4ecd4d",
+             "https://android.googlesource.com/platform%2Fexternal%2Flibavc/+/2ee0c1bced131ffb06d1b430b08a202cd3a52005"
+    ],
+    "cvedate": "10/12/2015"
   }
 }
