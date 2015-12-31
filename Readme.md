@@ -1,9 +1,8 @@
 #Android Vulnerability Test Suite
 
-<a href="https://play.google.com/store/apps/details?id=com.nowsecure.android.vts&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-AC-global-none-all-co-pr-py-PartBadges-Oct1515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/apps/en-play-badge-border.png" height="60"/></a>
+Download from [Github](https://github.com/nowsecure/android-vts/releases)
 
-** Beta Testers needed **
-A beta version of VTS is available through Play as well. [Register for beta](https://play.google.com/apps/testing/com.nowsecure.android.vts). Beta testers capable of filing Github issues are greatly appreciated!
+UPDATE 2015/12/15: AndroidVTS is currently not available in the Google Play™ store app, [more info here](https://www.nowsecure.com/blog/2015/12/15/appealing-google-play-s-suspension-of-the-vts-for-android-app/).
 
 ## Overview
 This tool was meant to show the end user the attack surface that a given device is susceptible to.  In implementing these checks we attempt to minimize or eliminate both false positives/false negatives without negatively affecting system stability.
