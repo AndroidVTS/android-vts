@@ -1,0 +1,17 @@
+.idea/
+app/
+screenshots/
+gradle/
+
+build/
+bin/
+src/
+.gradle
+/bin/
+/app/src/main/libs/
+/app/src/main/obj/
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
