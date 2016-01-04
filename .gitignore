@@ -1,4 +1,14 @@
 .idea/
+gradle.properties
+gradlew
+License.md
+Readme.md
+*.iml
+*.gradle
+*.sh
+extra_tools/
+*.bat
+image_resources/
 app/
 screenshots/
 gradle/
