@@ -531,5 +531,21 @@
              "https://android.googlesource.com/platform%2Fexternal%2Flibavc/+/2ee0c1bced131ffb06d1b430b08a202cd3a52005"
     ],
     "cvedate": "10/12/2015"
+  },
+  "CVE-2015-3860": {
+    "cve": "CVE-2015-3860",
+    "altnames": [
+      "ANDROID-22214934"
+    ],
+    "description": "Elevation of Privilege Vulnerability in Lockscreen",
+    "impact": "An elevation of privilege vulnerability in Lockscreen could allow a malicious user to bypass the lockscreen by causing it to crash. This issue is classified as a vulnerability only on Android 5.0 and 5.1. While it's possible to cause the System UI to crash from the lockscreen in a similar way on 4.4, the home screen cannot be accessed and the device must be rebooted to recover.    This issue is rated as a Moderate severity because it potentially allows someone with physical access to a device to install third-party apps without the device's owner approving the permissions. It can also allow the attacker to view contact data, phone logs, SMS messages, and other data that is normally protected with a \"dangerous\" level permission.",
+    "external_links": [
+      "https://source.android.com/security/bulletin/2015-09-01.html"
+    ],
+    "cvssv2": 7.2,
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/base/+/8fba7e6931245a17215e0e740e78b45f6b66d590"
+    ],
+    "cvedate": "09/30/2015"
   }
 }

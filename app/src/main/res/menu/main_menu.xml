@@ -23,4 +23,10 @@
         android:title="@string/menu_check_for_updates"
         app:showAsAction="never" />
 
+
+    <item
+        android:id="@+id/menu_opensource_licences"
+        android:title="@string/opensource_licences"
+        app:showAsAction="never" />
+
 </menu>

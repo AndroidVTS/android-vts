@@ -63,5 +63,26 @@
     <string name="update_avaiable_description">A new update is available (version %s). Do you want to update to the latest version?</string>
     <string name="update_available_title">An update is available</string>
     <string name="update_error">It was not possible to check for updates. Please try again later.</string>
+    <string name="title_activity_open_source_licences">Open source licences</string>
+    <string name="licence_info">Some parts of the vulnerability descriptions and impact information are
+        reproduced from work created and shared by the Android Open Source Project and used
+        according to terms described in the Creative Commons 2.5 Attribution License.
+        \n\n\n\n<b>AXML</b>
+        \n\nCopyright (C) 2012 by Xavier GOUCHET (http://xgouchet.fr, android@xgouchet.fr)
+        MIT Licence / Expat
+        \n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this
+        software and associated documentation files (the \"Software\", to deal in the Software
+        without restriction, including without limitation the rights to use, copy, modify, merge,
+        publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+        to whom the Software is furnished to do so, subject to the following conditions:
+        \n\nThe above copyright notice and this permission notice shall be included in all copies or
+        substantial portions of the Software.
+        \n\nTHE SOFTWARE IS PROVIDED \"AS IS\",
+        WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+        WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+        EVENT SHALL THE AUTHORS ( XAVIER GOUCHET ) BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+        CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
+    <string name="opensource_licences">Open source licences</string>
 
 </resources>
