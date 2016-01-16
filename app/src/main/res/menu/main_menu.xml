@@ -18,4 +18,9 @@
         android:checkable="true"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/menu_check_updates"
+        android:title="@string/menu_check_for_updates"
+        app:showAsAction="never" />
+
 </menu>

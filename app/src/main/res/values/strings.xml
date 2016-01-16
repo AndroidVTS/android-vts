@@ -9,6 +9,7 @@
     <string name="appintro_security_description">The security of the device changes overtime, make sure you run periodically scans.</string>
     <string name="appintro_sharing">Sharing</string>
     <string name="appintro_sharing_description">Sharing the tests results will help to increase the knowledge about the android devices that contains security issues.</string>
+    <string name="checking_updates">Checking for application updates...</string>
     <string name="cve_date">CVE Date:  </string>
     <string name="cvssv2">CVSSV2:  </string>
     <string name="description">Description</string>
@@ -26,6 +27,7 @@
     <string name="dialog_automatic_sharing_description">Do you want automatically share the scan results for research purpose? The device information collected does not contains unique identifiers or private information. Nothing related to your Google (or any other) account is collected.</string>
     <string name="dialog_automatic_sharing_title">Sharing scan results</string>
     <string name="dismiss">Dismiss</string>
+    <string name="downloading_update">Downloading the new version.</string>
     <string name="empty_results">Start the scan to get the results</string>
     <string name="error_exporting_results">Error exporting the results.</string>
     <string name="error_test">Error running the test:\n%s</string>
@@ -35,10 +37,13 @@
     <string name="global_sharing">Sharing</string>
     <string name="Impact">Impact</string>
     <string name="information_not_available">Information not available yet.</string>
+    <string name="loading">Loading</string>
+    <string name="menu_check_for_updates">Check for updates</string>
     <string name="menu_share_results_automatically">Share results automatically</string>
     <string name="more_information">More Information</string>
     <string name="my_device_is_vulnerable_info">Now What?</string>
     <string name="names">Names</string>
+    <string name="no_update_available">There are no updates available.</string>
     <string name="notification_new_tests">New tests are available</string>
     <string name="patches">Patches</string>
     <string name="run_tests">Please run the tests first</string>
@@ -49,10 +54,14 @@
     <string name="scan_details_vulnerable_message">Your device is vulnerable</string>
     <string name="share_results_via">Share results via</string>
     <string name="show_details">Show Details</string>
+    <string name="splashscreen_description">Android Vulnerability Test Suite</string>
     <string name="start">Start</string>
     <string name="submit_results">Share for Research</string>
     <string name="test_result_failure">Vulnerable</string>
     <string name="test_result_success">Not Vulnerable</string>
-    <string name="splashscreen_description">Android Vulnerability Test Suite</string>
+    <string name="update">Update</string>
+    <string name="update_avaiable_description">A new update is available (version %s). Do you want to update to the latest version?</string>
+    <string name="update_available_title">An update is available</string>
+    <string name="update_error">It was not possible to check for updates. Please try again later.</string>
 
 </resources>
