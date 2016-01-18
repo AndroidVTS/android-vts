@@ -67,12 +67,101 @@ LOCAL_SRC_FILES := ashmem_bug.c
 include $(BUILD_SHARED_LIBRARY)
 ################################
 
-
 ################################
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := cve-2011-1149check
 LOCAL_SRC_FILES := ashmem_bug.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2009-1185
+LOCAL_SRC_FILES := exploid.c
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2009-1185check
+LOCAL_SRC_FILES := exploid.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2012-6422
+LOCAL_SRC_FILES := exynos.c
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2012-6422check
+LOCAL_SRC_FILES := exynos.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2011-1350
+LOCAL_SRC_FILES := levitator.c
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2011-1350check
+LOCAL_SRC_FILES := levitator.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2012-0056
+LOCAL_SRC_FILES := mempodroid.c
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2012-0056check
+LOCAL_SRC_FILES := mempodroid.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2009-2692
+LOCAL_SRC_FILES := wunderbar.c
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2009-2692check
+LOCAL_SRC_FILES := wunderbar.c
 
 include $(BUILD_EXECUTABLE)
 ################################

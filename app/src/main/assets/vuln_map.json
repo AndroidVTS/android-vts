@@ -4,7 +4,7 @@
     "altnames": [
       "pingpongroot"
     ],
-    "description": "UAF in Linux Kernel ICMP Socket",
+    "description": "This vulnerability is what is known as a privilege escalation which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. A use-after-free bug in /net/ipv4/ping.c affecting both Linux and Android is what makes this vulnerability possible.",
     "impact": "Local privilege escalation to kernel/root from an unprivileged app",
     "external_links": [
       "http://forum.xda-developers.com/galaxy-s6/general/root-pingpongroot-s6-root-tool-t3103016",
@@ -41,7 +41,7 @@
     "altnames": [
       "Linux L2TP Socket Vuln"
     ],
-    "description": "Type confusion bug l2tp socket implementation",
+    "description": "This vulnerability is what is known as a privilege escalation which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. The specific flaw was identified in the Android kernel and is found in the implementation of PPP over L2TP sockets.",
     "impact": "Local privilege escalation to kernel/root from an unprivileged app",
     "external_links": [
       "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4943",
@@ -531,5 +531,55 @@
              "https://android.googlesource.com/platform%2Fexternal%2Flibavc/+/2ee0c1bced131ffb06d1b430b08a202cd3a52005"
     ],
     "cvedate": "10/12/2015"
+  },
+  "CVE-2009-1185": {
+    "cve": "CVE-2009-1185",
+    "altnames": ["none"],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. The specific vulnerability resides in a flaw in udev where it does not properly validate the origin of certain messages.",
+    "impact": "NA",
+    "external_links": ["NA"],
+    "cvssv2": 7.2,
+    "patch": ["NA"],
+    "cvedate": "04/17/2009"
+  },
+  "CVE-2012-6422": {
+    "cve": "CVE-2012-6422",
+    "altnames": ["none"],
+    "description": "This vulnerability primarily impacts Samsung Galaxy S2 and S2 Note devices however other devices using an Exynos model 4210 and 4412 processors may also be affected. The vulnerability would allow an attacker or malicious application the ability to gain privileges on the device.",
+    "impact": "NA",
+    "external_links": ["NA"],
+    "cvssv2": 9.3,
+    "patch": ["NA"],
+    "cvedate": "12/17/2012"
+  },
+  "CVE-2011-1350": {
+    "cve": "CVE-2011-1350",
+    "altnames": ["none"],
+    "description": "This vulnerability may allow a malicious application or attacker the ability to retrieve potentially sensitive information from an impacted device’s memory.",
+    "impact": "NA",
+    "external_links": ["NA"],
+    "cvssv2": 7.1,
+    "patch": ["NA"],
+    "cvedate": "02/05/2013"
+  },
+  "CVE-2012-0056": {
+    "cve": "CVE-2012-0056",
+    "altnames": ["none"],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device. Note that if your device is running a version of Android that has ALSR enabled (4.1 and above) exploitation of this vulnerability is mitigated.",
+    "impact": "NA",
+    "external_links": ["NA"],
+    "cvssv2": 6.9,
+    "patch": ["NA"],
+    "cvedate": "01/27/2012"
+  },
+  "CVE-2009-2692": {
+    "cve": "CVE-2009-2692",
+    "altnames": ["none"],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device.",
+    "impact": "NA",
+    "external_links": ["NA"],
+    "cvssv2": 7.2,
+    "patch": ["NA"],
+    "cvedate": "08/14/2009"
   }
 }
