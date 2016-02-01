@@ -44,9 +44,7 @@ There have been attempts before to solve this issue. [xray.io](http://www.xray.i
 
 ## Contributions
 
-Some parts of VTS require that native executables be used.  Currently the build system does not support this.  If your contribution requires rebuilding of these assets, please denote this in the pull req and I will build the asset after merging the PR.
-
-If changing an existing test, you must set `mTestWasChanged` to true in `ApplicationUpdateBroadcastReceiver`.  This notifies the user that an existing test has changed.
+See [CONTRIBUTIONS.md](CONTRIBUTIONS.md)
 
 ## Building
 
