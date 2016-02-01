@@ -44,7 +44,7 @@ There have been attempts before to solve this issue. [xray.io](http://www.xray.i
 
 ## Contributions
 
-See [CONTRIBUTIONS.md](CONTRIBUTIONS.md)
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Building
 
