@@ -19,4 +19,4 @@ We are happy to accept any contributions that make sense and respect the rules l
 
 ## License
 
-By contributing your code, you agree to license your contribution under our [LICENSE](LICENSE).
+By contributing your code, you agree to license your contribution under our [LICENSE](License.md).
