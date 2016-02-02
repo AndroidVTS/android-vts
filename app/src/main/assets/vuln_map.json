@@ -547,5 +547,22 @@
       "https://android.googlesource.com/platform/frameworks/base/+/8fba7e6931245a17215e0e740e78b45f6b66d590"
     ],
     "cvedate": "09/30/2015"
+  },
+  "CVE-2016-0807": {
+    "cve": "CVE-2016-0807",
+    "altnames": [
+      "ANDROID-25187394"
+    ],
+    "description": "Elevation of Privilege Vulnerability in the Debuggerd",
+    "impact": "An elevation of privilege vulnerability in the Debuggerd component could enable a local malicious application to execute arbitrary code within the device root context. This issue is rated as a Critical severity due to the possibility of a local permanent device compromise and the device would possibly need to be repaired by re-flashing the operating system.",
+    "external_links": [
+      "https://source.android.com/security/bulletin/2016-02-01.html"
+    ],
+    "cvssv2": 7.2,
+    "patch": [
+        "https://android.googlesource.com/platform/system/core.git/+/d167d5eabc794ba4ddef1a2900eb729720da84a2"
+    ],
+    "cvedate": "12/10/2015"
   }
+
 }
