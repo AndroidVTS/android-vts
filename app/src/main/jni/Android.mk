@@ -227,3 +227,23 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 
 include $(BUILD_EXECUTABLE)
 ################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2016-0808
+LOCAL_SRC_FILES := cve20160808.c
+
+include $(BUILD_SHARED_LIBRARY)
+################################
+
+################################
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := cve-2016-0808check
+LOCAL_SRC_FILES := cve20160808.c
+
+include $(BUILD_EXECUTABLE)
+################################
+
+

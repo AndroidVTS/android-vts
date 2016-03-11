@@ -1,4 +1,18 @@
 {
+  "CVE-2016-0808": {
+    "cve": "CVE-2016-0808",
+    "altnames": [],
+    "description": "This vulnerability is what is known as a denial-of-service which gives a malicious application or individual the ability to cause continuous rebooting",
+    "impact": "Continuous reboot",
+    "external_links": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b"
+    ],
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b%5E%21/#F0"
+    ],
+    "cvssv2": 4.9,
+    "cvedate": "02/01/2016"
+  },
   "CVE-2015-3636": {
     "cve": "CVE-2015-3636",
     "altnames": [
@@ -531,5 +545,56 @@
              "https://android.googlesource.com/platform%2Fexternal%2Flibavc/+/2ee0c1bced131ffb06d1b430b08a202cd3a52005"
     ],
     "cvedate": "10/12/2015"
+
+  },
+  "CVE-2009-1185": {
+    "cve": "CVE-2009-1185",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. The specific vulnerability resides in a flaw in udev where it does not properly validate the origin of certain messages.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.2,
+    "patch": [],
+    "cvedate": "04/17/2009"
+  },
+  "CVE-2012-6422": {
+    "cve": "CVE-2012-6422",
+    "altnames": [],
+    "description": "This vulnerability primarily impacts Samsung Galaxy S2 and S2 Note devices however other devices using an Exynos model 4210 and 4412 processors may also be affected. The vulnerability would allow an attacker or malicious application the ability to gain privileges on the device.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 9.3,
+    "patch": [],
+    "cvedate": "12/17/2012"
+  },
+  "CVE-2011-1350": {
+    "cve": "CVE-2011-1350",
+    "altnames": [],
+    "description": "This vulnerability may allow a malicious application or attacker the ability to retrieve potentially sensitive information from an impacted device’s memory.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.1,
+    "patch": [],
+    "cvedate": "02/05/2013"
+  },
+  "CVE-2012-0056": {
+    "cve": "CVE-2012-0056",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device. Note that if your device is running a version of Android that has ALSR enabled (4.1 and above) exploitation of this vulnerability is mitigated.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 6.9,
+    "patch": [],
+    "cvedate": "01/27/2012"
+  },
+  "CVE-2009-2692": {
+    "cve": "CVE-2009-2692",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.2,
+    "patch": [],
+    "cvedate": "08/14/2009"
   }
 }
