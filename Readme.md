@@ -33,7 +33,7 @@ A list of current bug checks:
   - [Stagefright - CVE-2015-6602](https://blog.zimperium.com/zimperium-zlabs-is-raising-the-volume-new-vulnerability-processing-mp3mp4-media/)
   - [Samsung Remote Code Execution as System] (https://code.google.com/p/google-security-research/issues/detail?id=489)
   - [CVE-2015-6608](https://groups.google.com/forum/#!topic/android-security-updates/GwZn7sixask)
-  - [CVE-2015-7414](https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1474)
+  - [CVE-2015-1474](https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1474)
   - [CVE-2015-1528](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1528)
   - [CVE-2015-6616](https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-6616)
 
