@@ -11,6 +11,9 @@ import java.util.Enumeration;
 import java.util.zip.ZipFile;
 
 public class JarFileHelper {
+    private JarFileHelper() {
+    }
+
         public static Certificate[] getSignedJarCerts(String jarName, boolean chainCheck) throws Exception {
             File file = new File(jarName);
             Certificate[] foundCerts = null;
