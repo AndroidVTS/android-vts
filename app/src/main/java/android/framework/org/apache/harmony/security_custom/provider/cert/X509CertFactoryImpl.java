@@ -123,7 +123,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
         if (inStream == null) {
             throw new CertificateException("inStream == null");
         }
-        ArrayList<Certificate> result = new ArrayList<Certificate>();
+        ArrayList<Certificate> result = new ArrayList<>();
         try {
             if (!inStream.markSupported()) {
                 // create the mark supporting wrapper
@@ -264,7 +264,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
         if (inStream == null) {
             throw new CRLException("inStream == null");
         }
-        ArrayList<CRL> result = new ArrayList<CRL>();
+        ArrayList<CRL> result = new ArrayList<>();
         try {
             if (!inStream.markSupported()) {
                 inStream = new RestoringInputStream(inStream);

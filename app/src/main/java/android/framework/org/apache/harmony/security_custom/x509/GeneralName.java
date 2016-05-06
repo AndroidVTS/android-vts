@@ -444,7 +444,7 @@ public final class GeneralName {
      * containing the ASN.1 DER encoded form of the name.
      */
     public List<Object> getAsList() {
-        ArrayList<Object> result = new ArrayList<Object>();
+        ArrayList<Object> result = new ArrayList<>();
         result.add(tag);
         switch (tag) {
             case OTHER_NAME:

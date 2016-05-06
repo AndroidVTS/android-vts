@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 
 public final class Streams {
-    private static AtomicReference<byte[]> skipBuffer = new AtomicReference<byte[]>();
+    private static AtomicReference<byte[]> skipBuffer = new AtomicReference<>();
 
     private Streams() {}
 

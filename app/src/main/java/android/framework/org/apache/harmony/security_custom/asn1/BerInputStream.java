@@ -620,7 +620,7 @@ public class BerInputStream {
         } else {
             int seqTagOffset = tagOffset; //store tag offset
 
-            ArrayList<Object> values = new ArrayList<Object>();
+            ArrayList<Object> values = new ArrayList<>();
             while (endOffset > offset) {
                 next();
                 values.add(type.decode(this));

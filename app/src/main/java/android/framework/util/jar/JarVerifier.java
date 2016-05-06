@@ -59,15 +59,15 @@ class JarVerifier {
 
     private Manifest man;
 
-    private HashMap<String, byte[]> metaEntries = new HashMap<String, byte[]>(5);
+    private HashMap<String, byte[]> metaEntries = new HashMap<>(5);
 
-    private final Hashtable<String, HashMap<String, Attributes>> signatures = new Hashtable<String, HashMap<String, Attributes>>(
+    private final Hashtable<String, HashMap<String, Attributes>> signatures = new Hashtable<>(
             5);
 
-    private final Hashtable<String, Certificate[]> certificates = new Hashtable<String, Certificate[]>(
+    private final Hashtable<String, Certificate[]> certificates = new Hashtable<>(
             5);
 
-    private final Hashtable<String, Certificate[]> verifiedEntries = new Hashtable<String, Certificate[]>();
+    private final Hashtable<String, Certificate[]> verifiedEntries = new Hashtable<>();
 
     int mainAttributesEnd;
 
@@ -188,7 +188,7 @@ class JarVerifier {
             return null;
         }
 
-        ArrayList<Certificate> certs = new ArrayList<Certificate>();
+        ArrayList<Certificate> certs = new ArrayList<>();
         Iterator<Map.Entry<String, HashMap<String, Attributes>>> it = signatures.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, HashMap<String, Attributes>> entry = it.next();
@@ -324,7 +324,7 @@ class JarVerifier {
 
         // Verify manifest hash in .sf file
         Attributes attributes = new Attributes();
-        HashMap<String, Attributes> entries = new HashMap<String, Attributes>();
+        HashMap<String, Attributes> entries = new HashMap<>();
         try {
             InitManifest im = new InitManifest(sfBytes, attributes, Attributes.Name.SIGNATURE_VERSION);
             im.initEntries(entries, null);
@@ -472,7 +472,7 @@ class JarVerifier {
      */
     public static Vector<Certificate> getSignerCertificates(
             String signatureFileName, Map<String, Certificate[]> certificates) {
-        Vector<Certificate> result = new Vector<Certificate>();
+        Vector<Certificate> result = new Vector<>();
         Certificate[] certChain = certificates.get(signatureFileName);
         if (certChain != null) {
             for (Certificate element : certChain) {

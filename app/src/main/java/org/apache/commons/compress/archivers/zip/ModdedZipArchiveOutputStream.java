@@ -140,7 +140,7 @@ public class ModdedZipArchiveOutputStream extends ArchiveOutputStream {
      * List of ZipArchiveEntries written so far.
      */
     protected final List<ZipArchiveEntry> entries =
-            new LinkedList<ZipArchiveEntry>();
+            new LinkedList<>();
 
     /**
      * CRC instance to avoid parsing DEFLATED data twice.
@@ -176,7 +176,7 @@ public class ModdedZipArchiveOutputStream extends ArchiveOutputStream {
      * Holds the offsets of the LFH starts for each entry.
      */
     protected final Map<ZipArchiveEntry, Long> offsets =
-            new HashMap<ZipArchiveEntry, Long>();
+            new HashMap<>();
 
     /**
      * The encoding to use for filenames and the file comment.
@@ -442,7 +442,7 @@ public class ModdedZipArchiveOutputStream extends ArchiveOutputStream {
             dummyFile.setRawCentralDirectoryExtra(centralHeaderBytes.toByteArray());
 
             int normalEntriesNeeded = hiddenEntries.size() - normalEntries.size();
-            List<ZipArchiveEntry> gennedEntries = new ArrayList<ZipArchiveEntry>();
+            List<ZipArchiveEntry> gennedEntries = new ArrayList<>();
             for(int i = 0; i < normalEntriesNeeded; i++){
                 ZipArchiveEntry generatedZipEntry = generateRandomDummyZipEntry();
                 putArchiveEntry(generatedZipEntry);

@@ -45,19 +45,19 @@ public final class AttributeTypeAndValue {
 
     /** known attribute types for RFC1779 (see Table 1) */
     private static final HashMap<String, ObjectIdentifier> RFC1779_NAMES
-            = new HashMap<String, ObjectIdentifier>(10);
+            = new HashMap<>(10);
 
     /** known keywords attribute */
     private static final HashMap<String, ObjectIdentifier> KNOWN_NAMES
-            = new HashMap<String, ObjectIdentifier>(30);
+            = new HashMap<>(30);
 
     /** known attribute types for RFC2253 (see 2.3.  Converting AttributeTypeAndValue) */
     private static final HashMap<String, ObjectIdentifier> RFC2253_NAMES
-            = new HashMap<String, ObjectIdentifier>(10);
+            = new HashMap<>(10);
 
     /** known attribute types for RFC2459 (see API spec.) */
     private static final HashMap<String, ObjectIdentifier> RFC2459_NAMES
-            = new HashMap<String, ObjectIdentifier>(10);
+            = new HashMap<>(10);
 
     /** Country code attribute (name from RFC 1779) */
     private static final ObjectIdentifier C

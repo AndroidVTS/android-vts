@@ -68,13 +68,13 @@ public final class CertificatePolicies extends ExtensionValue {
      * Returns the values of policyInformation field of the structure.
      */
     public List<PolicyInformation> getPolicyInformations() {
-        return new ArrayList<PolicyInformation>(policyInformations);
+        return new ArrayList<>(policyInformations);
     }
 
     public CertificatePolicies addPolicyInformation(PolicyInformation policyInformation) {
         encoding = null;
         if (policyInformations == null) {
-            policyInformations = new ArrayList<PolicyInformation>();
+            policyInformations = new ArrayList<>();
         }
         policyInformations.add(policyInformation);
         return this;

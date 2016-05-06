@@ -75,11 +75,11 @@ public class AlgNameMapper {
         {"2.23.42.9.11.4.1",        "ECDSA"},
     };
     // Maps alg name to OID
-    private static final Map<String, String> alg2OidMap = new HashMap<String, String>();
+    private static final Map<String, String> alg2OidMap = new HashMap<>();
     // Maps OID to alg name
-    private static final Map<String, String> oid2AlgMap = new HashMap<String, String>();
+    private static final Map<String, String> oid2AlgMap = new HashMap<>();
     // Maps aliases to alg names
-    private static final Map<String, String> algAliasesMap = new HashMap<String, String>();
+    private static final Map<String, String> algAliasesMap = new HashMap<>();
 
     static {
         for (String[] element : knownAlgMappings) {

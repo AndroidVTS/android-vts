@@ -65,7 +65,7 @@ public class CompressedXmlParser {
 			"pt", "in", "mm" };
 
 	public CompressedXmlParser() {
-		mNamespaces = new HashMap<String, String>();
+		mNamespaces = new HashMap<>();
 	}
 
 	/**
