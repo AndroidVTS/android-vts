@@ -178,7 +178,7 @@ class JarVerifier {
         // If no manifest is present by the time an entry is found,
         // verification cannot occur. If no signature files have
         // been found, do not verify.
-        if (man == null || signatures.size() == 0) {
+        if (man == null || signatures.isEmpty()) {
             return null;
         }
 
@@ -390,7 +390,7 @@ class JarVerifier {
      *         otherwise.
      */
     boolean isSignedJar() {
-        return certificates.size() > 0;
+        return !certificates.isEmpty();
     }
 
     private boolean verify(Attributes attributes, String entry, byte[] data,

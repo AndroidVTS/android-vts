@@ -69,7 +69,7 @@ public final class GeneralNames {
      * Returns the list of values.
      */
     public List<GeneralName> getNames() {
-        if ((generalNames == null) || (generalNames.size() == 0)) {
+        if ((generalNames == null) || (generalNames.isEmpty())) {
             return null;
         }
         return new ArrayList<GeneralName>(generalNames);
