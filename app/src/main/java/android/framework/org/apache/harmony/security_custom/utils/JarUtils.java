@@ -125,7 +125,7 @@ public class JarUtils {
         Signature sig = null;
         String da = sigInfo.getDigestAlgorithm();
         String dea = sigInfo.getDigestEncryptionAlgorithm();
-        String alg = null;
+        String alg;
         if (da != null && dea != null) {
             alg = da + "with" +  dea;
             try {

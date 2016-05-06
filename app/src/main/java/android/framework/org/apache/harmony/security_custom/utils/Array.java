@@ -60,7 +60,7 @@ public class Array {
         };
         StringBuilder sb = new StringBuilder();
         StringBuilder charForm = new StringBuilder();
-        int i=0;
+        int i;
         for (i=0; i<array.length; i++) {
             if (i%16 == 0) {
                 sb.append(prefix);

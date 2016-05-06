@@ -104,7 +104,7 @@ public final class DistributionPointName {
         }
 
         @Override protected Object getDecodedObject(BerInputStream in) throws IOException {
-            DistributionPointName result = null;
+            DistributionPointName result;
             if (in.choiceIndex == 0) {
                 result = new DistributionPointName((GeneralNames) in.content);
             } else {
