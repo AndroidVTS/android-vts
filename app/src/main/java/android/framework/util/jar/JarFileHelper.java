@@ -40,13 +40,13 @@ public class JarFileHelper {
 
 
     public static boolean isExploitingBug13678484(String apkName) throws Exception {
-        ArrayList<String> validatedCertChain = new ArrayList<String>();
+        ArrayList<String> validatedCertChain = new ArrayList<>();
 
         Certificate[] certs = JarFileHelper.getSignedJarCerts(apkName, true);
         for(Certificate c: certs)
             validatedCertChain.add(((X509Certificate)c).getSubjectDN().toString());
 
-        ArrayList<String> unvalidatedCertChain = new ArrayList<String>();
+        ArrayList<String> unvalidatedCertChain = new ArrayList<>();
 
         Certificate[] certsfalse = JarFileHelper.getSignedJarCerts(apkName, false);
         for(Certificate c: certsfalse)
