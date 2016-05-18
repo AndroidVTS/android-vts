@@ -1,52 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nowsecure.android.vts" >
+<manifest package="com.nowsecure.android.vts"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
-        android:allowBackup="true"
+        android:name="fuzion24.device.vulnerability.test.AndroidVTSApplication"
+        android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name="fuzion24.device.vulnerability.test.ui.SplashScreenActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name"
-            android:launchMode="singleTask" >
+            android:launchMode="singleTask">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="fuzion24.device.vulnerability.test.ui.MainActivity" />
-        <activity android:name="fuzion24.device.vulnerability.test.ui.AppIntroActivity" />
+        <activity android:name="fuzion24.device.vulnerability.test.ui.MainActivity"/>
+        <activity android:name="fuzion24.device.vulnerability.test.ui.AppIntroActivity"/>
 
-        <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ApplicationUpdateBroadcastReceiver" >
+        <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ApplicationUpdateBroadcastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
 
-                <data android:scheme="package" />
+                <data android:scheme="package"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
 
-                <data android:scheme="package" />
+                <data android:scheme="package"/>
             </intent-filter>
         </receiver>
-        <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ScanRunnerBroadcastReceiver" >
+        <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ScanRunnerBroadcastReceiver">
             <intent-filter>
-                <action android:name="com.android.vts.RUN_SCAN" />
+                <action android:name="com.android.vts.RUN_SCAN"/>
             </intent-filter>
         </receiver>
 
         <activity
             android:name="fuzion24.device.vulnerability.test.ui.OpenSourceLicencesActivity"
             android:label="@string/title_activity_open_source_licences"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

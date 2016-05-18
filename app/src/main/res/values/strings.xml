@@ -84,5 +84,6 @@
         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
         CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
     <string name="opensource_licences">Open source licences</string>
+    <string name="update_available">A new update is available for VTS for Android, open the app and check for updates to download the latest version.</string>
 
 </resources>
