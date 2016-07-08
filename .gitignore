@@ -1,4 +1,5 @@
 .idea/
+*.iml
 .gradle
 /bin/
 /app/src/main/libs/
@@ -8,3 +9,4 @@
 /.idea/libraries
 .DS_Store
 /build
+/captures
