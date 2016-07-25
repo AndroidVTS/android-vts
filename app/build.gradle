@@ -3,13 +3,13 @@ import org.apache.tools.ant.taskdefs.condition.Os
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
 
     defaultConfig {
         applicationId "com.nowsecure.android.vts"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 13
         versionName "v.13"
     }
@@ -46,18 +46,18 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:cardview-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
-    compile 'com.evernote:android-job:1.0.5'
-    compile 'com.github.paolorotolo:appintro:3.4.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
-    compile 'com.squareup.retrofit2:retrofit:2.0.1'
-    compile 'commons-io:commons-io:2.4'
-    compile 'io.reactivex:rxandroid:1.1.0'
-    compile 'org.apache.commons:commons-compress:1.11'
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.7@aar') {
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:cardview-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.evernote:android-job:1.0.8'
+    compile 'com.github.paolorotolo:appintro:4.0.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'commons-io:commons-io:2.5'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'org.apache.commons:commons-compress:1.12'
+    compile('com.github.afollestad.material-dialogs:core:0.8.6.2@aar') {
         transitive = true
     }
 }
