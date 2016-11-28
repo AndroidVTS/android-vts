@@ -227,3 +227,16 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/include/
 
 include $(BUILD_EXECUTABLE)
 ################################
+
+################################
+#include $(CLEAR_VARS)
+#
+#LOCAL_MODULE    := dirtyCow
+#LOCAL_SRC_FILES := dirtycow.c
+#LOCAL_LDFLAGS   += -llog
+##LOCAL_CFLAGS    += -DDEBUG
+#LOCAL_CFLAGS    += -fPIE
+#LOCAL_LDFLAGS   += -fPIE -pie
+#
+#include $(BUILD_SHARED_LIBRARY)
+################################

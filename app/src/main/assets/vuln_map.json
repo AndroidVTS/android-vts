@@ -563,6 +563,32 @@
         "https://android.googlesource.com/platform/system/core.git/+/d167d5eabc794ba4ddef1a2900eb729720da84a2"
     ],
     "cvedate": "12/10/2015"
+  },
+  "CVE-2016-5195": {
+    "cve": "CVE-2016-5195",
+    "altnames": [
+      "CVE-2016-5195",
+      "DirtyCow",
+      "DirtyC0w"
+    ],
+    "description": "A race condition was found in the way the Linux kernel's memory subsystem handled the copy-on-write (COW) breakage of private read-only memory mappings. An unprivileged, local user could use this flaw to gain write access to otherwise read-only memory mappings and thus increase their privileges on the system.",
+    "impact":
+      "An unprivileged local user could use this flaw to gain write access to otherwise read-only memory mappings and thus increase their privileges on the system. This flaw allows an attacker with a local system account to modify on-disk binaries, bypassing the standard permission mechanisms that would prevent modification without an appropriate permission set."
+    ,
+    "external_links": [
+      "https://dirtycow.ninja/",
+      "https://github.com/dirtycow/dirtycow.github.io/wiki/VulnerabilityDetails",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1384344",
+      "https://bugs.gentoo.org/show_bug.cgi?id=597624"
+    ],
+    "cvssv2": 6.9,
+    "patch": [
+      "https://github.com/kcgthb/RHEL6.x-COW",
+      "https://review.cyanogenmod.org/#/c/172707/",
+      "https://review.cyanogenmod.org/#/c/167403/",
+      "Android security patch level 2016-11-06"
+    ],
+    "cvedate": "10/20/2016"
   }
 
 }
