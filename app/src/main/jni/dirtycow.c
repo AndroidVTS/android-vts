@@ -13,7 +13,7 @@
 #define LOGV(...)
 #endif
 
-#define LOOP   0x100000
+#define LOOP   0x75000
 #define STRINGSIZE 200
 
 #ifndef PAGE_SIZE
