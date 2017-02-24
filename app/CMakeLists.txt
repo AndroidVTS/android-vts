@@ -9,6 +9,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY      "${CMAKE_CURRENT_SOURCE_DIR}/src/main/li
 
 add_library( dirtyCow
              SHARED
-             src/main/jni/dirtyCow.c )
+             src/main/jni/dirtycow.c )
 target_link_libraries(  dirtyCow
                         log)
