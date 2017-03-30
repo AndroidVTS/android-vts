@@ -69,7 +69,7 @@ public final class CRLDistributionPoints extends ExtensionValue {
     private byte[] encoding;
 
     private CRLDistributionPoints(List<DistributionPoint> distributionPoints, byte[] encoding) {
-        if ((distributionPoints == null) || (distributionPoints.size() == 0)) {
+        if ((distributionPoints == null) || (distributionPoints.isEmpty())) {
             throw new IllegalArgumentException("distributionPoints are empty");
         }
         this.distributionPoints = distributionPoints;

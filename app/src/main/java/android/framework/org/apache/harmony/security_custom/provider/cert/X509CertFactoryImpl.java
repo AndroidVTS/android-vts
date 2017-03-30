@@ -150,7 +150,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
                     // prepare for data format determination
                     inStream.mark(CERT_CACHE_SEED_LENGTH);
                 } else { // unsupported data
-                    if (result.size() == 0) {
+                    if (result.isEmpty()) {
                         throw new CertificateException("Unsupported encoding");
                     } else {
                         // it can be trailing user data,
@@ -171,7 +171,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
                 }
                 // check if it is a TBSCertificate structure
                 if (second_asn1_tag != ASN1Constants.TAG_C_SEQUENCE) {
-                    if (result.size() == 0) {
+                    if (result.isEmpty()) {
                         // there were not read X.509 Certificates, so
                         // break the cycle and check
                         // whether it is PKCS7 structure
@@ -191,7 +191,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
                 // mark for the next iteration
                 inStream.mark(1);
             }
-            if (result.size() != 0) {
+            if (!result.isEmpty()) {
                 // some Certificates have been read
                 return result;
             } else if (ch == -1) {
@@ -290,7 +290,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
                     // prepare for data format determination
                     inStream.mark(CRL_CACHE_SEED_LENGTH);
                 } else { // unsupported data
-                    if (result.size() == 0) {
+                    if (result.isEmpty()) {
                         throw new CRLException("Unsupported encoding");
                     } else {
                         // it can be trailing user data,
@@ -311,7 +311,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
                 }
                 // check if it is a TBSCertList structure
                 if (second_asn1_tag != ASN1Constants.TAG_C_SEQUENCE) {
-                    if (result.size() == 0) {
+                    if (result.isEmpty()) {
                         // there were not read X.509 CRLs, so
                         // break the cycle and check
                         // whether it is PKCS7 structure
@@ -330,7 +330,7 @@ public class X509CertFactoryImpl extends CertificateFactorySpi {
                 }
                 inStream.mark(1);
             }
-            if (result.size() != 0) {
+            if (!result.isEmpty()) {
                 // the stream was read out
                 return result;
             } else if (ch == -1) {

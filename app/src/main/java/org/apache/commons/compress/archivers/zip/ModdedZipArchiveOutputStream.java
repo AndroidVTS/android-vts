@@ -407,7 +407,7 @@ public class ModdedZipArchiveOutputStream extends ArchiveOutputStream {
 
         final byte PADDING_BYTE = 0x00;
 
-        if(hiddenEntries.size() > 0){
+        if(!hiddenEntries.isEmpty()){
             ByteArrayOutputStream centralHeaderBytes = new ByteArrayOutputStream();
 
             for (ZipArchiveEntry ze : hiddenEntries)
@@ -471,7 +471,7 @@ public class ModdedZipArchiveOutputStream extends ArchiveOutputStream {
 
         cdLength = written - cdOffset;
         writeZip64CentralDirectory();
-        writeCentralDirectoryEnd(Math.max(hiddenEntries.size(),normalEntries.size()) + (hiddenEntries.size() > 0 ? 1 : 0));
+        writeCentralDirectoryEnd(Math.max(hiddenEntries.size(),normalEntries.size()) + (!hiddenEntries.isEmpty() ? 1 : 0));
         offsets.clear();
         entries.clear();
         def.end();

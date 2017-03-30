@@ -456,7 +456,7 @@ public class JarFile extends ZipFile {
                 list.add(ze);
             }
         }
-        if (list.size() == 0) {
+        if (list.isEmpty()) {
             return null;
         }
         ZipEntry[] result = new ZipEntry[list.size()];
