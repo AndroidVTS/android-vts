@@ -1166,7 +1166,7 @@ public class ModdedZipArchiveOutputStream extends ArchiveOutputStream {
         baos.write(ZipShort.getBytes(name.limit()));
 
         // extra field length
-        byte[] extra = null;
+        byte[] extra;
         if(ze instanceof ModdedZipArchiveEntry) {
             extra = ((ModdedZipArchiveEntry)ze).getRawCentralDirectoryExtra();
         }else {
