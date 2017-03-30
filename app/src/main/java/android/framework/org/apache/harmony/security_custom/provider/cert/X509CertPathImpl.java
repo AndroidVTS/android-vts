@@ -174,9 +174,9 @@ public class X509CertPathImpl extends CertPath {
                 List<Certificate> certs = sd.getCertificates();
                 if (certs == null) {
                     // empty chain of certificates
-                    certs = new ArrayList<Certificate>();
+                    certs = new ArrayList<>();
                 }
-                List<X509CertImpl> result = new ArrayList<X509CertImpl>();
+                List<X509CertImpl> result = new ArrayList<>();
                 for (Certificate cert : certs) {
                     result.add(new X509CertImpl(cert));
                 }
@@ -226,9 +226,9 @@ public class X509CertPathImpl extends CertPath {
                 }
                 List<Certificate> certs = sd.getCertificates();
                 if (certs == null) {
-                    certs = new ArrayList<Certificate>();
+                    certs = new ArrayList<>();
                 }
-                List<X509CertImpl> result = new ArrayList<X509CertImpl>();
+                List<X509CertImpl> result = new ArrayList<>();
                 for (Certificate cert : certs) {
                     result.add(new X509CertImpl(cert));
                 }

@@ -233,7 +233,7 @@ public abstract class ASN1Choice extends ASN1Type {
         }
 
         // create map of all identifiers
-        TreeMap<BigInteger, BigInteger> map = new TreeMap<BigInteger, BigInteger>();
+        TreeMap<BigInteger, BigInteger> map = new TreeMap<>();
         for (int index = 0; index < type.length; index++) {
             ASN1Type t = type[index];
 

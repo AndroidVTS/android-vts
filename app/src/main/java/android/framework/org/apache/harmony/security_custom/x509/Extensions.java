@@ -116,8 +116,8 @@ public final class Extensions {
             return;
         }
         int size = extensions.size();
-        critical = new HashSet<String>(size);
-        noncritical = new HashSet<String>(size);
+        critical = new HashSet<>(size);
+        noncritical = new HashSet<>(size);
         for (Extension extension : extensions) {
             String oid = extension.getExtnID();
             if (extension.getCritical()) {
@@ -139,7 +139,7 @@ public final class Extensions {
             return null;
         }
         if (oidMap == null) {
-            oidMap = new HashMap<String, Extension>();
+            oidMap = new HashMap<>();
             for (Extension extension : extensions) {
                 oidMap.put(extension.getExtnID(), extension);
             }

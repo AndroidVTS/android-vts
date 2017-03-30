@@ -53,7 +53,7 @@ public final class GeneralNames {
     private byte[] encoding;
 
     public GeneralNames() {
-        generalNames = new ArrayList<GeneralName>();
+        generalNames = new ArrayList<>();
     }
 
     public GeneralNames(List<GeneralName> generalNames) {
@@ -72,14 +72,14 @@ public final class GeneralNames {
         if ((generalNames == null) || (generalNames.size() == 0)) {
             return null;
         }
-        return new ArrayList<GeneralName>(generalNames);
+        return new ArrayList<>(generalNames);
     }
 
     /**
      * Returns the collection of pairs: (Integer (tag), Object (name value))*
      */
     public Collection<List<?>> getPairsList() {
-        Collection<List<?>> result = new ArrayList<List<?>>();
+        Collection<List<?>> result = new ArrayList<>();
         if (generalNames == null) {
             return result;
         }
@@ -92,7 +92,7 @@ public final class GeneralNames {
     public void addName(GeneralName name) {
         encoding = null;
         if (generalNames == null) {
-            generalNames = new ArrayList<GeneralName>();
+            generalNames = new ArrayList<>();
         }
         generalNames.add(name);
     }

@@ -447,7 +447,7 @@ public class JarFile extends ZipFile {
      * @return the list of ZipEntry's or {@code null} if there are none.
      */
     private ZipEntry[] getMetaEntriesImpl() {
-        List<ZipEntry> list = new ArrayList<ZipEntry>(8);
+        List<ZipEntry> list = new ArrayList<>(8);
         Enumeration<? extends ZipEntry> allEntries = entries();
         while (allEntries.hasMoreElements()) {
             ZipEntry ze = allEntries.nextElement();

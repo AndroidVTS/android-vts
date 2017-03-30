@@ -384,14 +384,14 @@ public final class DNParser {
      *         each RDN is represented as a list of AttributeTypeAndValue objects
      */
     public List<List<AttributeTypeAndValue>> parse() throws IOException {
-        List<List<AttributeTypeAndValue>> list = new ArrayList<List<AttributeTypeAndValue>>();
+        List<List<AttributeTypeAndValue>> list = new ArrayList<>();
 
         String attType = nextAT();
         if (attType == null) {
             return list; //empty list of RDNs
         }
 
-        List<AttributeTypeAndValue> atav = new ArrayList<AttributeTypeAndValue>();
+        List<AttributeTypeAndValue> atav = new ArrayList<>();
         while (true) {
             if (pos == chars.length) {
                 //empty Attribute Value
@@ -425,7 +425,7 @@ public final class DNParser {
 
             if (chars[pos] == ',' || chars[pos] == ';') {
                 list.add(0, atav);
-                atav = new ArrayList<AttributeTypeAndValue>();
+                atav = new ArrayList<>();
             } else if (chars[pos] != '+') {
                 throw new IOException("Invalid distinguished name string");
             }

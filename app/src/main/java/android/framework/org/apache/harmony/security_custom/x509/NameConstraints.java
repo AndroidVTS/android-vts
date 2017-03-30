@@ -113,7 +113,7 @@ public final class NameConstraints extends ExtensionValue {
                 GeneralName name = generalSubtree.getBase();
                 int tag = name.getTag();
                 if (permitted_names[tag] == null) {
-                    permitted_names[tag] = new ArrayList<GeneralName>();
+                    permitted_names[tag] = new ArrayList<>();
                 }
                 permitted_names[tag].add(name);
             }
@@ -125,7 +125,7 @@ public final class NameConstraints extends ExtensionValue {
                 GeneralName name = generalSubtree.getBase();
                 int tag = name.getTag();
                 if (excluded_names[tag] == null) {
-                    excluded_names[tag] = new ArrayList<GeneralName>();
+                    excluded_names[tag] = new ArrayList<>();
                 }
                 excluded_names[tag].add(name);
             }

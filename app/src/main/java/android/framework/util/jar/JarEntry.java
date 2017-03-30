@@ -154,8 +154,8 @@ public class JarEntry extends ZipEntry {
         }
 
         X500Principal prevIssuer = null;
-        ArrayList<Certificate> list = new ArrayList<Certificate>(certs.length);
-        ArrayList<CodeSigner> asigners = new ArrayList<CodeSigner>();
+        ArrayList<Certificate> list = new ArrayList<>(certs.length);
+        ArrayList<CodeSigner> asigners = new ArrayList<>();
 
         for (Certificate element : certs) {
             if (!(element instanceof X509Certificate)) {

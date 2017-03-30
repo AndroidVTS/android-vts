@@ -62,7 +62,7 @@ public class Manifest implements Cloneable {
 
     private Attributes mainAttributes = new Attributes();
 
-    private HashMap<String, Attributes> entries = new HashMap<String, Attributes>();
+    private HashMap<String, Attributes> entries = new HashMap<>();
 
     static class Chunk {
         int start;
@@ -117,7 +117,7 @@ public class Manifest implements Cloneable {
 
     Manifest(InputStream is, boolean readChunks) throws IOException {
         if (readChunks) {
-            chunks = new HashMap<String, Chunk>();
+            chunks = new HashMap<>();
         }
         read(is);
     }

@@ -181,7 +181,7 @@ public class Attributes implements Cloneable, Map<Object, Object> {
      * Constructs an {@code Attributes} instance.
      */
     public Attributes() {
-        map = new HashMap<Object, Object>();
+        map = new HashMap<>();
     }
 
     /**
@@ -204,7 +204,7 @@ public class Attributes implements Cloneable, Map<Object, Object> {
      *            Initial size of this {@code Attributes} instance.
      */
     public Attributes(int size) {
-        map = new HashMap<Object, Object>(size);
+        map = new HashMap<>(size);
     }
 
     /**

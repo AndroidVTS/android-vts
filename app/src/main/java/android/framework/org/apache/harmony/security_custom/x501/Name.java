@@ -173,7 +173,7 @@ public final class Name {
             List<AttributeTypeAndValue> atavList = rdn.get(i);
 
             if (X500Principal.CANONICAL == format) {
-                atavList = new ArrayList<AttributeTypeAndValue>(atavList);
+                atavList = new ArrayList<>(atavList);
                 Collections.sort(atavList, new AttributeTypeAndValueComparator());
             }
 
