@@ -56,9 +56,21 @@ dependencies {
     compile 'com.afollestad.material-dialogs:core:0.9.4.2'
 }
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def ndkDir = properties.getProperty('ndk.dir')
+def ndkDir = project.android.ndkDirectory
+if (ndkDir == null) {
+    if (project.rootProject.file('local.properties').exists()) {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        ndkDir = properties.getProperty('ndk.dir')
+    }
+    else if (System.getenv('ANDROID_NDK_HOME') != null) {
+        ndkDir = System.getenv('ANDROID_NDK_HOME')
+    }
+}
+if (ndkDir == null) {
+    throw new GradleException("NDK location not found. Define location with ndk.dir in the " +
+            "local.properties file or with an ANDROID_NDK_HOME environment variable.")
+}
 def jniSrcDir = file('src/main/jni').absolutePath // Change src/main/jni the relative path to your jni source
 
 task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
