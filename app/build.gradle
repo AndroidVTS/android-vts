@@ -61,18 +61,37 @@ dependencies {
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def ndkDir = properties.getProperty('ndk.dir')
+ext.ndkDir = properties.getProperty('ndk.dir')
+
+import org.apache.tools.ant.taskdefs.condition.Os
+def getNDKCommand() {
+    if (ext.ndkDir == null) {
+        ext.ndkDir = file(System.getenv('NDK_ROOT'))
+    }
+
+    if (ext.ndkDir == null) {
+        def gradle_project_root = project.rootProject.rootDir
+        throw new GradleException("NDK is not configured. Make sure there is a local.properties " +
+                "file with an ndk.dir entry in the directory ${gradle_project_root}, or set the " +
+                "ANDROID_NDK envrionment variable")
+    }
+
+    def ndkBuildExecutable = new File(ext.ndkDir, 'ndk-build')
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+		ndkBuildExecutable= new File(ext.ndkDir, 'ndk-build.cmd')
+    }
+    if (!ndkBuildExecutable.exists()) {
+        throw new GradleException("Could not find ndk-build. The configured NDK directory ${ndkDir} may not be correct.")
+    }
+	return ndkBuildExecutable;
+}
 
 task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
-    commandLine "$ndkDir/ndk-build",
-            '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
-            '-j', Runtime.runtime.availableProcessors()
+	commandLine(getNDKCommand(), '-j', Runtime.runtime.availableProcessors(), '-C', file('src/main/jni').absolutePath)
 }
 
 task cleanNative(type: Exec, description: 'Clean JNI object files') {
-    commandLine "$ndkDir/ndk-build",
-            '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
-            'clean'
+	commandLine(getNDKCommand(), '-C', file('src/main/jni').absolutePath, 'clean')
 }
 
 clean.dependsOn 'cleanNative'
