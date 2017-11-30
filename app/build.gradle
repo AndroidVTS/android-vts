@@ -44,9 +44,9 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:cardview-v7:23.2.0'
+    compile 'com.android.support:design:23.2.0'
     compile 'com.github.paolorotolo:appintro:3.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
