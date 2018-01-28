@@ -229,14 +229,15 @@ include $(BUILD_EXECUTABLE)
 ################################
 
 ################################
-#include $(CLEAR_VARS)
-#
-#LOCAL_MODULE    := dirtyCow
-#LOCAL_SRC_FILES := dirtycow.c
-#LOCAL_LDFLAGS   += -llog
-##LOCAL_CFLAGS    += -DDEBUG
-#LOCAL_CFLAGS    += -fPIE
-#LOCAL_LDFLAGS   += -fPIE -pie
-#
-#include $(BUILD_SHARED_LIBRARY)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := dirtyCow
+LOCAL_SRC_FILES := dirtycow.c
+LOCAL_LDFLAGS   += -llog
+#LOCAL_CFLAGS    += -DDEBUG
+LOCAL_CFLAGS    := -fpie -pie
+LOCAL_LDFLAGS   := -pie
+LOCAL_DISABLE_FATAL_LINKER_WARNINGS = true
+
+include $(BUILD_SHARED_LIBRARY)
 ################################
