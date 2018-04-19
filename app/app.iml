@@ -86,27 +86,27 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="commons-io:commons-io:2.4@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-vector-drawable-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-v4-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="com.google.code.gson:gson:2.4@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.github.afollestad.material-dialogs:core-0.8.5.3" level="project" />
-    <orderEntry type="library" exported="" name="org.apache.commons:commons-compress:1.5@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:cardview-v7-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:appcompat-v7-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="com.squareup.okio:okio:1.6.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:design-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="io.reactivex:rxandroid-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="io.reactivex:rxjava:1.1.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:animated-vector-drawable-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="com.squareup.retrofit2:converter-gson:2.0.0-beta3@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.squareup.okhttp3:okhttp:3.0.0-RC1@jar" level="project" />
-    <orderEntry type="library" exported="" name="org.tukaani:xz:1.2@jar" level="project" />
-    <orderEntry type="library" exported="" name="me.zhanghai.android.materialprogressbar:library-1.1.4" level="project" />
-    <orderEntry type="library" exported="" name="com.github.paolorotolo:appintro-3.3.0" level="project" />
-    <orderEntry type="library" exported="" name="com.squareup.retrofit2:retrofit:2.0.0-beta3@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:recyclerview-v7-23.2.0" level="project" />
-    <orderEntry type="library" exported="" name="com.android.support:support-annotations:23.2.0@jar" level="project" />
-    <orderEntry type="library" exported="" name="com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-vector-drawable-23.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.retrofit2:retrofit:2.0.0-beta3@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-annotations:23.2.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:recyclerview-v7-23.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.apache.commons:commons-compress:1.5@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:appcompat-v7-23.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.tukaani:xz:1.2@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.paolorotolo:appintro-3.3.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: commons-io:commons-io:2.4@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.retrofit2:converter-gson:2.0.0-beta3@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: me.zhanghai.android.materialprogressbar:library-1.1.4" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:cardview-v7-23.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okio:okio:1.6.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:support-v4-23.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:animated-vector-drawable-23.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.reactivex:rxandroid-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.android.support:design-23.2.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: io.reactivex:rxjava:1.1.0@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.squareup.okhttp3:okhttp:3.0.0-RC1@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.google.code.gson:gson:2.4@jar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.afollestad.material-dialogs:core-0.8.5.3" level="project" />
   </component>
 </module>
