@@ -1,9 +1,8 @@
 #Android Vulnerability Test Suite
 
-Download the official VTS for Android app from Google Play [here](https://play.google.com/store/apps/details?id=com.nowsecure.android.vts).
+Download from [Github](https://github.com/nowsecure/android-vts/releases)
 
-** Beta Testers needed **
-A beta version of VTS is available through Play as well. [Register for beta](https://play.google.com/apps/testing/com.nowsecure.android.vts). Beta testers capable of filing Github issues are greatly appreciated!
+UPDATE 2015/12/15: AndroidVTS is currently not available in the Google Play™ store app, [more info here](https://www.nowsecure.com/blog/2015/12/15/appealing-google-play-s-suspension-of-the-vts-for-android-app/).
 
 ## Overview
 This tool was meant to show the end user the attack surface that a given device is susceptible to.  In implementing these checks we attempt to minimize or eliminate both false positives/false negatives without negatively affecting system stability.
@@ -34,6 +33,9 @@ A list of current bug checks:
   - [Stagefright - CVE-2015-6602](https://blog.zimperium.com/zimperium-zlabs-is-raising-the-volume-new-vulnerability-processing-mp3mp4-media/)
   - [Samsung Remote Code Execution as System] (https://code.google.com/p/google-security-research/issues/detail?id=489)
   - [CVE-2015-6608](https://groups.google.com/forum/#!topic/android-security-updates/GwZn7sixask)
+  - [CVE-2015-1474](https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1474)
+  - [CVE-2015-1528](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1528)
+  - [CVE-2015-6616](https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-6616)
 
 ## Previous work
 There have been attempts before to solve this issue. [xray.io](http://www.xray.io/)  Xray works by actually attempting the exploit which doesn't satisfy our system stability constraint. There also exist other applications which attempt to determine a devices attack surface by simply using a lookup based on Android verison/build information.  This causes both false negatives and false positives.  Imagine the case where an OEM has back ported a fix to a device, but the check solely relies on an Android device; false positive.  The case where an OEM upgrades to an Android version/kernel version which includes patches, but manages to break them causes the case of a false negative.
@@ -42,7 +44,7 @@ There have been attempts before to solve this issue. [xray.io](http://www.xray.i
 
 ## Contributions
 
-Some parts of VTS require that native executables be used.  Currently the build system does not support this.  If your contribution requires rebuilding of these assets, please denote this in the pull req and I will build the asset after merging the PR.
+See [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## Building
 

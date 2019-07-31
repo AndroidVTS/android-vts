@@ -1,21 +1,27 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "24.0.1"
 
     defaultConfig {
         applicationId "com.nowsecure.android.vts"
         minSdkVersion 15
-        targetSdkVersion 23
-        versionCode 9
-        versionName "v.9"
+        targetSdkVersion 25
+        versionCode 13
+        versionName "v.13"
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix ".debug"
         }
     }
 
@@ -40,12 +46,18 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'org.apache.commons:commons-compress:1.5'
-    compile 'commons-io:commons-io:2.4'
-    compile 'com.android.support:cardview-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.0@aar') {
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:cardview-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.evernote:android-job:1.0.8'
+    compile 'com.github.paolorotolo:appintro:4.0.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'commons-io:commons-io:2.5'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'org.apache.commons:commons-compress:1.12'
+    compile('com.github.afollestad.material-dialogs:core:0.8.6.2@aar') {
         transitive = true
     }
 }
@@ -53,17 +65,26 @@ dependencies {
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 def ndkDir = properties.getProperty('ndk.dir')
+def jniSrcDir = file('src/main/jni').absolutePath // Change src/main/jni the relative path to your jni source
 
 task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
-    commandLine "$ndkDir/ndk-build",
-            '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
-            '-j', Runtime.runtime.availableProcessors()
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine "$ndkDir\\ndk-build.cmd", '-C', jniSrcDir,
+                '-j', Runtime.runtime.availableProcessors()
+    } else {
+        commandLine "$ndkDir/ndk-build", '-C', jniSrcDir,
+                '-j', Runtime.runtime.availableProcessors()
+    }
 }
 
 task cleanNative(type: Exec, description: 'Clean JNI object files') {
-    commandLine "$ndkDir/ndk-build",
-            '-C', file('src/main/jni').absolutePath, // Change src/main/jni the relative path to your jni source
-            'clean'
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+        commandLine "$ndkDir\\ndk-build.cmd", '-C', jniSrcDir,
+                'clean'
+    } else {
+        commandLine "$ndkDir/ndk-build", '-C', jniSrcDir,
+                'clean'
+    }
 }
 
 clean.dependsOn 'cleanNative'

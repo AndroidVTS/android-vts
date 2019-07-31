@@ -1,4 +1,18 @@
 {
+  "CVE-2016-0808": {
+    "cve": "CVE-2016-0808",
+    "altnames": [],
+    "description": "This vulnerability is what is known as a denial-of-service which gives a malicious application or individual the ability to cause continuous rebooting",
+    "impact": "Continuous reboot",
+    "external_links": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b"
+    ],
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b%5E%21/#F0"
+    ],
+    "cvssv2": 4.9,
+    "cvedate": "02/01/2016"
+  },
   "CVE-2015-3636": {
     "cve": "CVE-2015-3636",
     "altnames": [
@@ -16,6 +30,25 @@
     ],
     "cvssv2": 4.9,
     "cvedate": "08/05/2015"
+  },
+  "WeakSauce": {
+    "cve": "WeakSauce",
+    "altnames": [
+      "WeakSauce"
+    ],
+    "description": "HTC devices have a poorly written device management agent which has been continually exploited for privledge escalation purposes",
+    "impact": "Local privilege escalation to root from an unprivileged app",
+    "external_links": [
+       "http://newandroidbook.com/Articles/HTC.html",
+       "https://plus.google.com/+JustinCaseAndroid/posts/515qRPK7c7D",
+       "https://plus.google.com/+JustinCaseAndroid/posts/GhTCJpr5HcT",
+       "http://forum.xda-developers.com/showthread.php?t=2699089",
+       "http://gsec.hitb.org/materials/sg2015/D2%20-%20Ryan%20Welton%20and%20Marco%20Grassi%20-%20Current%20State%20of%20Android%20Privilege%20Escalation.pdf"
+    ],
+    "patch": [
+    ],
+    "cvssv2": 4.9,
+    "cvedate": "11/25/2015"
   },
   "CVE-2014-4943": {
     "cve": "CVE-2014-4943",
@@ -49,6 +82,25 @@
     "patch": [
       "https://android.googlesource.com/platform/system/core/+/e8c62fb484151f76ab88b1d5130f38de24ac8c14",
       "https://android.googlesource.com/platform/frameworks/native/+/7dcd0ec9c91688cfa3f679804ba6e132f9811254"
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-1474": {
+    "cve": "CVE-2015-1474",
+    "altnames": [
+    ],
+    "description": "Multiple integer overflows in the GraphicBuffer::unflatten function in platform/frameworks/native/libs/ui/GraphicBuffer.cpp in Android through 5.0 allow attackers to gain privileges or cause a denial of service (memory corruption) via vectors that trigger a large number of (1) file descriptors or (2) integer values.",
+    "impact": "Local unprivileged app to system app escalation + accesible via the network",
+    "external_links": [
+          "http://seclists.org/fulldisclosure/2015/Mar/63",
+          "https://github.com/p1gl3t/CVE-2015-1474_poc",
+          "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1474",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1474"
+    ],
+    "cvssv2": 9.3,
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/native/+/e6f7a44e835d320593fa33052f35ea52948ff0b2",
+      "https://android.googlesource.com/platform/frameworks/native/+/796aaf7fb160fea12bddc8406d7f006ce811eb43"
     ],
     "cvedate": "09/30/2015"
   },
@@ -469,5 +521,88 @@
         "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/3878b990f7d53eae7c2cf9246b6ef2db5a049872"
     ],
     "cvedate": "09/30/2015"
+  },
+  "CVE-2015-6616": {
+    "cve": "CVE-2015-6616",
+    "altnames": [
+          "ANDROID-24630158",
+          "ANDROID-23882800",
+          "ANDROID-17769851",
+          "ANDROID-24441553",
+          "ANDROID-24157524"
+    ],
+    "description": "Remote Code Execution Vulnerabilities in Mediaserver",
+    "impact": "During media file and data processing of a specially crafted file, vulnerabilities in mediaserver could allow an attacker to cause memory corruption and remote code execution as the mediaserver process. The affected functionality is provided as a core part of the operating system and there are multiple applications that allow it to be reached with remote content, most notably MMS and browser playback of media. This issue is rated as a Critical severity due to the possibility of remote code execution within the context of the mediaserver service. The mediaserver service has access to audio and video streams as well as access to privileges that third-party apps cannot normally access.",
+    "external_links": [
+      "https://source.android.com/security/bulletin/2015-12-01.html"
+    ],
+    "cvssv2": 10,
+    "patch": [
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/77c185d5499d6174e7a97b3e1512994d3a803151",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/0d35dd2068d6422c3c77fb68f248cbabf3d0b10c",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/dedaca6f04ac9f95fabe3b64d44cd1a2050f079e",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/5d101298d8b0a78a1dc5bd26dbdada411f4ecd4d",
+             "https://android.googlesource.com/platform%2Fexternal%2Flibavc/+/2ee0c1bced131ffb06d1b430b08a202cd3a52005"
+    ],
+    "cvedate": "10/12/2015"
+  },
+  "CVE-2015-3860": {
+    "cve": "CVE-2015-3860",
+    "altnames": [
+      "ANDROID-22214934"
+    ],
+    "description": "Elevation of Privilege Vulnerability in Lockscreen",
+    "impact": "An elevation of privilege vulnerability in Lockscreen could allow a malicious user to bypass the lockscreen by causing it to crash. This issue is classified as a vulnerability only on Android 5.0 and 5.1. While it's possible to cause the System UI to crash from the lockscreen in a similar way on 4.4, the home screen cannot be accessed and the device must be rebooted to recover.    This issue is rated as a Moderate severity because it potentially allows someone with physical access to a device to install third-party apps without the device's owner approving the permissions. It can also allow the attacker to view contact data, phone logs, SMS messages, and other data that is normally protected with a \"dangerous\" level permission.",
+    "external_links": [
+      "https://source.android.com/security/bulletin/2015-09-01.html"
+    ],
+    "cvssv2": 7.2,
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/base/+/8fba7e6931245a17215e0e740e78b45f6b66d590"
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2016-0807": {
+    "cve": "CVE-2016-0807",
+    "altnames": [
+      "ANDROID-25187394"
+    ],
+    "description": "Elevation of Privilege Vulnerability in the Debuggerd",
+    "impact": "An elevation of privilege vulnerability in the Debuggerd component could enable a local malicious application to execute arbitrary code within the device root context. This issue is rated as a Critical severity due to the possibility of a local permanent device compromise and the device would possibly need to be repaired by re-flashing the operating system.",
+    "external_links": [
+      "https://source.android.com/security/bulletin/2016-02-01.html"
+    ],
+    "cvssv2": 7.2,
+    "patch": [
+        "https://android.googlesource.com/platform/system/core.git/+/d167d5eabc794ba4ddef1a2900eb729720da84a2"
+    ],
+    "cvedate": "12/10/2015"
+  },
+  "CVE-2016-5195": {
+    "cve": "CVE-2016-5195",
+    "altnames": [
+      "CVE-2016-5195",
+      "DirtyCow",
+      "DirtyC0w"
+    ],
+    "description": "A race condition was found in the way the Linux kernel's memory subsystem handled the copy-on-write (COW) breakage of private read-only memory mappings. An unprivileged, local user could use this flaw to gain write access to otherwise read-only memory mappings and thus increase their privileges on the system.",
+    "impact":
+      "An unprivileged local user could use this flaw to gain write access to otherwise read-only memory mappings and thus increase their privileges on the system. This flaw allows an attacker with a local system account to modify on-disk binaries, bypassing the standard permission mechanisms that would prevent modification without an appropriate permission set."
+    ,
+    "external_links": [
+      "https://dirtycow.ninja/",
+      "https://github.com/dirtycow/dirtycow.github.io/wiki/VulnerabilityDetails",
+      "https://bugzilla.redhat.com/show_bug.cgi?id=1384344",
+      "https://bugs.gentoo.org/show_bug.cgi?id=597624"
+    ],
+    "cvssv2": 6.9,
+    "patch": [
+      "https://github.com/kcgthb/RHEL6.x-COW",
+      "https://review.cyanogenmod.org/#/c/172707/",
+      "https://review.cyanogenmod.org/#/c/167403/",
+      "Android security patch level 2016-11-06"
+    ],
+    "cvedate": "10/20/2016"
   }
+
 }

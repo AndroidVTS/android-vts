@@ -50,6 +50,9 @@ public class JarUtils {
     private static final int[] MESSAGE_DIGEST_OID =
         new int[] {1, 2, 840, 113549, 1, 9, 4};
 
+    private JarUtils() {
+    }
+
     /**
      * @see #verifySignature(InputStream, InputStream, boolean)
      */
