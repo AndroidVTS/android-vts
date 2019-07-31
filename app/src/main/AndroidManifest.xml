@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="fuzion24.device.vulnerability.test.ui.MainActivity"
+            android:name="fuzion24.device.vulnerability.test.ui.SplashScreenActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTask"
             android:label="@string/app_name" >
@@ -24,6 +24,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="fuzion24.device.vulnerability.test.ui.MainActivity"/>
+        <activity android:name="fuzion24.device.vulnerability.test.ui.AppIntroActivity"/>
+
         <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ApplicationUpdateBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REPLACED"/>
@@ -33,6 +36,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED"/>
                 <data android:scheme="package"  />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="fuzion24.device.vulnerability.broadcastreceiver.ScanRunnerBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vts.RUN_SCAN"/>
             </intent-filter>
         </receiver>
 
