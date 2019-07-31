@@ -1,4 +1,18 @@
 {
+  "CVE-2016-0808": {
+    "cve": "CVE-2016-0808",
+    "altnames": [],
+    "description": "This vulnerability is what is known as a denial-of-service which gives a malicious application or individual the ability to cause continuous rebooting",
+    "impact": "Continuous reboot",
+    "external_links": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b"
+    ],
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b%5E%21/#F0"
+    ],
+    "cvssv2": 4.9,
+    "cvedate": "02/01/2016"
+  },
   "CVE-2015-3636": {
     "cve": "CVE-2015-3636",
     "altnames": [
