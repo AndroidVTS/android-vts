@@ -1,10 +1,24 @@
 {
+  "CVE-2016-0808": {
+    "cve": "CVE-2016-0808",
+    "altnames": [],
+    "description": "This vulnerability is what is known as a denial-of-service which gives a malicious application or individual the ability to cause continuous rebooting",
+    "impact": "Continuous reboot",
+    "external_links": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b"
+    ],
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/minikin/+/ed4c8d79153baab7f26562afb8930652dfbf853b%5E%21/#F0"
+    ],
+    "cvssv2": 4.9,
+    "cvedate": "02/01/2016"
+  },
   "CVE-2015-3636": {
     "cve": "CVE-2015-3636",
     "altnames": [
       "pingpongroot"
     ],
-    "description": "UAF in Linux Kernel ICMP Socket",
+    "description": "This vulnerability is what is known as a privilege escalation which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. A use-after-free bug in /net/ipv4/ping.c affecting both Linux and Android is what makes this vulnerability possible.",
     "impact": "Local privilege escalation to kernel/root from an unprivileged app",
     "external_links": [
       "http://forum.xda-developers.com/galaxy-s6/general/root-pingpongroot-s6-root-tool-t3103016",
@@ -17,12 +31,31 @@
     "cvssv2": 4.9,
     "cvedate": "08/05/2015"
   },
+  "WeakSauce": {
+    "cve": "WeakSauce",
+    "altnames": [
+      "WeakSauce"
+    ],
+    "description": "HTC devices have a poorly written device management agent which has been continually exploited for privledge escalation purposes",
+    "impact": "Local privilege escalation to root from an unprivileged app",
+    "external_links": [
+       "http://newandroidbook.com/Articles/HTC.html",
+       "https://plus.google.com/+JustinCaseAndroid/posts/515qRPK7c7D",
+       "https://plus.google.com/+JustinCaseAndroid/posts/GhTCJpr5HcT",
+       "http://forum.xda-developers.com/showthread.php?t=2699089",
+       "http://gsec.hitb.org/materials/sg2015/D2%20-%20Ryan%20Welton%20and%20Marco%20Grassi%20-%20Current%20State%20of%20Android%20Privilege%20Escalation.pdf"
+    ],
+    "patch": [
+    ],
+    "cvssv2": 4.9,
+    "cvedate": "11/25/2015"
+  },
   "CVE-2014-4943": {
     "cve": "CVE-2014-4943",
     "altnames": [
       "Linux L2TP Socket Vuln"
     ],
-    "description": "Type confusion bug l2tp socket implementation",
+    "description": "This vulnerability is what is known as a privilege escalation which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. The specific flaw was identified in the Android kernel and is found in the implementation of PPP over L2TP sockets.",
     "impact": "Local privilege escalation to kernel/root from an unprivileged app",
     "external_links": [
       "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-4943",
@@ -49,6 +82,25 @@
     "patch": [
       "https://android.googlesource.com/platform/system/core/+/e8c62fb484151f76ab88b1d5130f38de24ac8c14",
       "https://android.googlesource.com/platform/frameworks/native/+/7dcd0ec9c91688cfa3f679804ba6e132f9811254"
+    ],
+    "cvedate": "09/30/2015"
+  },
+  "CVE-2015-1474": {
+    "cve": "CVE-2015-1474",
+    "altnames": [
+    ],
+    "description": "Multiple integer overflows in the GraphicBuffer::unflatten function in platform/frameworks/native/libs/ui/GraphicBuffer.cpp in Android through 5.0 allow attackers to gain privileges or cause a denial of service (memory corruption) via vectors that trigger a large number of (1) file descriptors or (2) integer values.",
+    "impact": "Local unprivileged app to system app escalation + accesible via the network",
+    "external_links": [
+          "http://seclists.org/fulldisclosure/2015/Mar/63",
+          "https://github.com/p1gl3t/CVE-2015-1474_poc",
+          "https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-1474",
+          "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1474"
+    ],
+    "cvssv2": 9.3,
+    "patch": [
+      "https://android.googlesource.com/platform/frameworks/native/+/e6f7a44e835d320593fa33052f35ea52948ff0b2",
+      "https://android.googlesource.com/platform/frameworks/native/+/796aaf7fb160fea12bddc8406d7f006ce811eb43"
     ],
     "cvedate": "09/30/2015"
   },
@@ -469,5 +521,79 @@
         "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/3878b990f7d53eae7c2cf9246b6ef2db5a049872"
     ],
     "cvedate": "09/30/2015"
+  },
+  "CVE-2015-6616": {
+    "cve": "CVE-2015-6616",
+    "altnames": [
+          "ANDROID-24630158",
+          "ANDROID-23882800",
+          "ANDROID-17769851",
+          "ANDROID-24441553",
+          "ANDROID-24157524"
+    ],
+    "description": "Remote Code Execution Vulnerabilities in Mediaserver",
+    "impact": "During media file and data processing of a specially crafted file, vulnerabilities in mediaserver could allow an attacker to cause memory corruption and remote code execution as the mediaserver process. The affected functionality is provided as a core part of the operating system and there are multiple applications that allow it to be reached with remote content, most notably MMS and browser playback of media. This issue is rated as a Critical severity due to the possibility of remote code execution within the context of the mediaserver service. The mediaserver service has access to audio and video streams as well as access to privileges that third-party apps cannot normally access.",
+    "external_links": [
+      "https://source.android.com/security/bulletin/2015-12-01.html"
+    ],
+    "cvssv2": 10,
+    "patch": [
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/77c185d5499d6174e7a97b3e1512994d3a803151",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/0d35dd2068d6422c3c77fb68f248cbabf3d0b10c",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/dedaca6f04ac9f95fabe3b64d44cd1a2050f079e",
+             "https://android.googlesource.com/platform%2Fframeworks%2Fav/+/5d101298d8b0a78a1dc5bd26dbdada411f4ecd4d",
+             "https://android.googlesource.com/platform%2Fexternal%2Flibavc/+/2ee0c1bced131ffb06d1b430b08a202cd3a52005"
+    ],
+    "cvedate": "10/12/2015"
+  },
+  "CVE-2009-1185": {
+    "cve": "CVE-2009-1185",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. The specific vulnerability resides in a flaw in udev where it does not properly validate the origin of certain messages.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.2,
+    "patch": [],
+    "cvedate": "04/17/2009"
+  },
+  "CVE-2012-6422": {
+    "cve": "CVE-2012-6422",
+    "altnames": [],
+    "description": "This vulnerability primarily impacts Samsung Galaxy S2 and S2 Note devices however other devices using an Exynos model 4210 and 4412 processors may also be affected. The vulnerability would allow an attacker or malicious application the ability to gain privileges on the device.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 9.3,
+    "patch": [],
+    "cvedate": "12/17/2012"
+  },
+  "CVE-2011-1350": {
+    "cve": "CVE-2011-1350",
+    "altnames": [],
+    "description": "This vulnerability may allow a malicious application or attacker the ability to retrieve potentially sensitive information from an impacted device’s memory.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.1,
+    "patch": [],
+    "cvedate": "02/05/2013"
+  },
+  "CVE-2012-0056": {
+    "cve": "CVE-2012-0056",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device. Note that if your device is running a version of Android that has ALSR enabled (4.1 and above) exploitation of this vulnerability is mitigated.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 6.9,
+    "patch": [],
+    "cvedate": "01/27/2012"
+  },
+  "CVE-2009-2692": {
+    "cve": "CVE-2009-2692",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.2,
+    "patch": [],
+    "cvedate": "08/14/2009"
   }
 }
