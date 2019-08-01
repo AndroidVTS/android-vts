@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.nowsecure.android.vts"
@@ -43,18 +42,18 @@ repositories {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.github.paolorotolo:appintro:3.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
-    compile 'commons-io:commons-io:2.4'
-    compile 'io.reactivex:rxandroid:1.0.1'
-    compile 'org.apache.commons:commons-compress:1.5'
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.3@aar') {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:23.1.1'
+    implementation 'com.android.support:cardview-v7:23.1.1'
+    implementation 'com.android.support:design:23.1.1'
+    implementation 'com.github.paolorotolo:appintro:3.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+    implementation 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    implementation 'commons-io:commons-io:2.4'
+    implementation 'io.reactivex:rxandroid:1.0.1'
+    implementation 'org.apache.commons:commons-compress:1.5'
+    implementation('com.github.afollestad.material-dialogs:core:0.8.5.3@aar') {
         transitive = true
     }
 }
