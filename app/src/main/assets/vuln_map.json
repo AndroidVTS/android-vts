@@ -653,6 +653,56 @@
       "Android security patch level 2016-11-06"
     ],
     "cvedate": "10/20/2016"
+  },
+  "CVE-2009-1185": {
+    "cve": "CVE-2009-1185",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which gives a malicious application or individual the ability to obtain complete access to a vulnerable device. The specific vulnerability resides in a flaw in udev where it does not properly validate the origin of certain messages.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.2,
+    "patch": [],
+    "cvedate": "04/17/2009"
+  },
+  "CVE-2012-6422": {
+    "cve": "CVE-2012-6422",
+    "altnames": [],
+    "description": "This vulnerability primarily impacts Samsung Galaxy S2 and S2 Note devices however other devices using an Exynos model 4210 and 4412 processors may also be affected. The vulnerability would allow an attacker or malicious application the ability to gain privileges on the device.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 9.3,
+    "patch": [],
+    "cvedate": "12/17/2012"
+  },
+  "CVE-2011-1350": {
+    "cve": "CVE-2011-1350",
+    "altnames": [],
+    "description": "This vulnerability may allow a malicious application or attacker the ability to retrieve potentially sensitive information from an impacted device’s memory.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.1,
+    "patch": [],
+    "cvedate": "02/05/2013"
+  },
+  "CVE-2012-0056": {
+    "cve": "CVE-2012-0056",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device. Note that if your device is running a version of Android that has ALSR enabled (4.1 and above) exploitation of this vulnerability is mitigated.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 6.9,
+    "patch": [],
+    "cvedate": "01/27/2012"
+  },
+  "CVE-2009-2692": {
+    "cve": "CVE-2009-2692",
+    "altnames": [],
+    "description": "This vulnerability is known as a privilege escalation vulnerability which a gives a malicious application or individual that ability to obtain complete access to a vulnerable device.",
+    "impact": "Local privilege escalation to kernel/root from an unprivileged app",
+    "external_links": [],
+    "cvssv2": 7.2,
+    "patch": [],
+    "cvedate": "08/14/2009"
   }
 
 }
